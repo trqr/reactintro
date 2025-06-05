@@ -22,7 +22,7 @@ const [isFingerPrint, setIsFingerPrint] = useState(false);
             ?
             <Button variant="outlined" startIcon={<DeleteIcon />}>DELETE</Button> 
             : 
-            <div>Finger print is false</div>
+            <div>Finger print is false test</div>
             }
         </div>
     )

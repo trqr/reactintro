@@ -4,8 +4,8 @@ import {Typography} from "@mui/material";
 function Logo(){
     return(
         <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between", alignContent:"center"}}>
-            <img src="./pizza.png" alt="logo du site" style={{width:"60px"}}/>
-            <h2  style={{margin:"auto 5px", padding:"0"}}>FornoPizza</h2>
+            <img src="./sport-shoe.png" alt="logo du site" style={{width:"60px", margin: "0 5px"}}/>
+            <h2 className="slogan"  style={{margin:"auto 5px", padding:"0"}}>Shooza</h2>
         </div>
     )
 }

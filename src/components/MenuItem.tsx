@@ -7,7 +7,7 @@ type MenuItemProps = {
 
 function MenuItem({text, onClick}: MenuItemProps) {
     return (
-        <Button variant="text" onClick={() => onClick()}>{text}</Button>
+        <Button style={{color: "black"}} variant="text" onClick={() => onClick()}>{text}</Button>
     )
 }
 

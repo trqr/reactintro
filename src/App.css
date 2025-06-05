@@ -4,9 +4,7 @@ body {
 
 :root {
     --primary-color: #3f51b5;
-    --primary-text-color: #5f5f9a;
+    --primary-title-color: #A14A76;
 }
 
-* {
-    color: var(--primary-text-color);
-}
+

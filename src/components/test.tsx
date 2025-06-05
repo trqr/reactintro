@@ -1,7 +1,11 @@
 import {FC} from 'react';
 import {useTranslation} from "react-i18next";
 
-const MyComponent: FC<{}> = ({}) => {
+interface Props {
+    test: string;
+}
+
+const MyComponent: FC<{test: string}> = ({test: string}: Props) => {
     const {t} = useTranslation();
     return (
         <div>

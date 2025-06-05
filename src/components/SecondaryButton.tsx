@@ -7,7 +7,7 @@ type SecondaryButtonProps = {
 
 function SecondaryButton({text, handleClick}: SecondaryButtonProps) {
     return (
-        <Button variant="outlined" onClick={() => handleClick()}>{text}</Button>
+        <Button variant="outlined" style={{margin: "0 5px"}} onClick={() => handleClick()}>{text}</Button>
     )
 }
 

@@ -7,7 +7,7 @@ type PrimaryButtonProps = {
 
 function PrimaryButton({text, handleClick}: PrimaryButtonProps) {
     return (
-        <Button variant="contained" onClick={() => handleClick()}>{text}</Button>
+        <Button variant="contained" style={{margin: "0 5px"}} onClick={() => handleClick() }>{text}</Button>
     )
 }
 

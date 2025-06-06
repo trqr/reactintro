@@ -1,4 +1,4 @@
-import {Button} from "@mui/material";
+import '../styles/MenuItem.css'
 
 type MenuItemProps = {
     text: string,
@@ -7,7 +7,7 @@ type MenuItemProps = {
 
 function MenuItem({text, onClick}: MenuItemProps) {
     return (
-        <a style={{color: "black", margin:"0 10px"}} onClick={() => onClick()}>{text}</a>
+        <a onClick={() => onClick()}>{text}</a>
     )
 }
 

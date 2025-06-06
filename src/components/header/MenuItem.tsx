@@ -1,4 +1,4 @@
-import '../styles/MenuItem.css'
+import '../../styles/MenuItem.css'
 
 type MenuItemProps = {
     text: string,

@@ -1,5 +1,5 @@
-import PrimaryButton from "./PrimaryButton.tsx";
-import SecondaryButton from "./SecondaryButton.tsx";
+import PrimaryButton from "../PrimaryButton.tsx";
+import SecondaryButton from "../SecondaryButton.tsx";
 import {useState} from "react";
 
 

@@ -24,7 +24,6 @@ const ProductCard = ({product} : ProductCardProps) => {
             <div className={"product-card-text"}>
                 <CardTitle title={product.name}></CardTitle>
                 <CardPrice price={product.price} />
-
             </div>
             <div className={"product-card-buttons"}>
                 <PrimaryButton text={"Add To Cart"} handleClick={addToCart}/>

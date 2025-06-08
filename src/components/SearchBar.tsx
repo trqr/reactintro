@@ -24,7 +24,7 @@ const SearchBar = ({handleSearch} : SearchBarProps) => {
                     },
                 }}
                 variant="filled"
-                onKeyDown={() => handleSearch}
+                onChange={handleSearch}
             />
         </>
     )

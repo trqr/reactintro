@@ -7,7 +7,7 @@ type MenuItemProps = {
 
 function MenuItem({text, onClick}: MenuItemProps) {
     return (
-        <a onClick={() => onClick()}>{text}</a>
+        <span onClick={() => onClick()}>{text}</span>
     )
 }
 

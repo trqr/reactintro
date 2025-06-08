@@ -1,0 +1,20 @@
+.filters-bar {
+    display: flex;
+    justify-content: center;
+    .select-brand, .select-color {
+        display: flex;
+        width: 150px;
+        margin: 0 5px;
+    }
+    #search-input {
+        margin: 0 5px;
+    }
+}
+
+.color-icon { margin: 0 10px;
+    color: #faf1ee
+}
+
+.white-icon {color: rgb(241, 241, 241)}
+.red-icon {color: rgb(179, 38, 38)}
+.black-icon {color: rgb(48, 48, 48)}

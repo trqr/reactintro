@@ -1,13 +1,33 @@
 import Logo from "./Logo.tsx";
 import NavBar from "./NavBar.tsx";
 import AuthContainer from "./AuthContainer.tsx";
+import {useEffect, useState} from "react";
+import '../../styles/Header.css';
 
 function Header(){
+    const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        }
+    })
+
+    function handleScroll(){
+        if (window.scrollY > 200) {
+            setIsScrolled(true);
+        } else {
+            setIsScrolled(false);
+        }
+    }
     return (
         <div className="header"
              style={{
-                 display:"flex", flexDirection:"row", height:"60px", alignContent:"center", justifyContent:"space-between", alignItems:'center',
-                 margin:"auto", boxShadow:"0px 0px 6px rgba(0, 0, 0, 0.2)"}}
+                 height: isScrolled ? "70px" : "110px",
+                 boxShadow: isScrolled ? "0px 0px 6px rgba(0, 0, 0, 0.2)" : "none" ,
+                }}
         >
             <Logo></Logo>
             <NavBar></NavBar>

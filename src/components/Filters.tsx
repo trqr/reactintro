@@ -42,7 +42,11 @@ const Filters = ({handleSearch, handleSelectBrand, handleSelectColor, search, br
                     <MenuItem value={"adidas"}>Adidas</MenuItem>
                     <MenuItem value={"nike"}>Nike</MenuItem>
                     <MenuItem value={"puma"}>Puma</MenuItem>
-                </Select>
+                    <MenuItem value={"converse"}>Converse</MenuItem>
+                    <MenuItem value={"new balance"}>New Balance</MenuItem>
+                    <MenuItem value={"vans"}>Vans</MenuItem>
+                    <MenuItem value={"reebok"}>Reebok</MenuItem>
+          </Select>
             </FormControl>
             <FormControl className="select-color">
                 <InputLabel id="select-color-label">Color</InputLabel>

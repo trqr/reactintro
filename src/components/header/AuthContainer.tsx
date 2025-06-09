@@ -19,12 +19,12 @@ function AuthContainer(){
     return (
             <>
             { signedIn ?
-                (<div className={"auth-container"} style={{display:"flex", alignContent:"center", alignItems:"center"}}>
+                (<div className={"auth-container"} style={{display:"flex", alignContent:"center", alignItems:"center", margin:"0 20px"}}>
                     <div>Vous êtes logged!</div>
                     <SecondaryButton text={"Log out"} handleClick={logOut} />
                 </div>)
                 :
-                (<div className={"auth-container"}>
+                (<div className={"auth-container" } style={{display:"flex", alignContent:"center", alignItems:"center", margin:"0 20px"}}>
                     <PrimaryButton text={"Sign In"} handleClick={SignIn}></PrimaryButton>
                     <SecondaryButton text={"Register"} handleClick={Register}></SecondaryButton>
                 </div>)

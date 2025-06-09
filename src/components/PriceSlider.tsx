@@ -12,7 +12,7 @@ const PriceSlider = ({min, max, priceRange, handlePriceFilter} : PriceSliderProp
 
 
     return (
-        <Box sx={{width: 250, padding: 1}}>
+        <Box sx={{width: 300, padding: 1}}>
             <Typography gutterBottom>Prix</Typography>
             <Slider
                 value={priceRange}

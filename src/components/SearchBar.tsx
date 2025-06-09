@@ -5,10 +5,11 @@ import * as React from "react";
 
 type SearchBarProps = {
     handleSearch : (e : React.ChangeEvent<HTMLInputElement>) => void;
+    search : string;
 }
 
 
-const SearchBar = ({handleSearch} : SearchBarProps) => {
+const SearchBar = ({handleSearch, search} : SearchBarProps) => {
     return (
         <>
             <TextField
@@ -24,6 +25,7 @@ const SearchBar = ({handleSearch} : SearchBarProps) => {
                     },
                 }}
                 variant="filled"
+                value={search}
                 onChange={handleSearch}
             />
         </>

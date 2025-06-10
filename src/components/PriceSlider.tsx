@@ -1,4 +1,3 @@
-import {useState} from "react";
 import {Slider, Typography, Box} from "@mui/material";
 
 type PriceSliderProps = {
@@ -13,7 +12,7 @@ const PriceSlider = ({min, max, priceRange, handlePriceFilter} : PriceSliderProp
 
     return (
         <Box sx={{width: 300, padding: 1}}>
-            <Typography gutterBottom>Prix</Typography>
+            <Typography gutterBottom>Price</Typography>
             <Slider
                 value={priceRange}
                 onChange={handlePriceFilter}
@@ -21,7 +20,7 @@ const PriceSlider = ({min, max, priceRange, handlePriceFilter} : PriceSliderProp
                 disableSwap
                 min={min}
                 max={max}
-                getAriaLabel={() => 'Sélection de plage de prix'}
+                getAriaLabel={() => 'price range'}
                 getAriaValueText={(val) => `${val}€`}
             />
             <Typography variant="body2">

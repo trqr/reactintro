@@ -27,7 +27,7 @@ const ProductCard = ({product} : ProductCardProps) => {
             </div>
             <div className={"product-card-buttons"}>
                 <PrimaryButton text={"Add To Cart"} handleClick={addToCart}/>
-                <Button variant="text">En savoir plus</Button>
+                <Button variant="text">Show more</Button>
             </div>
 
         </div>

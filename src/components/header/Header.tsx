@@ -3,6 +3,8 @@ import NavBar from "./NavBar.tsx";
 import AuthContainer from "./AuthContainer.tsx";
 import {useEffect, useState} from "react";
 import '../../styles/Header.css';
+import { IconButton } from "@mui/material";
+import { ShoppingCart } from "@mui/icons-material";
 
 function Header(){
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
@@ -31,7 +33,15 @@ function Header(){
         >
             <Logo></Logo>
             <NavBar></NavBar>
-            <AuthContainer/>
+            <div className={"right-side-header"} >
+                <IconButton>
+                    <ShoppingCart
+                        id="cart"
+                        fontSize={"medium"}
+                    ></ShoppingCart>
+                </IconButton>
+                <AuthContainer/>
+            </div>
         </div>
 
     )

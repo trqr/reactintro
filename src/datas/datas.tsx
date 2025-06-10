@@ -2,6 +2,7 @@ import type {Product} from "../models/product.tsx";
 
 export const products : Product[] = [
     {
+        id: 1,
         name: "Adidas VL Court 3.0",
         brand: "Adidas",
         price: 67.99,
@@ -14,6 +15,7 @@ export const products : Product[] = [
         ]
     },
     {
+        id: 2,
         name: "Nike Court Vision Lo",
         brand: "Nike",
         price: 74.99,
@@ -26,6 +28,7 @@ export const products : Product[] = [
         ]
     },
     {
+        id: 3,
         name: "Puma Club II Era Suede",
         brand: "Puma",
         price: 70.00,
@@ -38,6 +41,7 @@ export const products : Product[] = [
         ]
     },
     {
+        id: 4,
         name: "Reebok Club C 85",
         brand: "Reebok",
         price: 100.00,
@@ -50,6 +54,7 @@ export const products : Product[] = [
         ]
     },
     {
+        id: 5,
         name: "New Balance 574 Classic",
         brand: "New Balance",
         price: 119.99,
@@ -62,6 +67,7 @@ export const products : Product[] = [
         ]
     },
     {
+        id: 6,
         name: "Converse Chuck Taylor All Star",
         brand: "Converse",
         price: 59.99,

@@ -4,7 +4,8 @@ import '../../styles/ProductCard.css'
 import PrimaryButton from "../PrimaryButton.tsx";
 import {Button} from "@mui/material";
 import type {Product} from "../../models/product.tsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {useCart} from "../../context/useCart.tsx";
 
 type ProductCardProps = {
     product: Product;
@@ -12,8 +13,7 @@ type ProductCardProps = {
 
 const ProductCard = ({product} : ProductCardProps) => {
     const [hovered, setHovered] = useState(false);
-
-    function addToCart(){}
+    const { addToCart } = useCart();
 
     return (
         <div className={"card"}>
@@ -26,7 +26,7 @@ const ProductCard = ({product} : ProductCardProps) => {
                 <CardPrice price={product.price} />
             </div>
             <div className={"product-card-buttons"}>
-                <PrimaryButton text={"Add To Cart"} handleClick={addToCart}/>
+                <PrimaryButton text={"Add to cart"} handleClick={() => addToCart(product)}/>
                 <Button variant="text">Show more</Button>
             </div>
 

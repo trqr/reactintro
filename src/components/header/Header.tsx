@@ -3,7 +3,7 @@ import NavBar from "./NavBar.tsx";
 import AuthContainer from "./AuthContainer.tsx";
 import {useEffect, useState} from "react";
 import '../../styles/Header.css';
-import { IconButton } from "@mui/material";
+import {Badge, IconButton} from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material";
 
 function Header(){
@@ -34,12 +34,14 @@ function Header(){
             <Logo></Logo>
             <NavBar></NavBar>
             <div className={"right-side-header"} >
-                <IconButton>
-                    <ShoppingCart
-                        id="cart"
-                        fontSize={"medium"}
-                    ></ShoppingCart>
-                </IconButton>
+                <Badge badgeContent={4} color="primary">
+                    <IconButton>
+                        <ShoppingCart
+                            id="cart"
+                            fontSize={"medium"}
+                        ></ShoppingCart>
+                    </IconButton>
+                </Badge>
                 <AuthContainer/>
             </div>
         </div>

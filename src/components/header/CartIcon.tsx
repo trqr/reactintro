@@ -1,12 +1,14 @@
 import { ShoppingCart } from "@mui/icons-material"
-import { Badge, IconButton } from "@mui/material"
+import {Badge, Dialog, IconButton} from "@mui/material"
 import {useCart} from "../../context/useCart.tsx";
 import {useEffect, useState} from "react";
+import Cart from "../cart/Cart.tsx";
 
 const CartIcon = () => {
     const {getCartQuantity, cart} = useCart();
 
     const [ quantity, setQuantity ] = useState(getCartQuantity);
+    const [ isOpen, setIsOpen ] = useState(false);
 
     useEffect(() => {
         setQuantity(getCartQuantity());
@@ -20,9 +22,14 @@ const CartIcon = () => {
                     <ShoppingCart
                         id="cart"
                         fontSize={"medium"}
+                        onClick={() => setIsOpen(true)}
                     ></ShoppingCart>
                 </IconButton>
-            </Badge></>
+            </Badge>
+            <Dialog onClose={() => setIsOpen(false)} open={isOpen}>
+                <Cart></Cart>
+            </Dialog>
+        </>
     )
 }
 

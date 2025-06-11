@@ -2,7 +2,7 @@ import {createContext, useState} from "react";
 import type {Product} from "../models/product.tsx";
 import * as React from "react";
 
-type cartItem =
+export type cartItem =
     Product & { quantity: number };
 
 type CartContextType = {

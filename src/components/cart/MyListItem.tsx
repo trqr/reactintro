@@ -1,0 +1,35 @@
+import {Avatar, IconButton, ListItem, ListItemAvatar, ListItemText} from "@mui/material"
+import DeleteIcon from "@mui/icons-material/Delete";
+import type {cartItem} from "../../context/CartProvider.tsx";
+import {useCart} from "../../context/useCart.tsx";
+
+type MyListItemProps = {
+    cartItem : cartItem;
+}
+
+const MyListItem = ({ cartItem }: MyListItemProps) => {
+    const { removeFromCart } = useCart();
+    return (
+        <>
+            <ListItem
+                secondaryAction={
+                    <IconButton edge="end" aria-label="delete">
+                        <DeleteIcon onClick={() => removeFromCart(cartItem.id)}/>
+                    </IconButton>
+                }
+            >
+                <ListItemAvatar>
+                    <Avatar>
+                        <img className={"cart-item-img"} src={cartItem.img[0]} alt={cartItem.name}/>
+                    </Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                    primary={cartItem.name}
+                    secondary={cartItem.quantity}
+                />
+            </ListItem>
+        </>
+    )
+}
+
+export default MyListItem;

@@ -4,7 +4,7 @@ import '../../styles/ProductCard.css'
 import PrimaryButton from "../PrimaryButton.tsx";
 import {Button} from "@mui/material";
 import type {Product} from "../../models/product.tsx";
-import {useEffect, useState} from "react";
+import { useState} from "react";
 import {useCart} from "../../context/useCart.tsx";
 
 type ProductCardProps = {

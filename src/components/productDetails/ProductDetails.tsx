@@ -3,6 +3,7 @@ import PrimaryButton from "../PrimaryButton.tsx";
 import SecondaryButton from "../SecondaryButton.tsx";
 import {useCart} from "../../context/useCart.tsx";
 import { useNavigate } from "react-router-dom";
+import '../../styles/ProductDetails.css';
 
 type ProductDetailsProps = {
     product: Product;
@@ -23,7 +24,7 @@ const ProductDetails = ({product}: ProductDetailsProps) => {
                 <div className={"product-text-container"}>
                     <span>Brand: {product.brand}</span>
                     <span>Color: {product.color}</span>
-                    <span>Price: {product.price}</span>
+                    <span>Price: {product.price} €</span>
                 </div>
                 <div className={"buttons"}>
                     <PrimaryButton text={"Add to cart"} handleClick={() => addToCart(product)}></PrimaryButton>

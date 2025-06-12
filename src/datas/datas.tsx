@@ -89,7 +89,7 @@ export const products : Product[] = [
             "https://cdn.sarenza.cloud/_img/productsv4/0000004313/0000004313_150354_09_504x690.jpg?202411051000&v=20180830155342",
             "https://cdn.sarenza.cloud/_img/productsv4/0000004313/0000004313_150354_03_504x690.jpg?202411051000&v=20180830155342",
             "https://cdn.sarenza.cloud/_img/productsv4/0000004313/0000004313_150354_06_504x690.jpg?202411051000&v=20180830155342",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000004313/0000004313_150354_01_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000004313/0000004313_150354_05_504x690.jpg?202411051000&v=20180830155342",
         ]
     },
     {
@@ -102,7 +102,7 @@ export const products : Product[] = [
             "https://cdn.sarenza.cloud/_img/productsv4/0000350082/0000350082_831475_09_504x690.jpg?202412160844&v=20180830155342",
             "https://cdn.sarenza.cloud/_img/productsv4/0000350082/0000350082_831475_03_504x690.jpg?202412160844&v=20180830155342",
             "https://cdn.sarenza.cloud/_img/productsv4/0000350082/0000350082_831475_06_504x690.jpg?202412160844&v=20180830155342",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000350082/0000350082_831475_01_504x690.jpg?202412160844&v=20180830155342"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000350082/0000350082_831475_05_504x690.jpg?202412160844&v=20180830155342"
         ]
     },
     {

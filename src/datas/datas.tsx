@@ -200,26 +200,26 @@ export const products : Product[] = [
         id: 16,
         name: "Nike Dunk Low",
         brand: "Nike",
-        price: 99.99,
-        color: "green",
+        price: 220.00,
+        color: "brown",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_01_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000426520/0000426520_738918_01_504x690.jpg?v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000426520/0000426520_738918_04_504x690.jpg?v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000426520/0000426520_738918_09_504x690.jpg?v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000426520/0000426520_738918_06_504x690.jpg?v=20180830155342"
         ]
     },
     {
         id: 17,
         name: "Puma Smash",
         brand: "Puma",
-        price: 64.99,
-        color: "white",
+        price: 54.99,
+        color: "red",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_01_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000480498/0000480498_823649_09_504x690.jpg?202501270846&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000480498/0000480498_823649_03_504x690.jpg?202501270846&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000480498/0000480498_823649_06_504x690.jpg?202501270846&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000480498/0000480498_823649_01_504x690.jpg?202501270846&v=20180830155342"
         ]
     },
     {
@@ -227,12 +227,12 @@ export const products : Product[] = [
         name: "Reebok Workout Plus",
         brand: "Reebok",
         price: 84.99,
-        color: "grey",
+        color: "black brown",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_01_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000083499/0000083499_343512_09_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000083499/0000083499_343512_03_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000083499/0000083499_343512_06_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000083499/0000083499_343512_01_504x690.jpg?202411051000&v=20180830155342"
         ]
     },
     {
@@ -242,10 +242,10 @@ export const products : Product[] = [
         price: 79.99,
         color: "beige",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_09_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_03_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_03_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_01_504x690.jpg?202501241544&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000244276/0000244276_653220_09_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000244276/0000244276_653220_03_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000244276/0000244276_653220_06_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000244276/0000244276_653220_01_504x690.jpg?202411051000&v=20180830155342"
         ]
     },
     {
@@ -255,36 +255,36 @@ export const products : Product[] = [
         price: 109.99,
         color: "black",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_01_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000304330/0000304330_583913_09_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000304330/0000304330_583913_03_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000304330/0000304330_583913_06_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000304330/0000304330_583913_01_504x690.jpg?202411051000&v=20180830155342"
         ]
     },
     {
         id: 21,
         name: "Vans Sk8-Hi",
         brand: "Vans",
-        price: 79.99,
+        price: 54.99,
         color: "black",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_01_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000020937/0000020937_181457_09_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000020937/0000020937_181457_03_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000020937/0000020937_181457_06_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000020937/0000020937_181457_01_504x690.jpg?202411051000&v=20180830155342"
         ]
     },
     {
         id: 22,
         name: "Adidas Gazelle",
         brand: "Adidas",
-        price: 89.99,
+        price: 60.00,
         color: "blue",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_01_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000150370/0000150370_300882_09_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000150370/0000150370_300882_03_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000150370/0000150370_300882_06_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000150370/0000150370_300882_01_504x690.jpg?202411051000&v=20180830155342"
         ]
     },
     {
@@ -294,10 +294,10 @@ export const products : Product[] = [
         price: 99.99,
         color: "white",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_09_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_03_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_03_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_01_504x690.jpg?202501241544&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000339111/0000339111_603815_09_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000339111/0000339111_603815_03_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000339111/0000339111_603815_06_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000339111/0000339111_603815_01_504x690.jpg?202411051000&v=20180830155342"
         ]
     },
     {
@@ -307,10 +307,10 @@ export const products : Product[] = [
         price: 74.99,
         color: "red",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_01_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000304330/0000304330_583913_09_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000304330/0000304330_583913_03_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000304330/0000304330_583913_06_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000304330/0000304330_583913_01_504x690.jpg?202411051000&v=20180830155342"
         ]
     },
     {

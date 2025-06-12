@@ -10,6 +10,7 @@ type CartContextType = {
     addToCart: (product: Product) => void;
     removeFromCart: (productId: number) => void;
     getCartQuantity: () => number;
+    getCartTotal: () => number;
 };
 
 export const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -43,6 +44,10 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
         return cart.reduce((acc, item) => acc + item.quantity, 0);
     }
 
+    function getCartTotal() {
+        return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    }
+
     function saveCartToLocalStorage() {
         localStorage.setItem("cart", JSON.stringify(cart));
     }
@@ -52,7 +57,7 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
     }
 
     return (
-        <CartContext.Provider value={{cart, addToCart, removeFromCart, getCartQuantity}}>
+        <CartContext.Provider value={{cart, addToCart, removeFromCart, getCartQuantity, getCartTotal}}>
             {children}
         </CartContext.Provider>
     );

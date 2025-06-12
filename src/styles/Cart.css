@@ -1,0 +1,18 @@
+.cart {
+    width: 300px;
+    img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .cart-title {
+        text-align: center;
+    }
+    .cart-total {
+        margin: 10px 30px;
+    }
+    .cart-buttons {
+        text-align: center;
+        margin: 20px auto;
+    }
+}

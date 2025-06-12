@@ -15,6 +15,7 @@ const ProductList = () => {
     const [minPrice, setMinPrice] = useState<number>(findMinPrice());
     const [maxPrice, setMaxPrice] = useState<number>(findMaxPrice());
     const [priceRange, setPriceRange] = useState<[number, number]>([0, 200]);
+    const [stockedResults, setStockedResults] = useState<Product[]>(mappedProducts);
 
     function findMinPrice() {
         return Math.min(...mappedProducts.map(product => product.price));
@@ -29,22 +30,21 @@ const ProductList = () => {
         setMinPrice(findMinPrice());
         setMaxPrice(findMaxPrice());
         setPriceRange([findMinPrice(), findMaxPrice()])
+        setStockedResults([...mappedProducts]);
     }, [searchValue, selectedBrand, selectedColor]);
 
     function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
         setMappedProducts(mappedProducts.filter(product => product.name.toLowerCase().includes(e.target.value.toLowerCase())));
         setSearchValue(e.target.value);
-
     }
 
     function handleSelectBrand(e: SelectChangeEvent){
-        setMappedProducts(mappedProducts.filter(product => product.brand.toLowerCase().includes(e.target.value)));
+        setMappedProducts(stockedResults.filter(product => product.brand.toLowerCase().includes(e.target.value)));
         setSelectedBrand(e.target.value);
-
     }
 
     function handleSelectColor(e: SelectChangeEvent){
-        setMappedProducts(mappedProducts.filter(product => product.color.includes(e.target.value)));
+        setMappedProducts(stockedResults.filter(product => product.color.includes(e.target.value)));
         setSelectedColor(e.target.value);
     }
 
@@ -59,7 +59,7 @@ const ProductList = () => {
     const handlePriceFilter = (_event: Event, newValue: number | number[]) => {
         if (Array.isArray(newValue)) {
             setPriceRange([newValue[0], newValue[1]]);
-            setMappedProducts(mappedProducts.filter(product => product.price > newValue[0] && product.price < newValue[1]));
+            setMappedProducts(stockedResults.filter(product => product.price > newValue[0] && product.price < newValue[1]));
         }
     };
 

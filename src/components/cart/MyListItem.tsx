@@ -24,8 +24,8 @@ const MyListItem = ({ cartItem }: MyListItemProps) => {
                     </Avatar>
                 </ListItemAvatar>
                 <ListItemText
-                    primary={cartItem.name}
-                    secondary={cartItem.quantity}
+                    primary={cartItem.name + "   x " + cartItem.quantity}
+                    secondary={cartItem.price*cartItem.quantity + " €"}
                 />
             </ListItem>
         </>

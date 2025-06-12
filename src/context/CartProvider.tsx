@@ -13,6 +13,8 @@ type CartContextType = {
     getCartTotal: () => number;
 };
 
+
+
 export const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: {children: React.ReactNode}) => {

@@ -820,4 +820,8 @@ export const products : Product[] = [
             "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_01_504x690.jpg?202501241544&v=20250528164430"
         ]
     }
-]; 
+];
+
+export function getProductById(id: number): Product | null {
+    return products.find(p => p.id === id) ?? null;
+}

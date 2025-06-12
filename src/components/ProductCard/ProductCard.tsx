@@ -7,6 +7,7 @@ import type {Product} from "../../models/product.tsx";
 import { useState} from "react";
 import {useCart} from "../../context/useCart.tsx";
 import React from "react";
+import {useNavigate} from "react-router-dom";
 
 type ProductCardProps = {
     product: Product;
@@ -19,6 +20,7 @@ function CloseIcon(props: { fontSize: string }) {
 const ProductCard = ({product} : ProductCardProps) => {
     const [hovered, setHovered] = useState(false);
     const { addToCart } = useCart();
+    const navigate = useNavigate();
 
     const [open, setOpen] = React.useState(false);
 
@@ -73,7 +75,7 @@ const ProductCard = ({product} : ProductCardProps) => {
                     message="Added to cart!"
                     action={action}
                 />
-                <Button variant="text">Show more</Button>
+                <Button variant="text" onClick={() => navigate(`/products/${product.id.toString()}`)}>Show more</Button>
 
             </div>
 

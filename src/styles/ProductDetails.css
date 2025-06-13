@@ -9,8 +9,19 @@
         justify-content: center;
         align-content: center;
         grid-template-columns: repeat(2, auto);
-        grid-template-rows: repeat(2, auto);
+        grid-template-rows: repeat(2, 400px);
         gap: 20px;
+        .img-container {
+
+        }
+        img {
+            height: 100%;
+            transition: all linear 0.1s;
+            z-index: -10;
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
     }
     .product-text-container {
         display: flex;

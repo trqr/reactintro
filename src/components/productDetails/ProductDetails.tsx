@@ -19,7 +19,9 @@ const ProductDetails = ({product}: ProductDetailsProps) => {
                 <h1 className={"product-title"}>{product.name}</h1>
                 <div className={"img-grid"}>
                     {product.img.map((img: string, index: number) =>
-                    <img className={"product-img"} src={img} alt={product.name} key={index}/>)}
+                        <div key={index} className={"img-container"}>
+                        <img className={"product-img"} src={img} alt={product.name} key={index}/>
+                        </div>)}
                 </div>
                 <div className={"product-text-container"}>
                     <span>Brand: {product.brand}</span>

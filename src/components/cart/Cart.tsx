@@ -21,7 +21,7 @@ const Cart = () => {
                                 cartItem={cartItem}
                             />
                         ))}
-                        <h4 className={"cart-total"} >Total: {getCartTotal()} €</h4>
+                        <h4 className={"cart-total"} >Total: {getCartTotal().toFixed(2)} €</h4>
                         <div className={"cart-buttons"}>
                             <PrimaryButton text={"Checkout"} handleClick={handleCheckout}></PrimaryButton>
                         </div>

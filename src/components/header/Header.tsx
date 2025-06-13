@@ -17,7 +17,7 @@ function Header(){
     })
 
     function handleScroll(){
-        if (window.scrollY > 200) {
+        if (window.scrollY > 80) {
             setIsScrolled(true);
         } else {
             setIsScrolled(false);

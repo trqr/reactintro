@@ -305,7 +305,7 @@ export const products : Product[] = [
         name: "Puma Future Rider",
         brand: "Puma",
         price: 74.99,
-        color: "red",
+        color: "black",
         img: [
             "https://cdn.sarenza.cloud/_img/productsv4/0000304330/0000304330_583913_09_504x690.jpg?202411051000&v=20180830155342",
             "https://cdn.sarenza.cloud/_img/productsv4/0000304330/0000304330_583913_03_504x690.jpg?202411051000&v=20180830155342",
@@ -320,10 +320,10 @@ export const products : Product[] = [
         price: 69.99,
         color: "white",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_06_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_05_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000104974/0000104974_554323_09_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000104974/0000104974_554323_03_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000104974/0000104974_554323_06_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000104974/0000104974_554323_05_504x690.jpg?202411051000&v=20180830155342"
         ]
     },
     {
@@ -331,7 +331,7 @@ export const products : Product[] = [
         name: "New Balance 530",
         brand: "New Balance",
         price: 119.99,
-        color: "silver",
+        color: "grey",
         img: [
             "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_09_504x690.jpg?202411051000&v=20250528164430",
             "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_03_504x690.jpg?202411051000&v=20250528164430",
@@ -344,12 +344,12 @@ export const products : Product[] = [
         name: "Converse Chuck 70",
         brand: "Converse",
         price: 89.99,
-        color: "cream",
+        color: "white",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_09_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_03_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_06_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_05_504x690.jpg?202501241544&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000010185/0000010185_6938_09_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000010185/0000010185_6938_03_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000010185/0000010185_6938_06_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000010185/0000010185_6938_05_504x690.jpg?202411051000&v=20180830155342"
         ]
     },
     {
@@ -359,10 +359,10 @@ export const products : Product[] = [
         price: 64.99,
         color: "black",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_06_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_05_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000429742/0000429742_743994_01_504x690.jpg?v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000429742/0000429742_743994_03_504x690.jpg?v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000429742/0000429742_743994_06_504x690.jpg?v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000429742/0000429742_743994_05_504x690.jpg?v=20180830155342"
         ]
     },
     {
@@ -370,12 +370,12 @@ export const products : Product[] = [
         name: "Adidas Samba",
         brand: "Adidas",
         price: 89.99,
-        color: "white",
+        color: "black",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_09_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_03_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_06_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_05_504x690.jpg?202501241544&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000350129/0000350129_620904_09_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000350129/0000350129_620904_03_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000350129/0000350129_620904_06_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000350129/0000350129_620904_05_504x690.jpg?202411051000&v=20180830155342"
         ]
     },
     {
@@ -383,12 +383,12 @@ export const products : Product[] = [
         name: "Nike Daybreak",
         brand: "Nike",
         price: 89.99,
-        color: "grey",
+        color: "white blue",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_06_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_05_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000402945/0000402945_700532_01_504x690.jpg?v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000402945/0000402945_700532_03_504x690.jpg?v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000402945/0000402945_700532_06_504x690.jpg?v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000402945/0000402945_700532_05_504x690.jpg?v=20180830155342"
         ]
     },
     {
@@ -396,25 +396,25 @@ export const products : Product[] = [
         name: "Puma Cali Sport",
         brand: "Puma",
         price: 69.99,
-        color: "white",
+        color: "white gold",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_09_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_03_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_06_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_05_504x690.jpg?202501241544&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000334129/0000334129_597118_09_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000334129/0000334129_597118_03_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000334129/0000334129_597118_06_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000334129/0000334129_597118_05_504x690.jpg?202411051000&v=20180830155342"
         ]
     },
     {
         id: 32,
         name: "Reebok Classic Legacy",
         brand: "Reebok",
-        price: 79.99,
-        color: "white",
+        price: 100.99,
+        color: "grey",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_06_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_05_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000284013/0000284013_623406_09_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000284013/0000284013_623406_03_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000284013/0000284013_623406_06_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000284013/0000284013_623406_05_504x690.jpg?202411051000&v=20180830155342"
         ]
     },
     {
@@ -422,12 +422,12 @@ export const products : Product[] = [
         name: "New Balance 997H",
         brand: "New Balance",
         price: 99.99,
-        color: "grey",
+        color: "black",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_06_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_05_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000184889/0000184889_406368_09_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000184889/0000184889_406368_03_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000184889/0000184889_406368_06_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000184889/0000184889_406368_05_504x690.jpg?202411051000&v=20180830155342"
         ]
     },
     {
@@ -435,25 +435,25 @@ export const products : Product[] = [
         name: "Converse Pro Leather",
         brand: "Converse",
         price: 84.99,
-        color: "white",
+        color: "white black",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_06_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_05_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000462115/0000462115_864375_09_504x690.jpg?202505071642&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000462115/0000462115_864375_03_504x690.jpg?202505071642&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000462115/0000462115_864375_06_504x690.jpg?202505071642&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000462115/0000462115_864375_05_504x690.jpg?202505071642&v=20180830155342"
         ]
     },
     {
         id: 35,
         name: "Vans Ultrarange",
         brand: "Vans",
-        price: 89.99,
-        color: "black",
+        price: 130.00,
+        color: "grey",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_09_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_03_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_06_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_05_504x690.jpg?202501241544&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000425927/0000425927_843448_09_504x690.jpg?202503100844&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000425927/0000425927_843448_03_504x690.jpg?202503100844&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000425927/0000425927_843448_06_504x690.jpg?202503100844&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000425927/0000425927_843448_05_504x690.jpg?202503100844&v=20180830155342"
         ]
     },
     {
@@ -463,10 +463,10 @@ export const products : Product[] = [
         price: 84.99,
         color: "white",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_06_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_05_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000180844/0000180844_343163_09_504x690.jpg?201812211907&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000180844/0000180844_343163_03_504x690.jpg?201812211907&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000180844/0000180844_343163_06_504x690.jpg?201812211907&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000180844/0000180844_343163_05_504x690.jpg?201812211907&v=20180830155342"
         ]
     },
     {
@@ -474,12 +474,12 @@ export const products : Product[] = [
         name: "Nike Killshot 2",
         brand: "Nike",
         price: 89.99,
-        color: "white/navy",
+        color: "grey brown",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_06_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_05_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000506516/0000506516_867765_01_504x690.jpg?v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000506516/0000506516_867765_03_504x690.jpg?v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000506516/0000506516_867765_06_504x690.jpg?v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000506516/0000506516_867765_05_504x690.jpg?v=20180830155342"
         ]
     },
     {
@@ -489,10 +489,10 @@ export const products : Product[] = [
         price: 74.99,
         color: "black",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_06_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_05_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000030320/0000030320_731726_09_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000030320/0000030320_731726_03_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000030320/0000030320_731726_06_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000030320/0000030320_731726_05_504x690.jpg?202411051000&v=20180830155342"
         ]
     },
     {
@@ -502,10 +502,10 @@ export const products : Product[] = [
         price: 89.99,
         color: "white",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_06_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_05_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000222138/0000222138_623073_09_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000222138/0000222138_623073_03_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000222138/0000222138_623073_06_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000222138/0000222138_623073_05_504x690.jpg?202411051000&v=20180830155342"
         ]
     },
     {
@@ -515,10 +515,10 @@ export const products : Product[] = [
         price: 124.99,
         color: "silver",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_06_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_05_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000226176/0000226176_694508_09_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000226176/0000226176_694508_03_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000226176/0000226176_694508_06_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000226176/0000226176_694508_05_504x690.jpg?202411051000&v=20180830155342"
         ]
     },
     {
@@ -526,12 +526,12 @@ export const products : Product[] = [
         name: "Converse Chuck 70 High",
         brand: "Converse",
         price: 94.99,
-        color: "cream",
+        color: "pink",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_06_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000339120/0000339120_603868_05_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000010185/0000010185_846558_09_504x690.jpg?202503281408&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000010185/0000010185_846558_03_504x690.jpg?202503281408&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000010185/0000010185_846558_06_504x690.jpg?202503281408&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000010185/0000010185_846558_05_504x690.jpg?202503281408&v=20180830155342"
         ]
     },
     {
@@ -541,10 +541,10 @@ export const products : Product[] = [
         price: 69.99,
         color: "black",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_09_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_03_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_06_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_05_504x690.jpg?202501241544&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000429742/0000429742_743994_01_504x690.jpg?v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000429742/0000429742_743994_03_504x690.jpg?v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000429742/0000429742_743994_06_504x690.jpg?v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000429742/0000429742_743994_05_504x690.jpg?v=20180830155342"
         ]
     },
     {
@@ -554,10 +554,10 @@ export const products : Product[] = [
         price: 129.99,
         color: "black",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_09_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_03_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_06_504x690.jpg?202501241544&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_05_504x690.jpg?202501241544&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000139448/0000139448_556350_09_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000139448/0000139448_556350_03_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000139448/0000139448_556350_06_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000139448/0000139448_556350_05_504x690.jpg?202411051000&v=20180830155342"
         ]
     },
     {
@@ -567,10 +567,10 @@ export const products : Product[] = [
         price: 119.99,
         color: "white",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_06_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000152347/0000152347_290283_05_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000403048/0000403048_700635_01_504x690.jpg?v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000403048/0000403048_700635_03_504x690.jpg?v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000403048/0000403048_700635_06_504x690.jpg?v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000403048/0000403048_700635_05_504x690.jpg?v=20180830155342"
         ]
     },
     {
@@ -578,12 +578,12 @@ export const products : Product[] = [
         name: "Puma RS-X³",
         brand: "Puma",
         price: 109.99,
-        color: "blue",
+        color: "black",
         img: [
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_09_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_03_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_06_504x690.jpg?202411051000&v=20250528164430",
-            "https://cdn.sarenza.cloud/_img/productsv4/0000403275/0000403275_700998_05_504x690.jpg?202411051000&v=20250528164430"
+            "https://cdn.sarenza.cloud/_img/productsv4/0000351466/0000351466_623181_09_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000351466/0000351466_623181_03_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000351466/0000351466_623181_06_504x690.jpg?202411051000&v=20180830155342",
+            "https://cdn.sarenza.cloud/_img/productsv4/0000351466/0000351466_623181_05_504x690.jpg?202411051000&v=20180830155342"
         ]
     },
     {
@@ -760,7 +760,7 @@ export const products : Product[] = [
         name: "Puma Future Rider Play On",
         brand: "Puma",
         price: 79.99,
-        color: "red",
+        color: "black",
         img: [
             "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_09_504x690.jpg?202501241544&v=20250528164430",
             "https://cdn.sarenza.cloud/_img/productsv4/0000480683/0000480683_823955_03_504x690.jpg?202501241544&v=20250528164430",

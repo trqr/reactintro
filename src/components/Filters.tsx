@@ -61,6 +61,9 @@ const Filters = ({handleSearch, handleSelectBrand, handleSelectColor, search, br
                     <MenuItem className="select-color-item" value={"white"}><CircleIcon className="white-icon color-icon"/>White</MenuItem>
                     <MenuItem value={"red"}><CircleIcon className="red-icon color-icon"/>Red</MenuItem>
                     <MenuItem value={"black"}><CircleIcon className="black-icon color-icon"/>Black</MenuItem>
+                    <MenuItem value={"blue"}><CircleIcon className="blue-icon color-icon"/>Blue</MenuItem>
+                    <MenuItem value={"rose"}><CircleIcon className="rose-icon color-icon"/>Rose</MenuItem>
+                    <MenuItem value={"gold"}><CircleIcon className="gold-icon color-icon"/>Gold</MenuItem>
                 </Select>
             </FormControl>
             <PriceSlider

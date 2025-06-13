@@ -2,15 +2,20 @@ import PrimaryButton from "../PrimaryButton.tsx";
 import SecondaryButton from "../SecondaryButton.tsx";
 import {useState} from "react";
 import LoginDialog from "../LoginDialog.tsx";
+import RegisterDialog from "../RegisterDialog.tsx";
+import AccountMenu from "../AccountMenu.tsx";
+import {Avatar} from "@mui/material";
 
 
 function AuthContainer(){
     const [signedIn, setSignedIn] = useState(false);
-    const [isOpen , setIsOpen] = useState(false);
+    const [isLoginOpen , setIsLoginOpen] = useState(false);
+    const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+    const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
 
     function SignIn(){
         setSignedIn(true);
-        setIsOpen(false);
+        setIsLoginOpen(false);
     }
 
     function Register(){}
@@ -19,20 +24,26 @@ function AuthContainer(){
         setSignedIn(false);
     }
 
+
     return (
             <>
             { signedIn ?
                 (<div className={"auth-container"} style={{display:"flex", alignContent:"center", alignItems:"center", margin:"0 20px"}}>
-                    <div>Vous êtes logged!</div>
-                    <SecondaryButton text={"Log out"} handleClick={logOut} />
+                    <Avatar onClick={() => setIsAccountMenuOpen(true)} style={{cursor: 'pointer',
+                        position: "relative"}}/>
+                    <AccountMenu
+                        open={isAccountMenuOpen}
+                        handleClose={() => setIsAccountMenuOpen(false)}
+                        handleLogOut={logOut} />
                 </div>)
                 :
                 (<div className={"auth-container" } style={{display:"flex", alignContent:"center", alignItems:"center", margin:"0 20px"}}>
-                    <PrimaryButton text={"Sign In"} handleClick={() => setIsOpen(true)}></PrimaryButton>
-                    <SecondaryButton text={"Register"} handleClick={Register}></SecondaryButton>
+                    <PrimaryButton text={"Sign In"} handleClick={() => setIsLoginOpen(true)}></PrimaryButton>
+                    <SecondaryButton text={"Register"} handleClick={() => setIsRegisterOpen(true)}></SecondaryButton>
                 </div>)
             }
-            <LoginDialog isOpen={isOpen} handleLog={SignIn} handleClose={() => setIsOpen(false)} />
+                <LoginDialog isOpen={isLoginOpen} handleLog={SignIn} handleClose={() => setIsLoginOpen(false)} />
+                <RegisterDialog isOpen={isRegisterOpen} handleRegister={Register} handleClose={() => setIsRegisterOpen(false)} />
             </>
     )
 }

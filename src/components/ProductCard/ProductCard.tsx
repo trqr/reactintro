@@ -2,7 +2,7 @@ import CardTitle from "./CardTitle.tsx";
 import CardPrice from "./CardPrice.tsx";
 import '../../styles/ProductCard.css'
 import PrimaryButton from "../PrimaryButton.tsx";
-import {Button, IconButton, Snackbar, type SnackbarCloseReason} from "@mui/material";
+import {Alert, Button, Snackbar, type SnackbarCloseReason} from "@mui/material";
 import type {Product} from "../../models/product.tsx";
 import { useState} from "react";
 import {useCart} from "../../context/useCart.tsx";
@@ -11,10 +11,6 @@ import {useNavigate} from "react-router-dom";
 
 type ProductCardProps = {
     product: Product;
-}
-
-function CloseIcon(props: { fontSize: string }) {
-    return null;
 }
 
 const ProductCard = ({product} : ProductCardProps) => {
@@ -40,22 +36,6 @@ const ProductCard = ({product} : ProductCardProps) => {
         setOpen(false);
     };
 
-    const action = (
-        <React.Fragment>
-            <Button color="secondary" size="small" onClick={handleClose}>
-                Close
-            </Button>
-            <IconButton
-                size="small"
-                aria-label="close"
-                color="inherit"
-                onClick={handleClose}
-            >
-                <CloseIcon fontSize="small"/>
-            </IconButton>
-        </React.Fragment>
-    );
-
     return (
         <div className={"card"}>
             <img src={ hovered ? product.img[1] : product.img[0] }
@@ -72,9 +52,15 @@ const ProductCard = ({product} : ProductCardProps) => {
                     open={open}
                     autoHideDuration={6000}
                     onClose={handleClose}
-                    message="Added to cart!"
-                    action={action}
-                />
+                    >
+                    <Alert
+                        onClose={handleClose}
+                        severity="success"
+                        variant="filled"
+                        sx={{width: '100%'}}>
+                    Added to cart !
+                     </Alert>
+                </Snackbar>
                 <Button variant="text" onClick={() => navigate(`/products/${product.id.toString()}`)}>Show more</Button>
 
             </div>

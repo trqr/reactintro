@@ -6,6 +6,7 @@ import * as React from "react";
 import {useState, useEffect} from "react";
 import Filters from "./Filters.tsx";
 import type { SelectChangeEvent } from "@mui/material/Select";
+import SortProducts from "./SortProducts.tsx";
 
 const ProductList = () => {
     const [mappedProducts, setMappedProducts] = useState<Product[]>(products);
@@ -16,6 +17,7 @@ const ProductList = () => {
     const [maxPrice, setMaxPrice] = useState<number>(findMaxPrice());
     const [priceRange, setPriceRange] = useState<[number, number]>([0, 200]);
     const [stockedResults, setStockedResults] = useState<Product[]>(mappedProducts);
+    const [sorting, setSorting] = useState<string>("");
 
     function findMinPrice() {
         return Math.min(...mappedProducts.map(product => product.price));
@@ -31,7 +33,7 @@ const ProductList = () => {
         setMaxPrice(findMaxPrice());
         setPriceRange([findMinPrice(), findMaxPrice()])
         setStockedResults([...mappedProducts]);
-    }, [searchValue, selectedBrand, selectedColor]);
+    }, [searchValue, selectedBrand, selectedColor, sorting]);
 
     function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
         setMappedProducts(mappedProducts.filter(product => product.name.toLowerCase().includes(e.target.value.toLowerCase())));
@@ -63,23 +65,37 @@ const ProductList = () => {
         }
     };
 
+    const handleSorting = (e : SelectChangeEvent) => {
+        if (e.target.value === "sort-asc"){
+            setMappedProducts(stockedResults.sort((a, b) => a.price - b.price));
+            setSorting("sort-asc");
+        }
+        if (e.target.value === "sort-desc"){
+            setMappedProducts(stockedResults.sort((a, b) => b.price - a.price));
+            setSorting("sort-desc");
+        }
+    }
+
     return (
         <>
             <div className={"main-container"}>
                 <h1 style={{textAlign:"center"}}>Our shoes</h1>
-                <Filters 
-                handleSearch={handleSearch} 
-                handleSelectBrand={handleSelectBrand} 
-                handleSelectColor={handleSelectColor}
-                search={searchValue}
-                brand={selectedBrand}
-                color={selectedColor}
-                minPrice={minPrice}
-                maxPrice={maxPrice}
-                priceRange={priceRange}
-                handlePriceFilter={handlePriceFilter}
-                ClearFilters={ClearFilters}
-                ></Filters>
+                <div className={"filters-and-sorting"}>
+                    <Filters
+                    handleSearch={handleSearch}
+                    handleSelectBrand={handleSelectBrand}
+                    handleSelectColor={handleSelectColor}
+                    search={searchValue}
+                    brand={selectedBrand}
+                    color={selectedColor}
+                    minPrice={minPrice}
+                    maxPrice={maxPrice}
+                    priceRange={priceRange}
+                    handlePriceFilter={handlePriceFilter}
+                    ClearFilters={ClearFilters}
+                    ></Filters>
+                    <SortProducts handleSortingChange={handleSorting}/>
+                </div>
                 <div className={"cards-container"} style={{display:"grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "30px"}}>
                     {mappedProducts.map(((product, index) =>
                     <ProductCard key={index} product={product}></ProductCard>) )

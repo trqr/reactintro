@@ -1,8 +1,12 @@
-import Select from "@mui/material/Select";
+import Select, {type SelectChangeEvent} from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import {FormControl, InputLabel} from "@mui/material";
 
-const SortProducts = () => {
+type SortProductsProps = {
+    handleSortingChange: (e : SelectChangeEvent) => void;
+}
+
+const SortProducts = ({ handleSortingChange}: SortProductsProps) => {
     return (
         <>
             <FormControl className={"sort-products"}  size="medium">
@@ -11,7 +15,10 @@ const SortProducts = () => {
                         labelId="sort-products-label"
                         id="sort-products-select"
                         label="Sort Products"
-                        variant="standard" >
+                        variant="standard"
+                        onChange={handleSortingChange}
+                >
+
                     <MenuItem value={"sort-asc"}>Price: Low to High</MenuItem>
                     <MenuItem value={"sort-desc"}>Price: High to Low</MenuItem>
                 </Select>

@@ -3,3 +3,14 @@
     flex-direction: column;
     margin: 20px 50px
 }
+
+.filters-and-sorting {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.sort-products {
+    width: 170px;
+}

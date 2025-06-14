@@ -80,7 +80,6 @@ const Filters = ({handleSearch, handleSelectBrand, handleSelectColor, search, br
                 onClick={ClearFilters}
                 ></Close>
             </IconButton>
-            <SortProducts/>
         </div>
     );
 };

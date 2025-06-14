@@ -4,6 +4,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    .product-title {
+        z-index: 10;
+    }
     .img-grid {
         display: grid;
         justify-content: center;
@@ -28,6 +31,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        z-index: 10;
         margin: 20px auto;
     }
 }

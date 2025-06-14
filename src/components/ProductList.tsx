@@ -15,7 +15,7 @@ const ProductList = () => {
     const [selectedColor, setSelectedColor] = useState<string>("");
     const [minPrice, setMinPrice] = useState<number>(findMinPrice());
     const [maxPrice, setMaxPrice] = useState<number>(findMaxPrice());
-    const [priceRange, setPriceRange] = useState<[number, number]>([0, 200]);
+    const [priceRange, setPriceRange] = useState<[number, number]>([0, 250]);
     const [stockedResults, setStockedResults] = useState<Product[]>(mappedProducts);
     const [sorting, setSorting] = useState<string>("");
 
@@ -29,9 +29,9 @@ const ProductList = () => {
 
     useEffect(() => {
         console.log("mappedProducts updated:", mappedProducts);
-        setMinPrice(findMinPrice());
-        setMaxPrice(findMaxPrice());
-        setPriceRange([findMinPrice(), findMaxPrice()])
+        setMinPrice(findMinPrice()-1);
+        setMaxPrice(findMaxPrice()+1);
+        setPriceRange([findMinPrice()-1, findMaxPrice()+1])
         setStockedResults([...mappedProducts]);
     }, [searchValue, selectedBrand, selectedColor, sorting]);
 

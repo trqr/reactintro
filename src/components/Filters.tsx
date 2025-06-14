@@ -7,6 +7,7 @@ import '../styles/Filters.css';
 import CircleIcon from '@mui/icons-material/Circle';
 import { Close } from "@mui/icons-material";
 import PriceSlider from "./PriceSlider.tsx";
+import SortProducts from "./SortProducts.tsx";
 
 type FiltersProps = {
     handleSearch : (e : React.ChangeEvent<HTMLInputElement>) => void;
@@ -36,7 +37,7 @@ const Filters = ({handleSearch, handleSelectBrand, handleSelectColor, search, br
                     id="select-brand"
                     value={brand}
                     label="Brand"
-                    variant="filled"
+                    variant="standard"
                     onChange={handleSelectBrand}
                 >
                     <MenuItem value={"adidas"}>Adidas</MenuItem>
@@ -55,7 +56,7 @@ const Filters = ({handleSearch, handleSelectBrand, handleSelectColor, search, br
                     id="select-color"
                     value={color}
                     label="Color"
-                    variant="filled"
+                    variant="standard"
                     onChange={handleSelectColor}
                 >
                     <MenuItem className="select-color-item" value={"white"}><CircleIcon className="white-icon color-icon"/>White</MenuItem>
@@ -79,6 +80,7 @@ const Filters = ({handleSearch, handleSelectBrand, handleSelectColor, search, br
                 onClick={ClearFilters}
                 ></Close>
             </IconButton>
+            <SortProducts/>
         </div>
     );
 };

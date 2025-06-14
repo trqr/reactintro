@@ -1,0 +1,23 @@
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import {FormControl, InputLabel} from "@mui/material";
+
+const SortProducts = () => {
+    return (
+        <>
+            <FormControl className={"sort-products"}  size="medium">
+                <InputLabel id="sort-products-label">Sort</InputLabel>
+                <Select
+                        labelId="sort-products-label"
+                        id="sort-products-select"
+                        label="Sort Products"
+                        variant="standard" >
+                    <MenuItem value={"sort-asc"}>Price: Low to High</MenuItem>
+                    <MenuItem value={"sort-desc"}>Price: High to Low</MenuItem>
+                </Select>
+            </FormControl>
+        </>
+    )
+}
+
+export default SortProducts;

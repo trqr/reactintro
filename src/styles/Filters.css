@@ -5,13 +5,18 @@
     .select-brand, .select-color {
         display: flex;
         width: 150px;
-        margin: 0 5px;
+        margin: 0 10px;
     }
     #search-input {
-        margin: 0 5px;
+        margin: 0 10px;
     }
     #clear-filters-btn {
         margin: 0 5px;
+    }
+    .sort-products {
+        display: flex;
+        width: 170px;
+        margin-left: 50px;
     }
 }
 

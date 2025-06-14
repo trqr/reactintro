@@ -47,7 +47,7 @@ const AccountMenu = ({open, handleClose, handleLogOut}: AccountMenuProps) => {
                 anchorOrigin={{horizontal: "right", vertical: 'top'}}
             >
                 <MenuItem onClick={handleClose}>
-                    <Avatar/> My Account
+                    <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx7sLJbdmCKh3Ko5fv9ahJsMGSZnIiRbz9Qg&s"/> My Account
                 </MenuItem>
                 <Divider/>
                 <MenuItem onClick={handleClose}>

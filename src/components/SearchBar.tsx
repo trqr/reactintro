@@ -24,7 +24,7 @@ const SearchBar = ({handleSearch, search} : SearchBarProps) => {
                         ),
                     },
                 }}
-                variant="filled"
+                variant="standard"
                 value={search}
                 onChange={handleSearch}
             />

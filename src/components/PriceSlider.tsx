@@ -11,21 +11,22 @@ const PriceSlider = ({min, max, priceRange, handlePriceFilter} : PriceSliderProp
 
 
     return (
-        <Box sx={{width: 300, padding: 1}}>
-            <Typography gutterBottom>Price</Typography>
+        <Box sx={{width: 300, padding: 2, marginTop: 4}} direction="column">
+            <Typography variant="subtitle2">
+                De {priceRange[0]}€ à {priceRange[1]}€
+            </Typography>
             <Slider
+                size={"small"}
                 value={priceRange}
                 onChange={handlePriceFilter}
-                valueLabelDisplay="auto"
+                valueLabelDisplay="off"
                 disableSwap
                 min={min}
                 max={max}
                 getAriaLabel={() => 'price range'}
                 getAriaValueText={(val) => `${val}€`}
             />
-            <Typography variant="body2">
-                De {priceRange[0]}€ à {priceRange[1]}€
-            </Typography>
+
         </Box>
     );
 };

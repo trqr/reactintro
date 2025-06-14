@@ -23,8 +23,8 @@ const AccountMenu = ({open, handleClose, handleLogOut}: AccountMenuProps) => {
                             filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
                             mt: 1.5,
                             '& .MuiAvatar-root': {
-                                width: 32,
-                                height: 32,
+                                width: 25,
+                                height: 25,
                                 ml: -0.5,
                                 mr: 1,
                             },
@@ -44,7 +44,7 @@ const AccountMenu = ({open, handleClose, handleLogOut}: AccountMenuProps) => {
                     },
                 }}
                 transformOrigin={{horizontal: 'right', vertical: 'top'}}
-                anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+                anchorOrigin={{horizontal: "right", vertical: 'top'}}
             >
                 <MenuItem onClick={handleClose}>
                     <Avatar/> My Account

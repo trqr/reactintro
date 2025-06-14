@@ -5,7 +5,7 @@ import LoginDialog from "../LoginDialog.tsx";
 import RegisterDialog from "../RegisterDialog.tsx";
 import AccountMenu from "../AccountMenu.tsx";
 import {Avatar} from "@mui/material";
-
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 function AuthContainer(){
     const [signedIn, setSignedIn] = useState(false);
@@ -31,6 +31,7 @@ function AuthContainer(){
                 (<div className={"auth-container"} style={{display:"flex", alignContent:"center", alignItems:"center", margin:"0 20px"}}>
                     <Avatar onClick={() => setIsAccountMenuOpen(true)} style={{cursor: 'pointer',
                         position: "relative"}}/>
+                    <ArrowDropDownIcon></ArrowDropDownIcon>
                     <AccountMenu
                         open={isAccountMenuOpen}
                         handleClose={() => setIsAccountMenuOpen(false)}

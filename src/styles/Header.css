@@ -14,3 +14,21 @@
 .right-side-header {
     display: flex;
 }
+
+#account-menu {
+    top: 55px;
+}
+
+.card-img-container {
+    position: relative;
+    transition: all ease 0.3s;
+}
+
+.card-fav-icon {
+    transition: all ease 0.3s;
+    position: absolute;
+    cursor: pointer;
+    top: 8px;
+    right: 8px;
+    z-index: 5;
+}

@@ -2,12 +2,13 @@ import CardTitle from "./CardTitle.tsx";
 import CardPrice from "./CardPrice.tsx";
 import '../../styles/ProductCard.css'
 import PrimaryButton from "../PrimaryButton.tsx";
-import {Alert, Button, Snackbar, type SnackbarCloseReason} from "@mui/material";
+import {Alert, Button, IconButton, Snackbar, type SnackbarCloseReason} from "@mui/material";
 import type {Product} from "../../models/product.tsx";
 import { useState} from "react";
 import {useCart} from "../../context/useCart.tsx";
 import React from "react";
 import {useNavigate} from "react-router-dom";
+import {Favorite, FavoriteBorder, FavoriteOutlined} from "@mui/icons-material";
 
 type ProductCardProps = {
     product: Product;
@@ -17,7 +18,7 @@ const ProductCard = ({product} : ProductCardProps) => {
     const [hovered, setHovered] = useState(false);
     const { addToCart } = useCart();
     const navigate = useNavigate();
-
+    const [isLiked, setIsLiked] = useState(false);
     const [open, setOpen] = React.useState(false);
 
     const handleClick = () => {
@@ -38,10 +39,30 @@ const ProductCard = ({product} : ProductCardProps) => {
 
     return (
         <div className={"card"}>
-            <img src={ hovered ? product.img[1] : product.img[0] }
-                 onMouseOver={( ) => setHovered(true)}
-                 onMouseOut={( ) => setHovered(false)}
-                 alt="sport shoe"/>
+            <div className={"card-img-container"}
+                 onMouseOver={() => setHovered(true)}
+                 onMouseOut={() => setHovered(false)}>
+                {hovered && (
+                    <FavoriteBorder
+                        className={"card-fav-icon"}
+                        fontSize={"medium"}
+                        color={"disabled"}
+                        onClick={() => setIsLiked(true)}
+                    ></FavoriteBorder>
+                )}
+                {isLiked && (
+                    <Favorite
+                        className={"card-fav-icon"}
+                        fontSize={"medium"}
+                        color={"primary"}
+                        onClick={() => setIsLiked(false)}
+                    ></Favorite>
+                )}
+
+                <img src={ hovered ? product.img[1] : product.img[0] }
+
+                     alt="sport shoe"/>
+            </div>
             <div className={"product-card-text"}>
                 <CardTitle title={product.name}></CardTitle>
                 <CardPrice price={product.price} />

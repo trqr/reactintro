@@ -4,7 +4,6 @@ import AuthContainer from "./AuthContainer.tsx";
 import {useEffect, useState} from "react";
 import '../../styles/Header.css';
 import CartIcon from "./CartIcon.tsx";
-import FavIcon from "./FavIcon.tsx";
 
 function Header(){
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
@@ -34,7 +33,6 @@ function Header(){
             <Logo></Logo>
             <NavBar></NavBar>
             <div className={"right-side-header"} >
-                <FavIcon/>
                 <CartIcon/>
                 <AuthContainer/>
             </div>

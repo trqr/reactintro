@@ -13,6 +13,7 @@
 
 .right-side-header {
     display: flex;
+    position: relative;
 }
 
 #account-menu {
@@ -31,4 +32,8 @@
     top: 8px;
     right: 8px;
     z-index: 5;
+}
+
+.cart-menu {
+    position: sticky;
 }

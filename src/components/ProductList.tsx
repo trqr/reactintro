@@ -79,7 +79,6 @@ const ProductList = () => {
     return (
         <>
             <div className={"main-container"}>
-                <h1 style={{textAlign:"center"}}>Our shoes</h1>
                 <div className={"filters-and-sorting"}>
                     <Filters
                     handleSearch={handleSearch}

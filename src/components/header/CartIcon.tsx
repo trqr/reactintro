@@ -26,9 +26,11 @@ const CartIcon = () => {
                     ></ShoppingCart>
                 </IconButton>
             </Badge>
-            <Dialog className={"cart-menu"} onClose={() => setIsOpen(false)} open={isOpen}>
+            <Menu className={"cart-menu"} onClose={() => setIsOpen(false)} open={isOpen}
+                  transformOrigin={{horizontal: 'right', vertical: 'top'}}
+                  anchorOrigin={{horizontal: "right", vertical: 90}}>
                 <Cart></Cart>
-            </Dialog>
+            </Menu>
         </>
     )
 }

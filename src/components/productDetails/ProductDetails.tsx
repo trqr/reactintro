@@ -4,6 +4,10 @@ import SecondaryButton from "../SecondaryButton.tsx";
 import {useCart} from "../../context/useCart.tsx";
 import { useNavigate } from "react-router-dom";
 import '../../styles/ProductDetails.css';
+import {useFav} from "../../context/useFav.tsx";
+import { Favorite } from "@mui/icons-material";
+import {useEffect} from "react";
+import {products} from "../../datas/datas.tsx";
 
 type ProductDetailsProps = {
     product: Product;
@@ -12,11 +16,16 @@ type ProductDetailsProps = {
 const ProductDetails = ({product}: ProductDetailsProps) => {
     const { addToCart } = useCart();
     const navigate = useNavigate();
+    const { isFavorite, removeFromFav} = useFav();
+
+
 
     return (
         <>
             <div className={"product-container"}>
-                <h1 className={"product-title"}>{product.name}</h1>
+                <h1 className={"product-title"}>
+                    {product.name} {isFavorite(product) && (<Favorite color={"secondary"} fontSize={"large"} cursor={"pointer"} />)}
+                </h1>
                 <div className={"img-grid"}>
                     {product.img.map((img: string, index: number) =>
                         <div key={index} className={"img-container"}>

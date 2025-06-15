@@ -2,13 +2,14 @@ import CardTitle from "./CardTitle.tsx";
 import CardPrice from "./CardPrice.tsx";
 import '../../styles/ProductCard.css'
 import PrimaryButton from "../PrimaryButton.tsx";
-import {Alert, Button, IconButton, Snackbar, type SnackbarCloseReason} from "@mui/material";
+import {Alert, Button, Snackbar, type SnackbarCloseReason} from "@mui/material";
 import type {Product} from "../../models/product.tsx";
-import { useState} from "react";
+import {useEffect, useState} from "react";
 import {useCart} from "../../context/useCart.tsx";
 import React from "react";
 import {useNavigate} from "react-router-dom";
-import {Favorite, FavoriteBorder, FavoriteOutlined} from "@mui/icons-material";
+import {Favorite, FavoriteBorder} from "@mui/icons-material";
+import {useFav} from "../../context/useFav.tsx";
 
 type ProductCardProps = {
     product: Product;
@@ -17,9 +18,14 @@ type ProductCardProps = {
 const ProductCard = ({product} : ProductCardProps) => {
     const [hovered, setHovered] = useState(false);
     const { addToCart } = useCart();
+    const { favProducts, addToFav, removeFromFav, isFavorite } = useFav()
     const navigate = useNavigate();
     const [isLiked, setIsLiked] = useState(false);
     const [open, setOpen] = React.useState(false);
+
+    useEffect(() => {
+        console.log(favProducts);
+    }, [favProducts]);
 
     const handleClick = () => {
         setOpen(true);
@@ -47,15 +53,15 @@ const ProductCard = ({product} : ProductCardProps) => {
                         className={"card-fav-icon"}
                         fontSize={"medium"}
                         color={"disabled"}
-                        onClick={() => setIsLiked(true)}
+                        onClick={() => addToFav(product)}
                     ></FavoriteBorder>
                 )}
-                {isLiked && (
+                {isFavorite(product) && (
                     <Favorite
                         className={"card-fav-icon"}
                         fontSize={"medium"}
-                        color={"primary"}
-                        onClick={() => setIsLiked(false)}
+                        color={"secondary"}
+                        onClick={() => removeFromFav(product)}
                     ></Favorite>
                 )}
 

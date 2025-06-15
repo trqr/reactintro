@@ -1,0 +1,10 @@
+.fav-card-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    img {
+        width: 150px;
+    }
+}

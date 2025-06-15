@@ -3,6 +3,7 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cart from "./components/cart/Cart.tsx";
 import ProductPage from "./pages/ProductPage.tsx";
+import FavoritesPage from "./pages/FavoritesPage.tsx";
 
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/products/:id" element={<ProductPage />} />
             <Route path="/service" element={<Home/>}/>
-            <Route path="/contact" element={<Cart/>}/>
+            <Route path="/contact" element={<Home/>}/>
+            <Route path="/favorites" element={<FavoritesPage/>}/>
         </Routes>
       </BrowserRouter>
   )

@@ -1,5 +1,6 @@
 import {Avatar, Divider, ListItemIcon, Menu, MenuItem } from "@mui/material"
 import {Favorite, Logout, Settings} from "@mui/icons-material";
+import {useNavigate} from "react-router-dom";
 
 type AccountMenuProps = {
     open: boolean;
@@ -8,6 +9,8 @@ type AccountMenuProps = {
 }
 
 const AccountMenu = ({open, handleClose, handleLogOut}: AccountMenuProps) => {
+    const navigate = useNavigate()
+
     return (
         <>
             <Menu
@@ -50,9 +53,9 @@ const AccountMenu = ({open, handleClose, handleLogOut}: AccountMenuProps) => {
                     <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx7sLJbdmCKh3Ko5fv9ahJsMGSZnIiRbz9Qg&s"/> My Account
                 </MenuItem>
                 <Divider/>
-                <MenuItem onClick={handleClose}>
+                <MenuItem onClick={() => navigate("/favorites")}>
                     <ListItemIcon>
-                        <Favorite fontSize="small"/>
+                        <Favorite   fontSize="small"/>
                     </ListItemIcon>
                     Favourites
                 </MenuItem>
@@ -62,7 +65,7 @@ const AccountMenu = ({open, handleClose, handleLogOut}: AccountMenuProps) => {
                     </ListItemIcon>
                     Settings
                 </MenuItem>
-                <MenuItem onClick={handleLogOut}>
+                <MenuItem  onClick={handleLogOut}>
                     <ListItemIcon>
                         <Logout fontSize="small"/>
                     </ListItemIcon>

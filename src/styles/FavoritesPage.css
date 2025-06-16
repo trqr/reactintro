@@ -7,4 +7,14 @@
     img {
         width: 150px;
     }
+    .fav-card-text {
+        width: 300px;
+        margin: 0 20px;
+    }
+    .fav-card-buttons {
+        margin: 0 10px;
+        button {
+            margin: 0 5px;
+        }
+    }
 }

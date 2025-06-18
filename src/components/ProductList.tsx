@@ -1,5 +1,4 @@
 import ProductCard from "./ProductCard/ProductCard.tsx";
-import {products} from "../datas/datas.tsx";
 import type {Product} from "../models/product.tsx";
 import '../styles/ProductList.css';
 import * as React from "react";
@@ -7,17 +6,23 @@ import {useState, useEffect} from "react";
 import Filters from "./Filters.tsx";
 import type { SelectChangeEvent } from "@mui/material/Select";
 import SortProducts from "./SortProducts.tsx";
+import {fetchFilteredProducts, fetchProducts} from "../services/ProductService.tsx";
 
 const ProductList = () => {
-    const [mappedProducts, setMappedProducts] = useState<Product[]>(products);
+    const [products, setProducts] = useState<Product[]>([]);
+    const [mappedProducts, setMappedProducts] = useState<Product[]>([]);
     const [searchValue, setSearchValue] = useState<string>("");
     const [selectedBrand, setSelectedBrand] = useState<string>("");
     const [selectedColor, setSelectedColor] = useState<string>("");
-    const [minPrice, setMinPrice] = useState<number>(findMinPrice());
-    const [maxPrice, setMaxPrice] = useState<number>(findMaxPrice());
+    const [minPrice, setMinPrice] = useState<number>(0);
+    const [maxPrice, setMaxPrice] = useState<number>(250);
     const [priceRange, setPriceRange] = useState<[number, number]>([0, 250]);
     const [stockedResults, setStockedResults] = useState<Product[]>(mappedProducts);
     const [sorting, setSorting] = useState<string>("");
+    const filters = {
+        brand: selectedBrand,
+        color: selectedColor,
+    }
 
     function findMinPrice() {
         return Math.min(...mappedProducts.map(product => product.price));
@@ -28,11 +33,22 @@ const ProductList = () => {
     }
 
     useEffect(() => {
-        console.log("mappedProducts updated:", mappedProducts);
+        if (products.length === 0){
+            fetchProducts().then(data => {
+                setProducts(data);
+                setMappedProducts(data);
+                console.log(data);
+            });
+        }
+
+        fetchFilteredProducts(filters).then(setMappedProducts);
+
         setMinPrice(findMinPrice()-1);
         setMaxPrice(findMaxPrice()+1);
         setPriceRange([findMinPrice()-1, findMaxPrice()+1])
         setStockedResults([...mappedProducts]);
+
+        console.log(filters);
     }, [searchValue, selectedBrand, selectedColor, sorting]);
 
     function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
@@ -41,12 +57,10 @@ const ProductList = () => {
     }
 
     function handleSelectBrand(e: SelectChangeEvent){
-        setMappedProducts(stockedResults.filter(product => product.brand.toLowerCase().includes(e.target.value)));
         setSelectedBrand(e.target.value);
     }
 
     function handleSelectColor(e: SelectChangeEvent){
-        setMappedProducts(stockedResults.filter(product => product.color.includes(e.target.value)));
         setSelectedColor(e.target.value);
     }
 

@@ -18,14 +18,9 @@ type ProductCardProps = {
 const ProductCard = ({product} : ProductCardProps) => {
     const [hovered, setHovered] = useState(false);
     const { addToCart } = useCart();
-    const { favProducts, addToFav, removeFromFav, isFavorite } = useFav()
+    const {  addToFav, removeFromFav, isFavorite } = useFav()
     const navigate = useNavigate();
-    const [isLiked, setIsLiked] = useState(false);
     const [open, setOpen] = React.useState(false);
-
-    useEffect(() => {
-        console.log(favProducts);
-    }, [favProducts]);
 
     const handleClick = () => {
         setOpen(true);
@@ -65,7 +60,7 @@ const ProductCard = ({product} : ProductCardProps) => {
                     ></Favorite>
                 )}
 
-                <img src={ hovered ? product.img[1] : product.img[0] }
+                <img src={ hovered ? product.imagesUrl[1].imgUrl : product.imagesUrl[0].imgUrl }
 
                      alt="sport shoe"/>
             </div>

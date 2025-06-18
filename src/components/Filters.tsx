@@ -40,13 +40,13 @@ const Filters = ({handleSearch, handleSelectBrand, handleSelectColor, search, br
                     variant="standard"
                     onChange={handleSelectBrand}
                 >
-                    <MenuItem value={"adidas"}>Adidas</MenuItem>
-                    <MenuItem value={"nike"}>Nike</MenuItem>
-                    <MenuItem value={"puma"}>Puma</MenuItem>
-                    <MenuItem value={"converse"}>Converse</MenuItem>
-                    <MenuItem value={"new balance"}>New Balance</MenuItem>
-                    <MenuItem value={"vans"}>Vans</MenuItem>
-                    <MenuItem value={"reebok"}>Reebok</MenuItem>
+                    <MenuItem value={"Adidas"}>Adidas</MenuItem>
+                    <MenuItem value={"Nike"}>Nike</MenuItem>
+                    <MenuItem value={"Puma"}>Puma</MenuItem>
+                    <MenuItem value={"Converse"}>Converse</MenuItem>
+                    <MenuItem value={"New Balance"}>New Balance</MenuItem>
+                    <MenuItem value={"Vans"}>Vans</MenuItem>
+                    <MenuItem value={"Reebok"}>Reebok</MenuItem>
           </Select>
             </FormControl>
             <FormControl className="select-color">

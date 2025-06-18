@@ -4,5 +4,5 @@ export interface Product {
     brand: string;
     price: number;
     color: string;
-    img: string[];
+    imagesUrl: {id : number, imgUrl: string}[];
 }

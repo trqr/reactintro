@@ -1,13 +1,41 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField} from "@mui/material";
 import '../styles/RegisterDialog.css';
+import React, {useState} from "react";
+import type {User} from "../models/user.tsx";
+import {registerUser} from "../services/UserService.tsx";
 
 type RegisterDialogProps = {
     isOpen: boolean;
-    handleRegister: () => void;
     handleClose: () => void;
 }
 
-const RegisterDialog = ({isOpen, handleRegister, handleClose}: RegisterDialogProps) => {
+const RegisterDialog = ({isOpen, handleClose}: RegisterDialogProps) => {
+    const userData: User = {
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+    }
+
+    const handleFirstName = (e: React.ChangeEvent<HTMLInputElement>) => {
+        userData.firstName = e.target.value;
+    }
+
+    const handleLastName = (e: React.ChangeEvent<HTMLInputElement>) => {
+        userData.lastName = e.target.value;
+    }
+
+    const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+        userData.email = e.target.value;
+    }
+
+    const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+        userData.password = e.target.value;
+    }
+
+    const handleRegister = () => {
+        registerUser(userData as User);
+    }
 
     return (
         <>
@@ -16,13 +44,14 @@ const RegisterDialog = ({isOpen, handleRegister, handleClose}: RegisterDialogPro
                 <DialogContent className={"register-dialog-inputs"}
                                sx={{'& > :not(style)': {m: 1, width: '25ch'}}}
                 >
-                    <TextField id="register-userfirstname-input" label="First Name" variant="standard" type={"text"} required={true}/>
+                    <TextField id="register-userfirstname-input" label="First Name" variant="standard" type={"text"} required={true}
+                               onChange={handleFirstName}/>
                     <TextField id="register-userlastname-input" label="Last Name" variant="standard" type={"text"}
-                               required={true}/>
+                               required={true} onChange={handleLastName}/>
                     <TextField id="register-useremail-input" label="Email" variant="standard" type={"email"}
-                               required={true}/>
+                               required={true} onChange={handleEmail}/>
                     <TextField id="register-userpassword-input" label="Password" variant="standard" type={"password"}
-                               required={true}/>
+                               required={true} onChange={handlePassword}/>
                     <TextField id="register-verify-userpassword-input" label="Verify Password" variant="standard" type={"password"}
                                required={true}/>
                 </DialogContent>

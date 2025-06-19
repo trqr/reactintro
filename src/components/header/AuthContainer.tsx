@@ -18,7 +18,6 @@ function AuthContainer(){
         setIsLoginOpen(false);
     }
 
-    function Register(){}
 
     function logOut(){
         setSignedIn(false);
@@ -46,7 +45,7 @@ function AuthContainer(){
                 </div>)
             }
                 <LoginDialog isOpen={isLoginOpen} handleLog={SignIn} handleClose={() => setIsLoginOpen(false)} />
-                <RegisterDialog isOpen={isRegisterOpen} handleRegister={Register} handleClose={() => setIsRegisterOpen(false)} />
+                <RegisterDialog isOpen={isRegisterOpen} handleClose={() => setIsRegisterOpen(false)} />
             </>
     )
 }

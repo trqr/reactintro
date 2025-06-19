@@ -1,6 +1,7 @@
 export interface User {
-    userName: string,
-    userEmail: string,
-    userEncryptedPassword: string,
-    token?: string
+    id?: number,
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string,
 }

@@ -20,7 +20,7 @@ const MyListItem = ({ cartItem }: MyListItemProps) => {
             >
                 <ListItemAvatar>
                     <Avatar sx={{width: 56, height: 56, marginRight: 2}}>
-                        <img className={"cart-item-img"} src={cartItem.img[0]} alt={cartItem.name}/>
+                        <img className={"cart-item-img"} src={cartItem.imagesUrl[0].imgUrl} alt={cartItem.name}/>
                     </Avatar>
                 </ListItemAvatar>
                 <ListItemText

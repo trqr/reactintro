@@ -6,7 +6,7 @@ import {useState, useEffect} from "react";
 import Filters from "./Filters.tsx";
 import type { SelectChangeEvent } from "@mui/material/Select";
 import SortProducts from "./SortProducts.tsx";
-import {fetchFilteredProducts, fetchProducts} from "../services/ProductService.tsx";
+import {fetchAndMapProducts} from "../utils/productUtils.tsx";
 
 const ProductList = () => {
     const [products, setProducts] = useState<Product[]>([]);
@@ -18,7 +18,7 @@ const ProductList = () => {
     const [maxPrice, setMaxPrice] = useState<number>(250);
     const [priceRange, setPriceRange] = useState<[number, number]>([0, 250]);
     const [stockedResults, setStockedResults] = useState<Product[]>(mappedProducts);
-    const [sorting, setSorting] = useState<string>("");
+    const [sorting, setSorting] = useState<string>();
     const filters = {
         brand: selectedBrand,
         color: selectedColor,
@@ -33,35 +33,19 @@ const ProductList = () => {
     }
 
     useEffect(() => {
-        if (products.length === 0){
-            fetchProducts().then(data => {
-                setProducts(data);
-                setMappedProducts(data);
+        fetchAndMapProducts(products, filters, setProducts, setMappedProducts)
+            .then(data => {
+                setMinPrice(findMinPrice() - 1);
+                setMaxPrice(findMaxPrice() + 1);
+                setPriceRange([findMinPrice() - 1, findMaxPrice() + 1])
+                setStockedResults([...data]);
                 console.log(data);
-            });
-        }
-
-        fetchFilteredProducts(filters).then(setMappedProducts);
-
-        setMinPrice(findMinPrice()-1);
-        setMaxPrice(findMaxPrice()+1);
-        setPriceRange([findMinPrice()-1, findMaxPrice()+1])
-        setStockedResults([...mappedProducts]);
-
-        console.log(filters);
-    }, [searchValue, selectedBrand, selectedColor, sorting]);
+        });
+    }, [selectedBrand, selectedColor]);
 
     function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
-        setMappedProducts(mappedProducts.filter(product => product.name.toLowerCase().includes(e.target.value.toLowerCase())));
+        setMappedProducts(stockedResults.filter(product => product.name.toLowerCase().includes(e.target.value.toLowerCase())));
         setSearchValue(e.target.value);
-    }
-
-    function handleSelectBrand(e: SelectChangeEvent){
-        setSelectedBrand(e.target.value);
-    }
-
-    function handleSelectColor(e: SelectChangeEvent){
-        setSelectedColor(e.target.value);
     }
 
     function ClearFilters(){
@@ -70,7 +54,6 @@ const ProductList = () => {
         setSelectedBrand("");
         setSelectedColor("");
     }
-
 
     const handlePriceFilter = (_event: Event, newValue: number | number[]) => {
         if (Array.isArray(newValue)) {
@@ -96,8 +79,8 @@ const ProductList = () => {
                 <div className={"filters-and-sorting"}>
                     <Filters
                     handleSearch={handleSearch}
-                    handleSelectBrand={handleSelectBrand}
-                    handleSelectColor={handleSelectColor}
+                    handleSelectBrand={(e) => setSelectedBrand(e.target.value)}
+                    handleSelectColor={(e) => setSelectedColor(e.target.value)}
                     search={searchValue}
                     brand={selectedBrand}
                     color={selectedColor}

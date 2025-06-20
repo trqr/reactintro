@@ -4,9 +4,10 @@ import {FormControl, InputLabel} from "@mui/material";
 
 type SortProductsProps = {
     handleSortingChange: (e : SelectChangeEvent) => void;
+    sort: string;
 }
 
-const SortProducts = ({ handleSortingChange}: SortProductsProps) => {
+const SortProducts = ({ handleSortingChange, sort}: SortProductsProps) => {
     return (
         <>
             <FormControl className={"sort-products"}  size="medium">
@@ -16,6 +17,7 @@ const SortProducts = ({ handleSortingChange}: SortProductsProps) => {
                         id="sort-products-select"
                         label="Sort Products"
                         variant="standard"
+                        value={sort}
                         onChange={handleSortingChange}
                 >
 

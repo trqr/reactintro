@@ -14,7 +14,7 @@ createRoot(document.getElementById('root')!).render(
           <FavoriteProvider>
               <ThemeProvider theme={theme}>
                   <CssBaseline/>
-                     <App />
+                  <App />
               </ThemeProvider>
           </FavoriteProvider>
       </CartProvider>

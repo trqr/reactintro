@@ -35,6 +35,7 @@ const RegisterDialog = ({isOpen, handleClose}: RegisterDialogProps) => {
 
     const handleRegister = () => {
         registerUser(userData as User);
+        handleClose();
     }
 
     return (

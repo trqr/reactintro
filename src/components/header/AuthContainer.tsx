@@ -6,27 +6,25 @@ import RegisterDialog from "../RegisterDialog.tsx";
 import AccountMenu from "./AccountMenu.tsx";
 import {Avatar} from "@mui/material";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import {useAuth} from "../../context/useAuth.tsx";
 
 function AuthContainer(){
-    const [signedIn, setSignedIn] = useState(false);
+    const { isAuthenticated, logout } = useAuth();
     const [isLoginOpen , setIsLoginOpen] = useState(false);
     const [isRegisterOpen, setIsRegisterOpen] = useState(false);
     const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
 
-    function SignIn(){
-        setSignedIn(true);
-        setIsLoginOpen(false);
-    }
+
 
 
     function logOut(){
-        setSignedIn(false);
+        logout();
     }
 
 
     return (
             <>
-            { signedIn ?
+            { isAuthenticated ?
                 (<div className={"auth-container"} style={{display:"flex", alignContent:"center", alignItems:"center", margin:"0 20px"}}>
                     <Avatar
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx7sLJbdmCKh3Ko5fv9ahJsMGSZnIiRbz9Qg&s"
@@ -44,7 +42,7 @@ function AuthContainer(){
                     <SecondaryButton text={"Register"} handleClick={() => setIsRegisterOpen(true)}></SecondaryButton>
                 </div>)
             }
-                <LoginDialog isOpen={isLoginOpen} handleLog={SignIn} handleClose={() => setIsLoginOpen(false)} />
+                <LoginDialog isOpen={isLoginOpen} handleClose={() => setIsLoginOpen(false)} />
                 <RegisterDialog isOpen={isRegisterOpen} handleClose={() => setIsRegisterOpen(false)} />
             </>
     )

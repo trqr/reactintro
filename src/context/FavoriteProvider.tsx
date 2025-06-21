@@ -1,6 +1,5 @@
 import type {Product} from "../models/product.tsx";
 import React, {createContext, useState} from "react";
-
 type FavoriteProviderType = {
     favProducts: Product[];
     addToFav: (product: Product) => void;

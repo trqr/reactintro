@@ -18,8 +18,7 @@ type CartContextType = {
 export const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: {children: React.ReactNode}) => {
-    const [cart, setCart] = useState<cartItem[]>([]);
-    loadCartFromLocalStorage();
+    const [cart, setCart] = useState<cartItem[]>(loadCartFromLocalStorage());
 
     function addToCart(product: Product) {
         setCart(prev => {
@@ -55,7 +54,8 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
     }
 
     function loadCartFromLocalStorage() {
-        localStorage.getItem("cart");
+        const cartData = localStorage.getItem("cart");
+        return cartData ? JSON.parse(cartData) : [];
     }
 
     return (

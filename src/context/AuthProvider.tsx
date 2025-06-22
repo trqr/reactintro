@@ -1,11 +1,12 @@
-import {createContext, useContext, useState} from "react";
+import {createContext, useState} from "react";
 import type {User} from "../models/user.tsx";
 import api from "../services/api.tsx";
+import {useFav} from "./useFav.tsx";
 
 type AuthContextType = {
     user: User | null;
     isAuthenticated: boolean;
-    login: (userData : {email: string, password: string}) => void;
+    login: (userData : {email: string, password: string}) => User;
     logout: () => void;
 }
 
@@ -22,6 +23,7 @@ export const AuthProvider = ({ children }: {children: React.ReactNode}) => {
 
         localStorage.setItem("token", token);
         setUser(user);
+        return user;
     }
 
     const logout = () => {

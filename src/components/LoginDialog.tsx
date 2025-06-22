@@ -1,5 +1,6 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField} from "@mui/material";
 import {useAuth} from "../context/useAuth.tsx";
+import {useFav} from "../context/useFav.tsx";
 
 
 type LoginModalProps = {
@@ -9,6 +10,7 @@ type LoginModalProps = {
 
 const LoginDialog = ({ isOpen, handleClose}: LoginModalProps) => {
     const { login } = useAuth();
+    const { getFav } = useFav();
     const loginData = {
         email: "",
         password: "",
@@ -22,9 +24,10 @@ const LoginDialog = ({ isOpen, handleClose}: LoginModalProps) => {
         loginData.password = e.target.value;
     }
 
-    const handleLog = () => {
+    const handleLog = async () => {
         handleClose();
-        login(loginData);
+        const user = await login(loginData);
+        getFav(user.id);
     }
 
     return (

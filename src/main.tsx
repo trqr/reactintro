@@ -11,15 +11,15 @@ import {AuthProvider} from "./context/AuthProvider.tsx";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-      <AuthProvider>
           <CartProvider>
-              <FavoriteProvider>
-                  <ThemeProvider theme={theme}>
-                      <CssBaseline/>
-                      <App />
-                  </ThemeProvider>
-              </FavoriteProvider>
+              <AuthProvider>
+                  <FavoriteProvider>
+                      <ThemeProvider theme={theme}>
+                          <CssBaseline/>
+                          <App />
+                      </ThemeProvider>
+                  </FavoriteProvider>
+              </AuthProvider>
           </CartProvider>
-      </AuthProvider>
   </StrictMode>,
 )

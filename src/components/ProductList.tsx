@@ -37,16 +37,18 @@ const ProductList = () => {
 
     useEffect(() => {
         setLoading(true)
+        if (selectedColor !== "" || selectedBrand !== "") {
         fetchFilteredProducts(filters, setMappedProducts)
             .then(data => {
-                setMinPrice(findMinPrice() - 1);
-                setMaxPrice(findMaxPrice() + 1);
-                setPriceRange([findMinPrice() - 1, findMaxPrice() + 1])
                 setMappedProducts(data);
                 setStockedResults([...data]);
                 console.log(data);
-                setLoading(false);
             });
+        }
+        setMinPrice(findMinPrice() - 1);
+        setMaxPrice(findMaxPrice() + 1);
+        setPriceRange([findMinPrice() - 1, findMaxPrice() + 1])
+        setLoading(false);
     }, [selectedBrand, selectedColor]);
 
     function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {

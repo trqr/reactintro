@@ -10,6 +10,7 @@ import React from "react";
 import {useNavigate} from "react-router-dom";
 import {Favorite, FavoriteBorder} from "@mui/icons-material";
 import {useFav} from "../../context/useFav.tsx";
+import {useAuth} from "../../context/useAuth.tsx";
 
 type ProductCardProps = {
     product: Product;
@@ -17,10 +18,14 @@ type ProductCardProps = {
 
 const ProductCard = ({product} : ProductCardProps) => {
     const [hovered, setHovered] = useState(false);
+    const {user} = useAuth();
     const { addToCart } = useCart();
-    const {  addToFav, removeFromFav, isFavorite } = useFav()
+    const { favProducts, addToFav, removeFromFav, isFavorite } = useFav()
     const navigate = useNavigate();
     const [open, setOpen] = React.useState(false);
+
+    useEffect(() => {
+    }, [favProducts]);
 
     const handleClick = () => {
         setOpen(true);
@@ -38,6 +43,7 @@ const ProductCard = ({product} : ProductCardProps) => {
         setOpen(false);
     };
 
+
     return (
         <div className={"card"}>
             <div className={"card-img-container"}
@@ -48,7 +54,7 @@ const ProductCard = ({product} : ProductCardProps) => {
                         className={"card-fav-icon"}
                         fontSize={"medium"}
                         color={"disabled"}
-                        onClick={() => addToFav(product)}
+                        onClick={() => addToFav(product, user)}
                     ></FavoriteBorder>
                 )}
                 {isFavorite(product) && (

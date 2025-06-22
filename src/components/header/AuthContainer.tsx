@@ -7,9 +7,11 @@ import AccountMenu from "./AccountMenu.tsx";
 import {Avatar} from "@mui/material";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import {useAuth} from "../../context/useAuth.tsx";
+import {useFav} from "../../context/useFav.tsx";
 
 function AuthContainer(){
     const { isAuthenticated, logout } = useAuth();
+    const { clearFav } = useFav();
     const [isLoginOpen , setIsLoginOpen] = useState(false);
     const [isRegisterOpen, setIsRegisterOpen] = useState(false);
     const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
@@ -19,6 +21,7 @@ function AuthContainer(){
 
     function logOut(){
         logout();
+        clearFav();
     }
 
 

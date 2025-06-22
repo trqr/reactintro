@@ -1,13 +1,15 @@
 import type {Product} from "../models/product.tsx";
 import React, {createContext, useState} from "react";
 import api from "../services/api.tsx";
+import type {User} from "../models/user.tsx";
 
 type FavoriteProviderType = {
     getFav: (userId: number) => Promise<void>;
     favProducts: Product[];
-    addToFav: (product: Product) => void;
+    addToFav: (product: Product, user: User) => void;
     removeFromFav: (product: Product) => void;
     isFavorite: (product: Product) => boolean;
+    clearFav: () => void;
 }
 
 export const FavoriteContext = createContext<FavoriteProviderType | undefined>(undefined);
@@ -21,21 +23,29 @@ export const FavoriteProvider = ({children} : {children: React.ReactNode}) => {
         setFavProducts(data);
     }
 
-    function addToFav(product: Product) {
-        setFavProducts([...favProducts, product]);
+    function addToFav(product: Product, user: User) {
+        if (!favProducts.some(prod => prod.id === product.id)) {
+            api.post(`/fav/add`, {ProductId: product.id, userId: user.id});
+            setFavProducts([...favProducts, product]);
+        }
+
     }
 
     function removeFromFav(product: Product) {
-        setFavProducts(favProducts.filter(prod => prod !== product));
+        setFavProducts(favProducts.filter(prod => prod.id !== product.id));
     }
 
     function isFavorite(product: Product) {
-        return favProducts.includes(product);
+        return favProducts.some(prod => prod.id === product.id);
+    }
+
+    function clearFav(){
+        setFavProducts([]);
     }
 
     return (
         <>
-            <FavoriteContext.Provider value={{ getFav, favProducts, addToFav, removeFromFav, isFavorite}}>
+            <FavoriteContext.Provider value={{ getFav, favProducts, addToFav, removeFromFav, isFavorite, clearFav}}>
                 {children}
             </FavoriteContext.Provider>
         </>

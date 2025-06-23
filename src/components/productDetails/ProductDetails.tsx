@@ -6,12 +6,14 @@ import { useNavigate } from "react-router-dom";
 import '../../styles/ProductDetails.css';
 import {useFav} from "../../context/useFav.tsx";
 import {Favorite, FavoriteBorder} from "@mui/icons-material";
+import {useAuth} from "../../context/useAuth.tsx";
 
 type ProductDetailsProps = {
     product: Product;
 }
 
 const ProductDetails = ({product}: ProductDetailsProps) => {
+    const { user } = useAuth();
     const { addToCart } = useCart();
     const navigate = useNavigate();
     const { isFavorite, addToFav, removeFromFav} = useFav();
@@ -23,8 +25,8 @@ const ProductDetails = ({product}: ProductDetailsProps) => {
             <div className={"product-container"}>
                 <h1 className={"product-title"}>
                     {product.name} {isFavorite(product)
-                    ? (<Favorite color={"secondary"} fontSize={"large"} cursor={"pointer"} onClick={() => removeFromFav(product)} />)
-                    : (<FavoriteBorder color={"disabled"} fontSize={"large"} cursor={"pointer"} onClick={() => addToFav(product)} />)}
+                    ? (<Favorite color={"secondary"} fontSize={"large"} cursor={"pointer"} onClick={() => removeFromFav(product, user)} />)
+                    : (<FavoriteBorder color={"disabled"} fontSize={"large"} cursor={"pointer"} onClick={() => addToFav(product, user)} />)}
                 </h1>
                 <div className={"img-grid"}>
                     {product.imagesUrl.map((img) =>

@@ -62,7 +62,7 @@ const ProductCard = ({product} : ProductCardProps) => {
                         className={"card-fav-icon"}
                         fontSize={"medium"}
                         color={"secondary"}
-                        onClick={() => removeFromFav(product)}
+                        onClick={() => removeFromFav(product, user)}
                     ></Favorite>
                 )}
 

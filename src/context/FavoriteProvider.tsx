@@ -7,7 +7,7 @@ type FavoriteProviderType = {
     getFav: (userId: number) => Promise<void>;
     favProducts: Product[];
     addToFav: (product: Product, user: User) => void;
-    removeFromFav: (product: Product) => void;
+    removeFromFav: (product: Product, user: User) => void;
     isFavorite: (product: Product) => boolean;
     clearFav: () => void;
 }
@@ -25,13 +25,14 @@ export const FavoriteProvider = ({children} : {children: React.ReactNode}) => {
 
     function addToFav(product: Product, user: User) {
         if (!favProducts.some(prod => prod.id === product.id)) {
-            api.post(`/fav/add`, {ProductId: product.id, userId: user.id});
+            api.post(`/fav/add?productId=${product.id}&userId=${user.id}`);
             setFavProducts([...favProducts, product]);
         }
 
     }
 
-    function removeFromFav(product: Product) {
+    function removeFromFav(product: Product, user: User){
+        api.delete(`/fav/remove?productId=${product.id}&userId=${user.id}`);
         setFavProducts(favProducts.filter(prod => prod.id !== product.id));
     }
 

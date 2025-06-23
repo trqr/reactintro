@@ -2,14 +2,16 @@ import type {Product} from "../models/product.tsx";
 import {Button} from "@mui/material";
 import {useCart} from "../context/useCart.tsx";
 import {useFav} from "../context/useFav.tsx";
+import {useAuth} from "../context/useAuth.tsx";
 
 type FavoriteCardProps = {
     product: Product;
 }
 
 const FavoriteCard = ({product}: FavoriteCardProps) => {
-    const { addToCart } = useCart()
-    const { removeFromFav } = useFav()
+    const { user } = useAuth();
+    const { addToCart } = useCart();
+    const { removeFromFav } = useFav();
 
     return (
         <>
@@ -22,7 +24,7 @@ const FavoriteCard = ({product}: FavoriteCardProps) => {
                 </div>
                 <div className={"fav-card-buttons"}>
                     <Button variant={"contained"} onClick={() => addToCart(product)}>Add to cart</Button>
-                    <Button variant={"text"} onClick={() => removeFromFav(product)}>Remove</Button>
+                    <Button variant={"text"} onClick={() => removeFromFav(product, user)}>Remove</Button>
                 </div>
             </div>
         </>

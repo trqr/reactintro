@@ -3,6 +3,7 @@ import api from "./services/api.tsx";
 import Home from "./pages/home"
 import ProductPage from "./pages/ProductPage.tsx";
 import FavoritesPage from "./pages/FavoritesPage.tsx";
+import CheckoutPage from "./pages/CheckoutPage.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
         path: "/favorites",
         element: <FavoritesPage/>,
     },
+    {
+        path: "checkout",
+        element: <CheckoutPage/>
+    }
 ]);
 
 

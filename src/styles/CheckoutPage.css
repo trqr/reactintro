@@ -1,0 +1,12 @@
+
+
+.checkout-cart-img {
+    height: 50px;
+    width: 80px;
+    object-fit: cover;
+}
+
+.checkout-subtotal {
+    background-color: #ececec;
+    border: 1px solid #dfdede;
+}

@@ -11,6 +11,7 @@ import {useNavigate} from "react-router-dom";
 import {Favorite, FavoriteBorder} from "@mui/icons-material";
 import {useFav} from "../../context/useFav.tsx";
 import {useAuth} from "../../context/useAuth.tsx";
+import LoginDialog from "../LoginDialog.tsx";
 
 type ProductCardProps = {
     product: Product;
@@ -18,14 +19,20 @@ type ProductCardProps = {
 
 const ProductCard = ({product} : ProductCardProps) => {
     const [hovered, setHovered] = useState(false);
-    const {user} = useAuth();
+    const {user, isAuthenticated} = useAuth();
     const { addToCart } = useCart();
-    const { favProducts, addToFav, removeFromFav, isFavorite } = useFav()
+    const { addToFav, removeFromFav, isFavorite } = useFav()
     const navigate = useNavigate();
     const [open, setOpen] = React.useState(false);
+    const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
 
-    useEffect(() => {
-    }, [favProducts]);
+    const handleAddToFav = () => {
+        if (isAuthenticated){
+            addToFav(product, user)
+        } else {
+            setIsLoginDialogOpen(true);
+        }
+    }
 
     const handleClick = () => {
         setOpen(true);
@@ -45,6 +52,7 @@ const ProductCard = ({product} : ProductCardProps) => {
 
 
     return (
+        <>
         <div className={"card"}>
             <div className={"card-img-container"}
                  onMouseOver={() => setHovered(true)}
@@ -54,7 +62,7 @@ const ProductCard = ({product} : ProductCardProps) => {
                         className={"card-fav-icon"}
                         fontSize={"medium"}
                         color={"disabled"}
-                        onClick={() => addToFav(product, user)}
+                        onClick={() => handleAddToFav()}
                     ></FavoriteBorder>
                 )}
                 {isFavorite(product) && (
@@ -94,7 +102,9 @@ const ProductCard = ({product} : ProductCardProps) => {
             </div>
 
         </div>
-    );
+        <LoginDialog isOpen={isLoginDialogOpen} handleClose={() => setIsLoginDialogOpen(false)}/>
+        </>
+);
 };
 
 export default ProductCard;

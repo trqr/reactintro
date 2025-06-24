@@ -1,5 +1,5 @@
-import PrimaryButton from "../PrimaryButton.tsx";
-import SecondaryButton from "../SecondaryButton.tsx";
+import PrimaryButton from "../common/PrimaryButton.tsx";
+import SecondaryButton from "../common/SecondaryButton.tsx";
 import {useState} from "react";
 import LoginDialog from "../LoginDialog.tsx";
 import RegisterDialog from "../RegisterDialog.tsx";

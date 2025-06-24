@@ -1,7 +1,6 @@
 import {useCart} from "../context/useCart.tsx";
 import type {cartItem} from "../context/CartProvider.tsx";
-import {Avatar, Box, Button, IconButton, ListItem, ListItemAvatar, ListItemText} from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
+import { Box, Button, ListItem, ListItemAvatar, ListItemText} from "@mui/material";
 
 
 const CheckoutCart = () => {

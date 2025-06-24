@@ -1,6 +1,6 @@
 import type {Product} from "../../models/product.tsx";
-import PrimaryButton from "../PrimaryButton.tsx";
-import SecondaryButton from "../SecondaryButton.tsx";
+import PrimaryButton from "../common/PrimaryButton.tsx";
+import SecondaryButton from "../common/SecondaryButton.tsx";
 import {useCart} from "../../context/useCart.tsx";
 import { useNavigate } from "react-router-dom";
 import '../../styles/ProductDetails.css';

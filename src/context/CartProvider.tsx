@@ -1,6 +1,7 @@
 import {createContext, useState} from "react";
 import type {Product} from "../models/product.tsx";
 import * as React from "react";
+import MySnackBar from "../components/common/mySnackBar.tsx";
 
 export type cartItem =
     Product & { quantity: number };
@@ -19,6 +20,10 @@ export const CartContext = createContext<CartContextType | undefined>(undefined)
 
 export const CartProvider = ({ children }: {children: React.ReactNode}) => {
     const [cart, setCart] = useState<cartItem[]>(loadCartFromLocalStorage());
+    const [snackOpen, setSnackOpen] = useState(false);
+    const [TextSnack, setTextSnack] = useState("");
+    const [snackSeverity, setSnackSeverity] = useState<"success" | "error" | "info" | "warning">("info");
+
 
     function addToCart(product: Product) {
         setCart(prev => {
@@ -33,11 +38,17 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
                 return [...prev, {...product, quantity: 1}];
             }
         });
+        setSnackOpen(true);
+        setTextSnack("Product added to cart");
+        setSnackSeverity("success");
         saveCartToLocalStorage();
     }
 
     function removeFromCart(productId: number) {
         setCart(prev => prev.filter(i => i.id !== productId));
+        setSnackOpen(true);
+        setTextSnack("Product removed from cart");
+        setSnackSeverity("warning");
         saveCartToLocalStorage();
     }
 
@@ -59,8 +70,15 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
     }
 
     return (
-        <CartContext.Provider value={{cart, addToCart, removeFromCart, getCartQuantity, getCartTotal}}>
-            {children}
-        </CartContext.Provider>
+        <>
+            <CartContext.Provider value={{cart, addToCart, removeFromCart, getCartQuantity, getCartTotal}}>
+                {children}
+            </CartContext.Provider>
+            <MySnackBar open={snackOpen}
+                        setOpen={setSnackOpen}
+                        text={TextSnack}
+                        severity={snackSeverity}
+            />
+        </>
     );
 }

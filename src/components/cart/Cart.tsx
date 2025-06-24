@@ -2,7 +2,7 @@ import {useCart} from "../../context/useCart.tsx";
 import MyListItem from "./MyListItem.tsx";
 import type {cartItem} from "../../context/CartProvider.tsx";
 import '../../styles/Cart.css';
-import PrimaryButton from "../PrimaryButton.tsx";
+import PrimaryButton from "../common/PrimaryButton.tsx";
 import {useNavigate} from "react-router-dom";
 import {useAuth} from "../../context/useAuth.tsx";
 import LoginDialog from "../LoginDialog.tsx";

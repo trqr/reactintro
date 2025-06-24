@@ -5,7 +5,7 @@ import * as React from "react";
 import {useState, useEffect} from "react";
 import Filters from "./Filters.tsx";
 import type { SelectChangeEvent } from "@mui/material/Select";
-import SortProducts from "./SortProducts.tsx";
+import SortProducts from "./common/SortProducts.tsx";
 import {fetchFilteredProducts} from "../utils/productUtils.tsx";
 import {CircularProgress} from "@mui/material";
 import {useLoaderData} from "react-router-dom";

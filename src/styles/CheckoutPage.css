@@ -6,7 +6,18 @@
     object-fit: cover;
 }
 
+.checkout-cart {
+    margin: 30px 30px;
+    width: 500px;
+}
+
 .checkout-subtotal {
     background-color: #ececec;
     border: 1px solid #dfdede;
+}
+
+.checkout-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }

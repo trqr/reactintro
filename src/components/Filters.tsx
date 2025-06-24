@@ -1,13 +1,13 @@
 import Select from "@mui/material/Select";
 import type {SelectChangeEvent } from "@mui/material/Select";
-import SearchBar from "./SearchBar";
+import SearchBar from "./common/SearchBar.tsx";
 import MenuItem from "@mui/material/MenuItem";
 import { FormControl, IconButton, InputLabel} from "@mui/material";
 import '../styles/Filters.css';
 import CircleIcon from '@mui/icons-material/Circle';
 import { Close } from "@mui/icons-material";
-import PriceSlider from "./PriceSlider.tsx";
-import SortProducts from "./SortProducts.tsx";
+import PriceSlider from "./common/PriceSlider.tsx";
+import SortProducts from "./common/SortProducts.tsx";
 
 type FiltersProps = {
     handleSearch : (e : React.ChangeEvent<HTMLInputElement>) => void;

@@ -1,7 +1,7 @@
 import CardTitle from "./CardTitle.tsx";
 import CardPrice from "./CardPrice.tsx";
 import '../../styles/ProductCard.css'
-import PrimaryButton from "../PrimaryButton.tsx";
+import PrimaryButton from "../common/PrimaryButton.tsx";
 import {Alert, Button, Snackbar, type SnackbarCloseReason} from "@mui/material";
 import type {Product} from "../../models/product.tsx";
 import {useEffect, useState} from "react";
@@ -12,6 +12,7 @@ import {Favorite, FavoriteBorder} from "@mui/icons-material";
 import {useFav} from "../../context/useFav.tsx";
 import {useAuth} from "../../context/useAuth.tsx";
 import LoginDialog from "../LoginDialog.tsx";
+import MySnackBar from "../common/mySnackBar.tsx";
 
 type ProductCardProps = {
     product: Product;
@@ -24,11 +25,15 @@ const ProductCard = ({product} : ProductCardProps) => {
     const { addToFav, removeFromFav, isFavorite } = useFav()
     const navigate = useNavigate();
     const [open, setOpen] = React.useState(false);
+    const [openAddToFav, setOpenAddToFav] = useState(false);
+    const [openRemoveFromFav, setOpenRemoveFromFav] = useState(false);
+
     const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
 
     const handleAddToFav = () => {
         if (isAuthenticated){
             addToFav(product, user)
+            setOpenAddToFav(true);
         } else {
             setIsLoginDialogOpen(true);
         }
@@ -38,18 +43,6 @@ const ProductCard = ({product} : ProductCardProps) => {
         setOpen(true);
         addToCart(product);
     };
-
-    const handleClose = (
-        event: React.SyntheticEvent | Event,
-        reason?: SnackbarCloseReason,
-    ) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        setOpen(false);
-    };
-
 
     return (
         <>
@@ -84,27 +77,16 @@ const ProductCard = ({product} : ProductCardProps) => {
             </div>
             <div className={"product-card-buttons"}>
                 <PrimaryButton text={"Add to cart"} handleClick={() => handleClick()}/>
-                <Snackbar
-                    open={open}
-                    autoHideDuration={6000}
-                    onClose={handleClose}
-                    >
-                    <Alert
-                        onClose={handleClose}
-                        severity="success"
-                        variant="filled"
-                        sx={{width: '100%'}}>
-                    Added to cart !
-                     </Alert>
-                </Snackbar>
+                <MySnackBar open={openAddToFav} setOpen={setOpenAddToFav} text={"Added to favorites"}/>
+                <MySnackBar open={openRemoveFromFav} setOpen={setOpenRemoveFromFav} text={"Removed from favorites"} severity={"info"}/>
+                <MySnackBar open={open} setOpen={setOpen} text={"Added to cart"}/>
                 <Button variant="text" onClick={() => navigate(`/products/${product.id.toString()}`)}>Show more</Button>
-
             </div>
 
         </div>
         <LoginDialog isOpen={isLoginDialogOpen} handleClose={() => setIsLoginDialogOpen(false)}/>
         </>
-);
+    );
 };
 
 export default ProductCard;

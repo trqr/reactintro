@@ -1,6 +1,5 @@
 import { Search } from "@mui/icons-material";
 import {InputAdornment, TextField} from "@mui/material";
-import '../styles/SearchBar.css';
 import * as React from "react";
 
 type SearchBarProps = {

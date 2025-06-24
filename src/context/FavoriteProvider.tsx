@@ -2,6 +2,7 @@ import type {Product} from "../models/product.tsx";
 import React, {createContext, useState} from "react";
 import api from "../services/api.tsx";
 import type {User} from "../models/user.tsx";
+import MySnackBar from "../components/common/mySnackBar.tsx";
 
 type FavoriteProviderType = {
     getFav: (userId: number) => Promise<void>;
@@ -16,6 +17,10 @@ export const FavoriteContext = createContext<FavoriteProviderType | undefined>(u
 
 export const FavoriteProvider = ({children} : {children: React.ReactNode}) => {
     const [favProducts, setFavProducts] = useState<Product[]>([]);
+    const [snackOpen, setSnackOpen] = useState(false);
+    const [TextSnack, setTextSnack] = useState("");
+    const [snackSeverity, setSnackSeverity] = useState<"success" | "error" | "info" | "warning">("info");
+
 
     async function getFav(userId: number) {
         const response = await api.get(`/fav`, {params: {userId}});
@@ -27,6 +32,9 @@ export const FavoriteProvider = ({children} : {children: React.ReactNode}) => {
         if (!favProducts.some(prod => prod.id === product.id)) {
             api.post(`/fav/add?productId=${product.id}&userId=${user.id}`);
             setFavProducts([...favProducts, product]);
+            setSnackOpen(true);
+            setTextSnack("Product added to favorites");
+            setSnackSeverity("success");
         }
 
     }
@@ -34,6 +42,9 @@ export const FavoriteProvider = ({children} : {children: React.ReactNode}) => {
     function removeFromFav(product: Product, user: User){
         api.delete(`/fav/remove?productId=${product.id}&userId=${user.id}`);
         setFavProducts(favProducts.filter(prod => prod.id !== product.id));
+        setSnackOpen(true);
+        setTextSnack("Product removed from favorites");
+        setSnackSeverity("warning");
     }
 
     function isFavorite(product: Product) {
@@ -49,6 +60,11 @@ export const FavoriteProvider = ({children} : {children: React.ReactNode}) => {
             <FavoriteContext.Provider value={{ getFav, favProducts, addToFav, removeFromFav, isFavorite, clearFav}}>
                 {children}
             </FavoriteContext.Provider>
+            <MySnackBar open={snackOpen}
+                        setOpen={setSnackOpen}
+                        text={TextSnack}
+                        severity={snackSeverity}
+            />
         </>
     )
 }

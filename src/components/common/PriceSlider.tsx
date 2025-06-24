@@ -4,7 +4,7 @@ type PriceSliderProps = {
     min: number;
     max: number;
     priceRange: number[];
-    handlePriceFilter: (_event: Event, newValue: number | number[]) => void;
+    handlePriceFilter: (_event: React.SyntheticEvent | Event, newValue: number | number[]) => void;
 };
 
 const PriceSlider = ({min, max, priceRange, handlePriceFilter} : PriceSliderProps) => {
@@ -18,7 +18,7 @@ const PriceSlider = ({min, max, priceRange, handlePriceFilter} : PriceSliderProp
             <Slider
                 size={"small"}
                 value={priceRange}
-                onChange={handlePriceFilter}
+                onChangeCommitted={handlePriceFilter}
                 valueLabelDisplay="off"
                 disableSwap
                 min={min}

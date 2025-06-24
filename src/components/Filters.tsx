@@ -7,7 +7,6 @@ import '../styles/Filters.css';
 import CircleIcon from '@mui/icons-material/Circle';
 import { Close } from "@mui/icons-material";
 import PriceSlider from "./common/PriceSlider.tsx";
-import SortProducts from "./common/SortProducts.tsx";
 
 type FiltersProps = {
     handleSearch : (e : React.ChangeEvent<HTMLInputElement>) => void;
@@ -19,7 +18,7 @@ type FiltersProps = {
     minPrice : number;
     maxPrice : number;
     priceRange: number[];
-    handlePriceFilter: (_event: Event, newValue: number | number[]) => void;
+    handlePriceFilter: (_event: React.SyntheticEvent | Event, newValue: number | number[]) => void;
     ClearFilters : () => void;
 }
 

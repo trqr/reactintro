@@ -19,7 +19,7 @@ export const FavoriteProvider = ({children} : {children: React.ReactNode}) => {
     const [favProducts, setFavProducts] = useState<Product[]>([]);
     const [snackOpen, setSnackOpen] = useState(false);
     const [TextSnack, setTextSnack] = useState("");
-    const [snackSeverity, setSnackSeverity] = useState<"success" | "error" | "info" | "warning">("info");
+    const [snackSeverity, setsnackSeverity] = useState<"success" | "error" | "info" | "warning">("info");
 
 
     async function getFav(userId: number) {
@@ -34,7 +34,7 @@ export const FavoriteProvider = ({children} : {children: React.ReactNode}) => {
             setFavProducts([...favProducts, product]);
             setSnackOpen(true);
             setTextSnack("Product added to favorites");
-            setSnackSeverity("success");
+            setsnackSeverity("success");
         }
 
     }
@@ -44,7 +44,7 @@ export const FavoriteProvider = ({children} : {children: React.ReactNode}) => {
         setFavProducts(favProducts.filter(prod => prod.id !== product.id));
         setSnackOpen(true);
         setTextSnack("Product removed from favorites");
-        setSnackSeverity("warning");
+        setsnackSeverity("warning");
     }
 
     function isFavorite(product: Product) {
@@ -63,7 +63,7 @@ export const FavoriteProvider = ({children} : {children: React.ReactNode}) => {
             <MySnackBar open={snackOpen}
                         setOpen={setSnackOpen}
                         text={TextSnack}
-                        severity={snackSeverity}
+                        color={snackSeverity}
             />
         </>
     )

@@ -12,7 +12,6 @@ const CartIcon = () => {
 
     useEffect(() => {
         setQuantity(getCartQuantity());
-        console.log(quantity);
     }, [cart, getCartQuantity, quantity]);
 
     return (

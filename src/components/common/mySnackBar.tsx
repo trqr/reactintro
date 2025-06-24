@@ -5,10 +5,10 @@ type mySnackBarProps = {
     open: boolean;
     setOpen: (open: boolean) => void;
     text: string;
-    severity?: "success" | "error" | "info" | "warning";
+    color?: "success" | "error" | "info" | "warning";
 }
 
-const MySnackBar = ({open, setOpen, text, severity = "success"}: mySnackBarProps) => {
+const MySnackBar = ({open, setOpen, text, color = "success"}: mySnackBarProps) => {
 
     const handleClose = (
         event: React.SyntheticEvent | Event,
@@ -31,7 +31,8 @@ const MySnackBar = ({open, setOpen, text, severity = "success"}: mySnackBarProps
             >
                 <Alert
                     onClose={handleClose}
-                    severity={severity}
+                    severity={"success"}
+                    color={color}
                     variant="filled"
                     sx={{width: '100%'}}>
                     {text}

@@ -7,18 +7,19 @@ import '../../styles/ProductDetails.css';
 import {useFav} from "../../context/useFav.tsx";
 import {Favorite, FavoriteBorder} from "@mui/icons-material";
 import {useAuth} from "../../context/useAuth.tsx";
+import LoginDialog from "../LoginDialog.tsx";
+import {useState} from "react";
 
 type ProductDetailsProps = {
     product: Product;
 }
 
 const ProductDetails = ({product}: ProductDetailsProps) => {
-    const { user } = useAuth();
+    const { user, isAuthenticated } = useAuth();
     const { addToCart } = useCart();
     const navigate = useNavigate();
     const { isFavorite, addToFav, removeFromFav} = useFav();
-
-
+    const [ open, setOpen ] = useState(false);
 
     return (
         <>
@@ -26,7 +27,7 @@ const ProductDetails = ({product}: ProductDetailsProps) => {
                 <h1 className={"product-title"}>
                     {product.name} {isFavorite(product)
                     ? (<Favorite color={"secondary"} fontSize={"large"} cursor={"pointer"} onClick={() => removeFromFav(product, user)} />)
-                    : (<FavoriteBorder color={"disabled"} fontSize={"large"} cursor={"pointer"} onClick={() => addToFav(product, user)} />)}
+                    : (<FavoriteBorder color={"disabled"} fontSize={"large"} cursor={"pointer"} onClick={() => isAuthenticated ? addToFav(product, user) : setOpen(true)} />)}
                 </h1>
                 <div className={"img-grid"}>
                     {product.imagesUrl.map((img) =>
@@ -44,7 +45,7 @@ const ProductDetails = ({product}: ProductDetailsProps) => {
                     <SecondaryButton text={"Back to home"} handleClick={() => navigate("/")}></SecondaryButton>
                 </div>
             </div>
-
+            <LoginDialog isOpen={open} handleClose={() => setOpen(false)}></LoginDialog>
         </>
     )
 }

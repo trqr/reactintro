@@ -14,16 +14,13 @@ type CartContextType = {
     getCartTotal: () => number;
 };
 
-
-
 export const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: {children: React.ReactNode}) => {
     const [cart, setCart] = useState<cartItem[]>(loadCartFromLocalStorage());
     const [snackOpen, setSnackOpen] = useState(false);
     const [TextSnack, setTextSnack] = useState("");
-    const [snackSeverity, setSnackSeverity] = useState<"success" | "error" | "info" | "warning">("info");
-
+    const [snackColor, setSnackColor] = useState<"success" | "error" | "info" | "warning">("info");
 
     function addToCart(product: Product) {
         setCart(prev => {
@@ -40,7 +37,7 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
         });
         setSnackOpen(true);
         setTextSnack("Product added to cart");
-        setSnackSeverity("success");
+        setSnackColor("success");
         saveCartToLocalStorage();
     }
 
@@ -48,7 +45,7 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
         setCart(prev => prev.filter(i => i.id !== productId));
         setSnackOpen(true);
         setTextSnack("Product removed from cart");
-        setSnackSeverity("warning");
+        setSnackColor("warning");
         saveCartToLocalStorage();
     }
 
@@ -77,7 +74,7 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
             <MySnackBar open={snackOpen}
                         setOpen={setSnackOpen}
                         text={TextSnack}
-                        severity={snackSeverity}
+                        color={snackColor}
             />
         </>
     );

@@ -1,20 +1,34 @@
 import {useCart} from "../context/useCart.tsx";
 import type {cartItem} from "../context/CartProvider.tsx";
-import {Box, Button, FormControl, ListItem, ListItemAvatar, ListItemText, TextField} from "@mui/material";
+import {Alert, Box, Button, FormControl, ListItem, ListItemAvatar, ListItemText, TextField} from "@mui/material";
+import api from "../services/api.tsx";
+import {useState} from "react";
 
 
 const CheckoutCart = () => {
     const { cart } = useCart();
     const { removeFromCart, getCartTotal} = useCart();
     const [promoCode, setPromoCode] = useState<string>('');
+    const [successMessage, setSuccessMessage] = useState<string>('');
+    const [errorMessage, setErrorMessage] = useState<string>('');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPromoCode(e.target.value);
     }
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setPromoCode(promoCode);
+        const response = await api.post('/codepromo', {
+            code: promoCode,
+        });
+        if (response.data.success) {
+            setSuccessMessage(response.data.message || 'Code promo appliqué avec succès.');
+            setErrorMessage('');
+        } else {
+            setErrorMessage(response.data.message || 'Le code promo est invalide.');
+            setSuccessMessage('');
+        }
     }
 
     return (
@@ -98,6 +112,12 @@ const CheckoutCart = () => {
                             </Button>
                         </Box>
                     </FormControl>
+                    {successMessage && (
+                        <Alert severity="success" style={{marginTop: '1rem'}}>{successMessage}</Alert>
+                    )}
+                    {errorMessage && (
+                        <Alert severity="error" style={{marginTop: '1rem'}}>{errorMessage}</Alert>
+                    )}
                 </form>
 
             </div>

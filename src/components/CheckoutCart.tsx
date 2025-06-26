@@ -10,6 +10,7 @@ const CheckoutCart = () => {
     const { removeFromCart, getCartTotal} = useCart();
     const [promoCode, setPromoCode] = useState<string>('');
     const [successMessage, setSuccessMessage] = useState<string>('');
+    const [promoValue, setPromoValue] = useState<number>(0);
     const [errorMessage, setErrorMessage] = useState<string>('');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,16 +19,17 @@ const CheckoutCart = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setPromoCode(promoCode);
         const response = await api.post('/codepromo', {
             code: promoCode,
         });
         if (response.data.success) {
-            setSuccessMessage(response.data.message || 'Code promo appliqué avec succès.');
+            setSuccessMessage(response.data.message);
             setErrorMessage('');
+            setPromoValue(response.data.value);
         } else {
-            setErrorMessage(response.data.message || 'Le code promo est invalide.');
+            setErrorMessage(response.data.message);
             setSuccessMessage('');
+            setPromoValue(0);
         }
     }
 
@@ -73,16 +75,16 @@ const CheckoutCart = () => {
                     <ListItem className={"line-checkout"}
                               secondaryAction={
                                   <ListItemText
-                                      primary={"0 €"}/>
+                                      primary={`-${(promoValue * getCartTotal() / 100).toFixed(2)} €`}/>
                               }>
                         <ListItemText
                             className={"checkout-text-subtotal list-checkout"}
-                            primary={"CodePromo :"}/>
+                            primary={`CodePromo -${promoValue}% :`}/>
                     </ListItem>
                     <ListItem className={"line-checkout"}
                         secondaryAction={
                             <ListItemText
-                                primary={getCartTotal().toFixed(2) + " €"}/>
+                                primary={(getCartTotal()-(promoValue * getCartTotal() / 100)).toFixed(2) + " €"}/>
                         }>
                         <ListItemText
                             className={"checkout-text-subtotal list-checkout"}
@@ -103,7 +105,7 @@ const CheckoutCart = () => {
                             <Button
                                 sx={{marginBottom: "20px", width: "200px"}}
                                 type="submit"
-                                variant="contained"
+                                variant="outlined"
                                 size="large"
                                 color="primary"
                                 style={{marginTop: '1rem'}}

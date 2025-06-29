@@ -2,16 +2,36 @@ import {useCart} from "../context/useCart.tsx";
 import type {cartItem} from "../context/CartProvider.tsx";
 import {Alert, Box, Button, FormControl, ListItem, ListItemAvatar, ListItemText, TextField} from "@mui/material";
 import api from "../services/api.tsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {useAuth} from "../context/useAuth.tsx";
+import {useOrder} from "../context/useOrder.tsx";
 
+type CheckoutCartProps = {
+    deliveryValue: string;
+}
 
-const CheckoutCart = () => {
+const CheckoutCart = ({deliveryValue}: CheckoutCartProps) => {
     const { cart } = useCart();
+    const { user } = useAuth();
+    const { order, setOrder } = useOrder();
     const { removeFromCart, getCartTotal} = useCart();
     const [promoCode, setPromoCode] = useState<string>('');
     const [successMessage, setSuccessMessage] = useState<string>('');
     const [promoValue, setPromoValue] = useState<number>(0);
     const [errorMessage, setErrorMessage] = useState<string>('');
+
+
+    useEffect(() => {
+        setOrder({
+            userEmail: user.email,
+            promoCode: promoCode,
+            deliveryValue: +deliveryValue,
+            totalPrice: (getCartTotal() + (+deliveryValue) - (promoValue * getCartTotal() / 100)),
+            cart: cart
+        });
+        console.log(order)
+    }, [deliveryValue, promoCode]);
+
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPromoCode(e.target.value);
@@ -66,13 +86,15 @@ const CheckoutCart = () => {
                     <ListItem className={"line-checkout"}
                         secondaryAction={
                             <ListItemText
-                                primary={"0 €"}/>
+                                primary={`${deliveryValue} €`}/>
                         }>
                         <ListItemText
                             className={"checkout-text-subtotal list-checkout"}
                             primary={"Delivery :"}/>
                     </ListItem>
-                    <ListItem className={"line-checkout"}
+                    {promoValue > 0 &&
+                        <ListItem className={"line-checkout"}
+                                  sx={{color:"green"}}
                               secondaryAction={
                                   <ListItemText
                                       primary={`-${(promoValue * getCartTotal() / 100).toFixed(2)} €`}/>
@@ -80,15 +102,17 @@ const CheckoutCart = () => {
                         <ListItemText
                             className={"checkout-text-subtotal list-checkout"}
                             primary={`CodePromo -${promoValue}% :`}/>
-                    </ListItem>
+                        </ListItem>}
                     <ListItem className={"line-checkout"}
-                        secondaryAction={
+                              secondaryAction={
                             <ListItemText
-                                primary={(getCartTotal()-(promoValue * getCartTotal() / 100)).toFixed(2) + " €"}/>
+                                primary={(getCartTotal()+(+deliveryValue)-(promoValue * getCartTotal() / 100)).toFixed(2) + " €"}/>
                         }>
                         <ListItemText
                             className={"checkout-text-subtotal list-checkout"}
                             primary={"Total :"}/>
+
+
                     </ListItem>
                 </Box>
                 <form onSubmit={handleSubmit}>

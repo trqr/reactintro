@@ -8,17 +8,20 @@ import theme from "./styles/theme.tsx";
 import {CartProvider} from "./context/CartProvider.tsx";
 import {FavoriteProvider} from "./context/FavoriteProvider.tsx";
 import {AuthProvider} from "./context/AuthProvider.tsx";
+import {OrderProvider} from "./context/OrderProvider.tsx";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
           <CartProvider>
               <AuthProvider>
-                  <FavoriteProvider>
-                      <ThemeProvider theme={theme}>
-                          <CssBaseline/>
-                          <App />
-                      </ThemeProvider>
-                  </FavoriteProvider>
+                  <OrderProvider>
+                      <FavoriteProvider>
+                          <ThemeProvider theme={theme}>
+                              <CssBaseline/>
+                              <App />
+                          </ThemeProvider>
+                      </FavoriteProvider>
+                  </OrderProvider>
               </AuthProvider>
           </CartProvider>
   </StrictMode>,

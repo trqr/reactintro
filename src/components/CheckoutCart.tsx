@@ -11,9 +11,13 @@ type CheckoutCartProps = {
 }
 
 const CheckoutCart = ({deliveryValue}: CheckoutCartProps) => {
+    //@ts-expect-error biendanslecontext
     const { cart } = useCart();
+    //@ts-expect-error biendanslecontext
     const { user } = useAuth();
+    //@ts-expect-error biendanslecontext
     const { order, setOrder } = useOrder();
+    //@ts-expect-error biendanslecontext
     const { removeFromCart, getCartTotal} = useCart();
     const [promoCode, setPromoCode] = useState<string>('');
     const [successMessage, setSuccessMessage] = useState<string>('');
@@ -29,8 +33,9 @@ const CheckoutCart = ({deliveryValue}: CheckoutCartProps) => {
             totalPrice: (getCartTotal() + (+deliveryValue) - (promoValue * getCartTotal() / 100)),
             cart: cart
         });
-        console.log(order)
-    }, [deliveryValue, promoCode]);
+        setTimeout(() => console.log(order), 300)
+
+    }, [deliveryValue, promoCode, promoValue]);
 
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,15 +67,15 @@ const CheckoutCart = ({deliveryValue}: CheckoutCartProps) => {
                     <ListItem
                         secondaryAction={
                             <ListItemText
-                                primary={(cartItem.price * cartItem.quantity).toFixed(2) + " €"}>
+                                primary={(cartItem.product.price * cartItem.quantity).toFixed(2) + " €"}>
                             </ListItemText>
                         }>
                         <ListItemAvatar>
-                                <img className={"checkout-cart-img"} src={cartItem.imagesUrl[2].imgUrl} alt={cartItem.name}/>
+                                <img className={"checkout-cart-img"} src={cartItem.product.imagesUrl[2].imgUrl} alt={cartItem.product.name}/>
                         </ListItemAvatar>
                         <ListItemText
-                            primary={cartItem.name + "   x " + cartItem.quantity}
-                            secondary={<Button variant={"text"} size={"small"} onClick={() => removeFromCart(cartItem.id)}>Remove</Button>}
+                            primary={cartItem.product.name + "   x " + cartItem.quantity}
+                            secondary={<Button variant={"text"} size={"small"} onClick={() => removeFromCart(cartItem.product.id)}>Remove</Button>}
                         />
                     </ListItem>)}
                 <Box className={"checkout-subtotal"}>

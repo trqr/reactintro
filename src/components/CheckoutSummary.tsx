@@ -1,6 +1,6 @@
 import {Box, Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup} from "@mui/material";
-import type {Order} from "../models/order.tsx";
 import {useOrder} from "../context/useOrder.tsx";
+import {registerOrder} from "../services/OrderService.tsx";
 
 type CheckoutSummaryProps = {
     deliveryValue: string;
@@ -8,9 +8,11 @@ type CheckoutSummaryProps = {
 }
 
 const CheckoutSummary = ({deliveryValue, handleChange}: CheckoutSummaryProps) => {
+    // @ts-expect-error biendanslecontext
     const { order } = useOrder();
+
     const handleOrdering = () => {
-        console.log(order);
+        registerOrder(order);
     }
 
     return (
@@ -32,7 +34,7 @@ const CheckoutSummary = ({deliveryValue, handleChange}: CheckoutSummaryProps) =>
                       <FormControlLabel value="9.99" control={<Radio/>} label="9.99"/>
                   </RadioGroup>
               </FormControl>
-              <Button variant={"contained"} onClick={() => handleOrdering}>Buy Now</Button>
+              <Button variant={"contained"} onClick={() => handleOrdering()}>Buy Now</Button>
           </Box>
       </>
   );

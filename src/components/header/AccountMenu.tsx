@@ -59,6 +59,12 @@ const AccountMenu = ({open, handleClose, handleLogOut}: AccountMenuProps) => {
                     </ListItemIcon>
                     Favourites
                 </MenuItem>
+                <MenuItem onClick={() => navigate("/orders")}>
+                    <ListItemIcon>
+                        <Settings fontSize="small"/>
+                    </ListItemIcon>
+                    Your Orders
+                </MenuItem>
                 <MenuItem onClick={handleClose}>
                     <ListItemIcon>
                         <Settings fontSize="small"/>

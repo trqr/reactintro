@@ -9,7 +9,9 @@ import LoginDialog from "../LoginDialog.tsx";
 import {useState} from "react";
 
 const Cart = () => {
+    //@ts-expect-error biendanslecontext
     const {cart, getCartTotal} = useCart();
+    //@ts-expect-error biendanslecontext
     const { isAuthenticated } = useAuth();
     const navigate = useNavigate()
     const [ isOpen, setIsOpen ] = useState(false);
@@ -31,7 +33,7 @@ const Cart = () => {
                     <>
                         {cart.map((cartItem: cartItem) => (
                             <MyListItem
-                                key={cartItem.id}
+                                key={cartItem.product.id}
                                 cartItem={cartItem}
                             />
                         ))}

@@ -18,7 +18,9 @@ type ProductCardProps = {
 
 const ProductCard = ({product} : ProductCardProps) => {
     const [hovered, setHovered] = useState(false);
+    // @ts-expect-error biendanslecontext
     const {user, isAuthenticated} = useAuth();
+    // @ts-expect-error biendanslecontext
     const { addToCart } = useCart();
     const { addToFav, removeFromFav, isFavorite } = useFav()
     const navigate = useNavigate();

@@ -8,8 +8,10 @@ import {Avatar} from "@mui/material";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import {useAuth} from "../../context/useAuth.tsx";
 import {useFav} from "../../context/useFav.tsx";
+import ThemeSwitch from "../common/ThemeSwitch.tsx";
 
 function AuthContainer(){
+    //@ts-expect-error biendanslecontext
     const { isAuthenticated, logout } = useAuth();
     const { clearFav } = useFav();
     const [isLoginOpen , setIsLoginOpen] = useState(false);
@@ -43,6 +45,7 @@ function AuthContainer(){
                 (<div className={"auth-container" } style={{display:"flex", alignContent:"center", alignItems:"center", margin:"0 20px"}}>
                     <PrimaryButton text={"Sign In"} handleClick={() => setIsLoginOpen(true)}></PrimaryButton>
                     <SecondaryButton text={"Register"} handleClick={() => setIsRegisterOpen(true)}></SecondaryButton>
+                    <ThemeSwitch></ThemeSwitch>
                 </div>)
             }
                 <LoginDialog isOpen={isLoginOpen} handleClose={() => setIsLoginOpen(false)} />

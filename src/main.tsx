@@ -12,17 +12,17 @@ import {OrderProvider} from "./context/OrderProvider.tsx";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+      <ThemeProvider theme={theme}>
           <CartProvider>
-              <AuthProvider>
-                  <OrderProvider>
-                      <FavoriteProvider>
-                          <ThemeProvider theme={theme}>
-                              <CssBaseline/>
-                              <App />
-                          </ThemeProvider>
-                      </FavoriteProvider>
-                  </OrderProvider>
-              </AuthProvider>
-          </CartProvider>
+                  <AuthProvider>
+                      <OrderProvider>
+                          <FavoriteProvider>
+                                  <CssBaseline/>
+                                  <App />
+                          </FavoriteProvider>
+                      </OrderProvider>
+                  </AuthProvider>
+              </CartProvider>
+      </ThemeProvider>
   </StrictMode>,
 )

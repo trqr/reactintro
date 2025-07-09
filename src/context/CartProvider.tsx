@@ -3,8 +3,10 @@ import type {Product} from "../models/product.tsx";
 import * as React from "react";
 import MySnackBar from "../components/common/mySnackBar.tsx";
 
-export type cartItem =
-    Product & { quantity: number };
+export type cartItem = {
+    product: Product,
+    quantity: number;
+}
 
 type CartContextType = {
     cart: cartItem[];
@@ -24,15 +26,15 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
 
     function addToCart(product: Product) {
         setCart(prev => {
-            const existingItem = prev.find(item => item.id === product.id);
+            const existingItem = prev.find(item => item.product.id === product.id);
             if (existingItem) {
                 return prev.map(item =>
-                    item.id === product.id
+                    item.product.id === product.id
                         ? {...item, quantity: item.quantity + 1}
                         : item
                 );
             } else {
-                return [...prev, {...product, quantity: 1}];
+                return [...prev, {product: product, quantity: 1}];
             }
         });
         setSnackOpen(true);
@@ -42,7 +44,7 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
     }
 
     function removeFromCart(productId: number) {
-        setCart(prev => prev.filter(i => i.id !== productId));
+        setCart(prev => prev.filter(i => i.product.id !== productId));
         setSnackOpen(true);
         setTextSnack("Product removed from cart");
         setSnackColor("warning");
@@ -54,7 +56,7 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
     }
 
     function getCartTotal() {
-        return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+        return cart.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
     }
 
     function saveCartToLocalStorage() {

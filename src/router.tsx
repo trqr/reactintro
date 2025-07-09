@@ -4,8 +4,11 @@ import Home from "./pages/home"
 import ProductPage from "./pages/ProductPage.tsx";
 import FavoritesPage from "./pages/FavoritesPage.tsx";
 import CheckoutPage from "./pages/CheckoutPage.tsx";
+import OrdersPage from "./pages/OrdersPage.tsx";
+
 
 export const router = createBrowserRouter([
+
     {
         path: "/",
         element: <Home/>,
@@ -32,6 +35,10 @@ export const router = createBrowserRouter([
     {
         path: "/favorites",
         element: <FavoritesPage/>,
+    },
+    {
+        path: "orders",
+        element: <OrdersPage/>
     },
     {
         path: "checkout",

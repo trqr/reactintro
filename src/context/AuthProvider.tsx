@@ -1,7 +1,6 @@
 import {createContext, useState} from "react";
 import type {User} from "../models/user.tsx";
 import api from "../services/api.tsx";
-import {useFav} from "./useFav.tsx";
 
 type AuthContextType = {
     user: User | null;

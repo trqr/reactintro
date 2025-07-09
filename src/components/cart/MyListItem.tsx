@@ -8,24 +8,25 @@ type MyListItemProps = {
 }
 
 const MyListItem = ({ cartItem }: MyListItemProps) => {
+    //@ts-expect-error biendanslecontext
     const { removeFromCart } = useCart();
     return (
         <>
             <ListItem
                 secondaryAction={
                     <IconButton edge="end" aria-label="delete">
-                        <DeleteIcon onClick={() => removeFromCart(cartItem.id)}/>
+                        <DeleteIcon onClick={() => removeFromCart(cartItem.product.id)}/>
                     </IconButton>
                 }
             >
                 <ListItemAvatar>
                     <Avatar sx={{width: 56, height: 56, marginRight: 2}}>
-                        <img className={"cart-item-img"} src={cartItem.imagesUrl[0].imgUrl} alt={cartItem.name}/>
+                        <img className={"cart-item-img"} src={cartItem.product.imagesUrl[0].imgUrl} alt={cartItem.product.name}/>
                     </Avatar>
                 </ListItemAvatar>
                 <ListItemText
-                    primary={cartItem.name + "   x " + cartItem.quantity}
-                    secondary={(cartItem.price*cartItem.quantity).toFixed(2) + " €"}
+                    primary={cartItem.product.name + "   x " + cartItem.quantity}
+                    secondary={(cartItem.product.price*cartItem.quantity).toFixed(2) + " €"}
                 />
             </ListItem>
         </>

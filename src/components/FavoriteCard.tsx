@@ -9,7 +9,9 @@ type FavoriteCardProps = {
 }
 
 const FavoriteCard = ({product}: FavoriteCardProps) => {
+    // @ts-expect-error biendanslecontext
     const { user } = useAuth();
+    // @ts-expect-error biendanslecontext
     const { addToCart } = useCart();
     const { removeFromFav } = useFav();
 

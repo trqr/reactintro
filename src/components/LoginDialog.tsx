@@ -9,6 +9,7 @@ type LoginModalProps = {
 }
 
 const LoginDialog = ({ isOpen, handleClose}: LoginModalProps) => {
+    // @ts-expect-error biendanslecontext
     const { login } = useAuth();
     const { getFav } = useFav();
     const loginData = {

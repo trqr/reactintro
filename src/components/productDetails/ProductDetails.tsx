@@ -15,7 +15,9 @@ type ProductDetailsProps = {
 }
 
 const ProductDetails = ({product}: ProductDetailsProps) => {
+    // @ts-expect-error biendanslecontext
     const { user, isAuthenticated } = useAuth();
+    // @ts-expect-error biendanslecontext
     const { addToCart } = useCart();
     const navigate = useNavigate();
     const { isFavorite, addToFav, removeFromFav} = useFav();

@@ -1,6 +1,6 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField} from "@mui/material";
 import '../styles/RegisterDialog.css';
-import React, {useState} from "react";
+import React from "react";
 import type {User} from "../models/user.tsx";
 import {registerUser} from "../services/UserService.tsx";
 

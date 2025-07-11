@@ -1,6 +1,8 @@
-import {Box, Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup} from "@mui/material";
+import {Alert, Box, Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup} from "@mui/material";
 import {useOrder} from "../context/useOrder.tsx";
 import {registerOrder} from "../services/OrderService.tsx";
+import {useNavigate} from "react-router-dom";
+import {useState} from "react";
 
 type CheckoutSummaryProps = {
     deliveryValue: string;
@@ -10,10 +12,18 @@ type CheckoutSummaryProps = {
 const CheckoutSummary = ({deliveryValue, handleChange}: CheckoutSummaryProps) => {
     // @ts-expect-error biendanslecontext
     const { order } = useOrder();
+    const navigate = useNavigate();
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleOrdering = () => {
-        registerOrder(order);
+        registerOrder(order)
+            .then( (data) => data.success ? navigate('/orders') : setErrorMessage(data.message))
+            .catch(err => {
+                setErrorMessage(err);
+            });
     }
+
+
 
     return (
       <>
@@ -35,6 +45,9 @@ const CheckoutSummary = ({deliveryValue, handleChange}: CheckoutSummaryProps) =>
                   </RadioGroup>
               </FormControl>
               <Button variant={"contained"} onClick={() => handleOrdering()}>Buy Now</Button>
+              {errorMessage &&
+                  <Alert severity="error" style={{marginTop: '1rem'}}>{errorMessage}</Alert>
+              }
           </Box>
       </>
   );

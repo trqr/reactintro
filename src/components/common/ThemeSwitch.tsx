@@ -9,7 +9,7 @@ const ThemeSwitch = () => {
 
     return (
         <>
-            <Switch checked={mode === 'light'} onChange={handleChange}/>
+            <Switch checked={mode === 'dark'} onChange={handleChange}/>
         </>
     );
 }

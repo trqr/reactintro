@@ -6,5 +6,6 @@ export type Order = {
     promoCode?: string;
     deliveryValue: number;
     totalPrice: number;
+    status?: string;
     cart: cartItem[];
 }

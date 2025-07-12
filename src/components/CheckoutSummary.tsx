@@ -3,6 +3,8 @@ import {useOrder} from "../context/useOrder.tsx";
 import {registerOrder} from "../services/OrderService.tsx";
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
+import {useCart} from "../context/useCart.tsx";
+import { useAuth } from "../context/useAuth.tsx";
 
 type CheckoutSummaryProps = {
     deliveryValue: string;
@@ -14,10 +16,18 @@ const CheckoutSummary = ({deliveryValue, handleChange}: CheckoutSummaryProps) =>
     const { order } = useOrder();
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState("");
+    // @ts-expect-error biendanslecontext
+    const { clearCart } = useCart();
+    // @ts-expect-error biendanslecontext
+    const { user } = useAuth();
 
     const handleOrdering = () => {
         registerOrder(order)
-            .then( (data) => data.success ? navigate('/orders') : setErrorMessage(data.message))
+            .then( (data) => {
+                clearCart()
+                return data.success ? navigate(`/orders/${user.id}`) : setErrorMessage(data.message);
+                })
+
             .catch(err => {
                 setErrorMessage(err);
             });

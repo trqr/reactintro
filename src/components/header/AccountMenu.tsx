@@ -1,6 +1,7 @@
 import {Avatar, Divider, ListItemIcon, Menu, MenuItem } from "@mui/material"
 import {Favorite, Logout, Settings} from "@mui/icons-material";
 import {useNavigate} from "react-router-dom";
+import {useAuth} from "../../context/useAuth.tsx";
 
 type AccountMenuProps = {
     open: boolean;
@@ -10,6 +11,8 @@ type AccountMenuProps = {
 
 const AccountMenu = ({open, handleClose, handleLogOut}: AccountMenuProps) => {
     const navigate = useNavigate()
+    // @ts-expect-error biendslecontect
+    const { user } = useAuth();
 
     return (
         <>
@@ -59,7 +62,7 @@ const AccountMenu = ({open, handleClose, handleLogOut}: AccountMenuProps) => {
                     </ListItemIcon>
                     Favourites
                 </MenuItem>
-                <MenuItem onClick={() => navigate("/orders")}>
+                <MenuItem onClick={() => navigate(`/orders/${user.id}`)}>
                     <ListItemIcon>
                         <Settings fontSize="small"/>
                     </ListItemIcon>

@@ -1,37 +1,18 @@
-import {Box, Divider, Skeleton, Typography} from "@mui/material";
+import {Box, Divider, Typography} from "@mui/material";
 import Header from "../components/header/Header.tsx";
-import {useOrder} from "../context/useOrder.tsx";
 import type {Order} from "../models/order.tsx";
-import {useEffect, useState, useTransition} from "react";
-
-
+import {useLoaderData, useNavigate} from "react-router-dom";
 
 const OrdersPage = () => {
-    const { getUserOrders } = useOrder();
-    const [orders, setOrders] = useState<Order[]>([]);
-    const [isPending, startTransition] = useTransition()
-
-    useEffect(() => {
-        startTransition( async () => {
-            const orders = await getUserOrders();
-            startTransition( () => {
-                setOrders(orders);
-                console.log(orders);
-            })
-        })
-    }, [])
+    const navigate = useNavigate();
+    const orders = useLoaderData();
 
     return (
         <>
             <Header/>
-            <Typography variant={"h4"} sx={{textAlign: "center", margin: "20px"}}>Your Orders</Typography>
+            <Typography variant={"h4"} sx={{textAlign: "center", margin: "20px"}}>Your orders</Typography>
             <Box sx={{display: "flex", alignItems: "center", flexDirection: "column", justifyContent: "center", alignContent: "center" }}></Box>
-            {isPending ? (
-                <Skeleton></Skeleton>
-                )
-            :
-                (
-                    orders.map((order: Order, index) => (
+            {orders.map((order: Order, index: number) => (
                         <>
                             <Box key={index} sx={{display: "flex", justifyContent:"flex-start", alignItems: "center", alignContent: "center", flexDirection: "row"}}>
                                 <Typography variant={"caption"} sx={{margin: "10px"}}>#{order.id}</Typography>
@@ -40,7 +21,7 @@ const OrdersPage = () => {
                                     alignItems: "center",
                                     alignContent: "center"}}>
                                 {order.cart.map(item => (
-                                    <Box sx={{margin: "10px 30px"}} >
+                                    <Box sx={{margin: "10px 30px", cursor: "pointer"}} onClick={() => navigate(`/products/${item.product.id}`)}>
                                         <Box sx={{height: "100px"}}>
                                             <img style={{height: "80px"}} src={item.product.imagesUrl[2].imgUrl ?? item.product.imagesUrl[1].imgUrl} alt={item.product.name}></img>
                                             <img style={{height: "80px"}}
@@ -63,7 +44,7 @@ const OrdersPage = () => {
                             <Divider></Divider>
                         </>
                         ))
-                )}
+            }
         </>
     )
 }

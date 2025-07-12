@@ -14,6 +14,7 @@ type CartContextType = {
     removeFromCart: (productId: number) => void;
     getCartQuantity: () => number;
     getCartTotal: () => number;
+    clearCart: () => void;
 };
 
 export const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -68,9 +69,14 @@ export const CartProvider = ({ children }: {children: React.ReactNode}) => {
         return cartData ? JSON.parse(cartData) : [];
     }
 
+    function clearCart() {
+        localStorage.removeItem("cart");
+        setCart([]);
+    }
+
     return (
         <>
-            <CartContext.Provider value={{cart, addToCart, removeFromCart, getCartQuantity, getCartTotal}}>
+            <CartContext.Provider value={{cart, addToCart, removeFromCart, getCartQuantity, getCartTotal, clearCart}}>
                 {children}
             </CartContext.Provider>
             <MySnackBar open={snackOpen}

@@ -1,9 +1,9 @@
 import api from "./api.tsx";
 import type {Order} from "../models/order.tsx";
-import type {User} from "../models/user.tsx";
 import {toast} from "react-toastify";
 
 export const registerOrder = (order: Order) => {
+
     return api.post(`/order/create-order`, order)
         .then(res => {
             const data = res.data;
@@ -21,6 +21,6 @@ export const registerOrder = (order: Order) => {
         });
 };
 
-export const getOrders = async (user: User) => {
-    return api.get(`/order`,{ params: {userId: user.id}}).then(res => res.data);
+export const getOrders = async (userId: string) => {
+    return api.get(`/order`,{ params: {userId: userId}}).then(res => res.data);
 }

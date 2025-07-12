@@ -2,6 +2,7 @@ import {Box, Divider, Typography} from "@mui/material";
 import Header from "../components/header/Header.tsx";
 import type {Order} from "../models/order.tsx";
 import {useLoaderData, useNavigate} from "react-router-dom";
+import dayjs from "dayjs";
 
 const OrdersPage = () => {
     const navigate = useNavigate();
@@ -16,6 +17,7 @@ const OrdersPage = () => {
                         <>
                             <Box key={index} sx={{display: "flex", justifyContent:"flex-start", alignItems: "center", alignContent: "center", flexDirection: "row"}}>
                                 <Typography variant={"caption"} sx={{margin: "10px"}}>#{order.id}</Typography>
+                                <Typography variant={"body2"} sx={{margin: "10px"}}>{dayjs(order.createdAt).format("DD MMMM YYYY à HH:mm")}</Typography>
                                 <Typography variant="body2" color="textSecondary" sx={{margin: "10px"}}>Status: {order.status}</Typography>
                                 <Box sx={{width: "80%", display: "flex", justifyContent: "center",
                                     alignItems: "center",

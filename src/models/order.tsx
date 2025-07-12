@@ -8,4 +8,5 @@ export type Order = {
     totalPrice: number;
     status?: string;
     cart: cartItem[];
+    createdAt?: Date;
 }

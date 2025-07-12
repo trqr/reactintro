@@ -1,7 +1,7 @@
 import React, {createContext, useState} from "react";
 import type {Order} from "../models/order.tsx";
 import {useAuth} from "./useAuth.tsx";
-import {getOrders} from "../services/OrderService.tsx";
+import {getUserOrders} from "../services/OrderService.tsx";
 
 type OrderContextProps = {
     order: Order;
@@ -16,7 +16,7 @@ export const OrderProvider= ({children}: { children: React.ReactNode }) => {
     const { user } = useAuth();
 
     const getUserOrders = async () => {
-        return await getOrders(user);
+        return await getUserOrders(user);
     }
 
     return (

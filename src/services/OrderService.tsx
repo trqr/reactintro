@@ -21,6 +21,10 @@ export const registerOrder = (order: Order) => {
         });
 };
 
-export const getOrders = async (userId: string) => {
-    return api.get(`/order`,{ params: {userId: userId}}).then(res => res.data);
+export const getUserOrders = async (userId: string) => {
+    return api.get(`/order/user`,{ params: {userId: userId}}).then(res => res.data);
+}
+
+export const getAllOrders = async () => {
+    return api.get(`/order/all`).then(res => res.data);
 }

@@ -1,5 +1,5 @@
 import {Avatar, Divider, ListItemIcon, Menu, MenuItem } from "@mui/material"
-import {Favorite, Logout, Settings} from "@mui/icons-material";
+import {AdminPanelSettings, Favorite, Logout, Settings, ViewList} from "@mui/icons-material";
 import {useNavigate} from "react-router-dom";
 import {useAuth} from "../../context/useAuth.tsx";
 
@@ -64,10 +64,18 @@ const AccountMenu = ({open, handleClose, handleLogOut}: AccountMenuProps) => {
                 </MenuItem>
                 <MenuItem onClick={() => navigate(`/orders/${user.id}`)}>
                     <ListItemIcon>
-                        <Settings fontSize="small"/>
+                        <ViewList fontSize="small"/>
                     </ListItemIcon>
                     Your Orders
                 </MenuItem>
+                {user.role === "ADMIN" && (
+                    <MenuItem onClick={() => navigate("/admin")}>
+                        <ListItemIcon>
+                            <AdminPanelSettings fontSize="small"/>
+                        </ListItemIcon>
+                        Administration
+                    </MenuItem>
+                )}
                 <MenuItem onClick={handleClose}>
                     <ListItemIcon>
                         <Settings fontSize="small"/>

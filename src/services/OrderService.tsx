@@ -21,6 +21,17 @@ export const registerOrder = (order: Order) => {
         });
 };
 
+export const deleteOrders = (ordersId: number[]) => {
+    return api.post(`/order/delete`, ordersId).then(res => res.data);
+}
+
+export const changeOrderStatus = async (ids: number[], status: string) => {
+    return await api.post("/order/status", {
+        ids: ids,
+        newStatus: status
+    }).then(res => res.data);
+}
+
 export const getUserOrders = async (userId: string) => {
     return api.get(`/order/user`,{ params: {userId: userId}}).then(res => res.data);
 }

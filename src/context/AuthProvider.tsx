@@ -5,7 +5,7 @@ import api from "../services/api.tsx";
 type AuthContextType = {
     user: User | null;
     isAuthenticated: boolean;
-    login: (userData : {email: string, password: string}) => User;
+    login: (userData : {email: string, password: string}) => Promise<User>;
     logout: () => void;
 }
 

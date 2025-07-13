@@ -1,14 +1,39 @@
-import {Paper, Typography} from "@mui/material";
+import {Box, Button, Paper, Typography} from "@mui/material";
 import Header from "../components/header/Header.tsx";
 import {DataGrid, type GridColDef} from '@mui/x-data-grid';
-import {useLoaderData} from "react-router-dom";
+import {useLoaderData, useRevalidator} from "react-router-dom";
 import dayjs from "dayjs";
+import { useState} from "react";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import {changeOrderStatus, deleteOrders} from "../services/OrderService.tsx";
 
 const AdministrationPage = () => {
-    const orders = useLoaderData()
+    const orders = useLoaderData();
+    const {revalidate} = useRevalidator();
+    const [selectedRows, setSelectedRows] = useState<number[]>([])
+    const [selectedStatus, setSelectedStatus] = useState<string>("");
+
+
+    const handleSelectionChange = (newSelection: any) => {
+        const ids: never[] = Array.from(newSelection.ids)
+        setSelectedRows(ids);
+    }
 
     const columns: GridColDef[] = [
         {field: 'id', headerName: 'ID', width: 70},
+        {
+            field: 'userId',
+            headerName: 'Customer ID',
+            width: 130,
+            renderCell: (params) => params.row.user?.id || ''
+        },
+        {
+            field: 'userEmail',
+            headerName: 'Customer ID',
+            width: 130,
+            renderCell: (params) => params.row.user?.email || ''
+        },
         {
             field: 'createdAt',
             headerName: 'Date',
@@ -37,6 +62,19 @@ const AdministrationPage = () => {
 
     const paginationModel = {page: 0, pageSize: 10};
 
+    const handleStatusChange = async () => {
+        await changeOrderStatus(selectedRows, selectedStatus)
+        setSelectedRows([]);
+        setSelectedStatus("");
+        await revalidate();
+    };
+
+    const handleDelete = async () => {
+        await deleteOrders(selectedRows);
+        setSelectedRows([]);
+        await revalidate();
+    };
+
     return (
         <>
             <Header></Header>
@@ -48,9 +86,50 @@ const AdministrationPage = () => {
                     initialState={{pagination: {paginationModel}}}
                     pageSizeOptions={[5, 10]}
                     checkboxSelection
+                    onRowSelectionModelChange={handleSelectionChange}
                     sx={{border: 0}}
                 />
             </Paper>
+            {selectedRows.length > 0 && (
+                <Paper sx={{p: 2, mt: 2}}>
+                    <Typography variant="body1">
+                        {selectedRows.length} order(s) selected: {selectedRows.join(', ')}
+                    </Typography>
+                    <Box sx={{mt: 3, display: "flex", alignItems: "center", gap: 2}}>
+                        <Select
+                            value={selectedStatus}
+                            onChange={(e) => setSelectedStatus(e.target.value)}
+                            displayEmpty
+                            size="small"
+                            sx={{minWidth: 200}}
+                        >
+                            <MenuItem value="">Choose a status</MenuItem>
+                            <MenuItem value="pending">Pending</MenuItem>
+                            <MenuItem value="paid">Paid</MenuItem>
+                            <MenuItem value="shipped">Shipped</MenuItem>
+                            <MenuItem value="delivered">Delivered</MenuItem>
+                            <MenuItem value="cancelled">Cancelled</MenuItem>
+                        </Select>
+
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            disabled={!selectedStatus}
+                            onClick={handleStatusChange}
+                        >
+                            CHANGE STATUS
+                        </Button>
+
+                        <Button
+                            variant="outlined"
+                            color="error"
+                            onClick={handleDelete}
+                        >
+                            DELETE SELECTED ORDERS
+                        </Button>
+                    </Box>
+                </Paper>
+            )}
         </>
     )
 }

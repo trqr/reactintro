@@ -25,13 +25,13 @@ const AdministrationPage = () => {
         {
             field: 'userId',
             headerName: 'Customer ID',
-            width: 130,
+            width: 100,
             renderCell: (params) => params.row.user?.id || ''
         },
         {
             field: 'userEmail',
-            headerName: 'Customer ID',
-            width: 130,
+            headerName: 'Customer Email',
+            width: 160,
             renderCell: (params) => params.row.user?.email || ''
         },
         {
@@ -81,6 +81,7 @@ const AdministrationPage = () => {
             <Typography variant={"h4"} sx={{textAlign: "center", margin: "30px"}}>Administration</Typography>
             <Paper sx={{height: 400, width: '100%'}}>
                 <DataGrid
+
                     rows={orders}
                     columns={columns}
                     initialState={{pagination: {paginationModel}}}

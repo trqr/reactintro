@@ -9,10 +9,12 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import {useAuth} from "../../context/useAuth.tsx";
 import {useFav} from "../../context/useFav.tsx";
 import ThemeSwitch from "../common/ThemeSwitch.tsx";
+import { useNavigate } from "react-router-dom";
 
 function AuthContainer(){
     //@ts-expect-error biendanslecontext
     const { isAuthenticated, logout } = useAuth();
+    const navigate = useNavigate();
     const { clearFav } = useFav();
     const [isLoginOpen , setIsLoginOpen] = useState(false);
     const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -24,6 +26,7 @@ function AuthContainer(){
     function logOut(){
         logout();
         clearFav();
+        navigate("/");
     }
 
 

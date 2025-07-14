@@ -1,4 +1,4 @@
-import {createContext, useState} from "react";
+import {createContext, useEffect, useState} from "react";
 import type {User} from "../models/user.tsx";
 import api from "../services/api.tsx";
 
@@ -29,6 +29,26 @@ export const AuthProvider = ({ children }: {children: React.ReactNode}) => {
         localStorage.removeItem("token");
         setUser(null);
     }
+
+    const fetchCurrentUser = async () => {
+        const token = localStorage.getItem("token");
+        if (!token) return;
+
+        try {
+            const response = await api.get("/auth/me", {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            setUser(response.data);
+        } catch (error) {
+            logout();
+        }
+    };
+
+    useEffect(() => {
+        fetchCurrentUser();
+    }, []);
 
     return (
         <AuthContext.Provider value={{user, isAuthenticated, login, logout}}>

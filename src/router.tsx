@@ -7,6 +7,7 @@ import UserOrdersPage from "./pages/UserOrdersPage.tsx";
 import {getAllOrders, getUserOrders} from "./services/OrderService.tsx";
 import {getProductById, getProducts} from "./services/ProductService.tsx";
 import AdministrationPage from "./pages/AdministrationPage.tsx";
+import ProtectedRoute from "./components/common/ProtectedRoute.tsx";
 
 
 export const router = createBrowserRouter([
@@ -23,12 +24,20 @@ export const router = createBrowserRouter([
     },
     {
         path: "/orders/:userid",
-        element: <UserOrdersPage/>,
+        element: (
+            <ProtectedRoute requiredRoles={["ADMIN", "USER"]}>
+                <UserOrdersPage/>
+            </ProtectedRoute>
+        ),
         loader: ({params: {userid}}) => getUserOrders(userid!)
     },
     {
         path: "/admin",
-        element: <AdministrationPage/>,
+        element: (
+            <ProtectedRoute requiredRoles={["ADMIN"]}>
+                <AdministrationPage/>
+            </ProtectedRoute>
+        ),
         loader: () => getAllOrders()
     },
     {

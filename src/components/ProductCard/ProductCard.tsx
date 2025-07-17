@@ -2,7 +2,7 @@ import CardTitle from "./CardTitle.tsx";
 import CardPrice from "./CardPrice.tsx";
 import '../../styles/ProductCard.css'
 import PrimaryButton from "../common/PrimaryButton.tsx";
-import {Button} from "@mui/material";
+import {Box, Button, Typography} from "@mui/material";
 import type {Product} from "../../models/product.tsx";
 import { useState} from "react";
 import {useCart} from "../../context/useCart.tsx";
@@ -73,7 +73,16 @@ const ProductCard = ({product} : ProductCardProps) => {
                 <CardPrice price={product.price} />
             </div>
             <div className={"product-card-buttons"}>
-                <PrimaryButton text={"Add to cart"} handleClick={() => handleClick()}/>
+                {product.stock !== 0
+                    ?
+                    <>
+                        <PrimaryButton text={"Add to cart"} handleClick={() => handleClick()}/>
+                    </>
+                    :
+                    <Box>
+                        <Button variant={"contained"} disabled>Out of order</Button>
+                    </Box>
+                }
                 <Button variant="text" onClick={() => navigate(`/products/${product.id.toString()}`)}>Show more</Button>
             </div>
 

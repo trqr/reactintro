@@ -72,15 +72,16 @@ const ProductCard = ({product} : ProductCardProps) => {
                 <CardTitle title={product.name}></CardTitle>
                 <CardPrice price={product.price} />
             </div>
-            <div className={"product-card-buttons"}>
+            <div className={"product-card-buttons"} style={{position: "relative"}}>
                 {product.stock !== 0
                     ?
                     <>
                         <PrimaryButton text={"Add to cart"} handleClick={() => handleClick()}/>
+                        {product.stock! < 4 && (<Typography sx={{position: "absolute", top: "-50px", left: "5px"}} variant={"caption"} color={"error"}>Only {product.stock} in stock.</Typography>)}
                     </>
                     :
-                    <Box>
-                        <Button variant={"contained"} disabled>Out of order</Button>
+                    <Box sx={{display: "flex", justifyContent: "space-between", flexDirection: "column", alignItems: "center"}}>
+                        <Button variant={"contained"} sx={{color: "red"}} disabled>Out of order</Button>
                     </Box>
                 }
                 <Button variant="text" onClick={() => navigate(`/products/${product.id.toString()}`)}>Show more</Button>

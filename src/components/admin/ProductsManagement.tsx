@@ -1,0 +1,139 @@
+import {useLoaderData, useRevalidator} from "react-router-dom";
+import {useState} from "react";
+import {DataGrid, type GridColDef} from "@mui/x-data-grid";
+import {Box, Button, MenuItem, Paper, TextField, Typography} from "@mui/material";
+import Select from "@mui/material/Select";
+import {changeProductsStock} from "../../services/ProductService.tsx";
+
+
+
+const ProductsManagement = () => {
+    const products = useLoaderData();
+    const {revalidate} = useRevalidator();
+    const [selectedRows, setSelectedRows] = useState<number[]>([])
+    const [selectedStatus, setSelectedStatus] = useState<string>("");
+    const [stockInputValue, setStockInputValue] = useState<number>(0);
+
+    const handleSelectionChange = (newSelection: any) => {
+        const ids: never[] = Array.from(newSelection.ids)
+        setSelectedRows(ids);
+    }
+
+    const columns: GridColDef[] = [
+        {field: 'id', headerName: 'ID', width: 70},
+        {
+            field: 'name',
+            headerName: 'Name',
+            width: 250,
+        },
+        {
+            field: 'brand',
+            headerName: 'Brand',
+            width: 160,
+        },
+        {
+            field: 'color',
+            headerName: 'Color',
+            width: 130,
+        },
+        {
+            field: 'price',
+            headerName: 'Price (€)',
+            type: 'number',
+            width: 150,
+        },
+        {
+            field: 'stock',
+            headerName: 'Stock',
+            type: "number",
+            width: 160,
+        },
+    ];
+
+    const paginationModel = {page: 0, pageSize: 10};
+
+    const handleStockSubmitButton = async () => {
+        await changeProductsStock(selectedRows, stockInputValue);
+        setSelectedRows([]);
+        setStockInputValue(0);
+        revalidate();
+    }
+
+    const handleStatusChange = async () => {
+        setSelectedRows([]);
+        setSelectedStatus("");
+    };
+
+    const handleDelete = async () => {
+        setSelectedRows([]);
+    };
+    return (
+        <>
+            <Paper sx={{height: 450, width: '100%'}}>
+                <DataGrid
+
+                    rows={products}
+                    columns={columns}
+                    initialState={{pagination: {paginationModel}}}
+                    pageSizeOptions={[5, 10]}
+                    checkboxSelection
+                    onRowSelectionModelChange={handleSelectionChange}
+                    sx={{border: 0}}
+                />
+            </Paper>
+            {selectedRows.length > 0 && (
+                <Paper sx={{p: 2, mt: 2}}>
+                    <Typography variant="body1">
+                        {selectedRows.length} product(s) selected: {selectedRows.join(', ')}
+                    </Typography>
+                    <Box sx={{mt: 3, display: "flex", alignItems: "center", gap: 2}}>
+                        <TextField
+                            size={"small"}
+                            type="number"
+                            label="Stock"
+                            onChange={(e) => setStockInputValue(+e.target.value)}>
+
+                        </TextField>
+                        <Button
+                            disabled={stockInputValue === 0}
+                            variant="contained"
+                            color="primary"
+                            onClick={handleStockSubmitButton}>
+                                ADDING TO STOCKS
+                        </Button>
+                        <Select
+                            value={selectedStatus}
+                            onChange={(e) => setSelectedStatus(e.target.value)}
+                            displayEmpty
+                            size="small"
+                            sx={{minWidth: 200}}
+                        >
+                            <MenuItem value="">Choose a status</MenuItem>
+                            <MenuItem value="hidden">Hidden</MenuItem>
+                            <MenuItem value="visible">Visible</MenuItem>
+                        </Select>
+
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            disabled={!selectedStatus}
+                            onClick={handleStatusChange}
+                        >
+                            CHANGE STATUS
+                        </Button>
+
+                        <Button
+                            variant="outlined"
+                            color="error"
+                            onClick={handleDelete}
+                        >
+                            DELETE SELECTED PRODUCTS
+                        </Button>
+                    </Box>
+                </Paper>
+            )}
+        </>
+    )
+}
+
+export default ProductsManagement

@@ -9,6 +9,7 @@ import {Favorite, FavoriteBorder} from "@mui/icons-material";
 import {useAuth} from "../../context/useAuth.tsx";
 import LoginDialog from "../LoginDialog.tsx";
 import {useState} from "react";
+import {Box, Button, Typography} from "@mui/material";
 
 type ProductDetailsProps = {
     product: Product;
@@ -42,8 +43,25 @@ const ProductDetails = ({product}: ProductDetailsProps) => {
                     <span>Color: {product.color}</span>
                     <span>Price: {product.price} €</span>
                 </div>
-                <div className={"buttons"}>
-                    <PrimaryButton text={"Add to cart"} handleClick={() => addToCart(product)}></PrimaryButton>
+                <div className={"buttons"} style={{display: "flex"}}>
+                    {product.stock !== 0
+                        ?
+                        <>
+                            <PrimaryButton text={"Add to cart"} handleClick={() => handleClick()}/>
+                            {product.stock! < 4 && (
+                                <Typography sx={{position: "absolute", top: "-50px", left: "5px"}} variant={"caption"}
+                                            color={"error"}>Only {product.stock} in stock.</Typography>)}
+                        </>
+                        :
+                        <Box sx={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            flexDirection: "column",
+                            alignItems: "center"
+                        }}>
+                            <Button variant={"contained"} sx={{color: "red"}} disabled>Out of stock</Button>
+                        </Box>
+                    }
                     <SecondaryButton text={"Back to home"} handleClick={() => navigate("/")}></SecondaryButton>
                 </div>
             </div>

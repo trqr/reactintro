@@ -45,6 +45,7 @@ const ProductCard = ({product} : ProductCardProps) => {
         <>
         <div className={"card"}>
             <div className={"card-img-container"}
+                 style={{position: "relative"}}
                  onMouseOver={() => setHovered(true)}
                  onMouseOut={() => setHovered(false)}>
                 {hovered && (
@@ -63,9 +64,7 @@ const ProductCard = ({product} : ProductCardProps) => {
                         onClick={() => removeFromFav(product, user)}
                     ></Favorite>
                 )}
-
                 <img src={ hovered ? product.imagesUrl[1].imgUrl : product.imagesUrl[0].imgUrl }
-
                      alt="sport shoe"/>
             </div>
             <div className={"product-card-text"}>
@@ -81,7 +80,7 @@ const ProductCard = ({product} : ProductCardProps) => {
                     </>
                     :
                     <Box sx={{display: "flex", justifyContent: "space-between", flexDirection: "column", alignItems: "center"}}>
-                        <Button variant={"contained"} sx={{color: "red"}} disabled>Out of order</Button>
+                        <Button variant={"contained"} sx={{color: "red"}} disabled>Out of stock</Button>
                     </Box>
                 }
                 <Button variant="text" onClick={() => navigate(`/products/${product.id.toString()}`)}>Show more</Button>

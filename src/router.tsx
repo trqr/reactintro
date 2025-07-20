@@ -8,6 +8,7 @@ import {getAllOrders, getUserOrders} from "./services/OrderService.tsx";
 import {getProductById, getProducts} from "./services/ProductService.tsx";
 import AdministrationPage from "./pages/AdministrationPage.tsx";
 import ProtectedRoute from "./components/common/ProtectedRoute.tsx";
+import {getPromo} from "./services/PromoService.ts";
 
 
 export const router = createBrowserRouter([
@@ -39,6 +40,24 @@ export const router = createBrowserRouter([
             </ProtectedRoute>
         ),
         loader: () => getAllOrders()
+    },
+    {
+        path: "/admin/products",
+        element: (
+            <ProtectedRoute requiredRoles={["ADMIN"]}>
+                <AdministrationPage/>
+            </ProtectedRoute>
+        ),
+        loader: () => getProducts()
+    },
+    {
+        path: "/admin/promos",
+        element: (
+            <ProtectedRoute requiredRoles={["ADMIN"]}>
+                <AdministrationPage/>
+            </ProtectedRoute>
+        ),
+        loader: () => getPromo()
     },
     {
         path: "/service",

@@ -30,7 +30,11 @@ export const changeOrderStatus = async (ids: number[], status: string) => {
     return await api.post("/order/status", {
         ids: ids,
         newStatus: status
-    }).then(res => res.data);
+    }).then(res => {
+        toast.success(`Status changed : ${status}`);
+        return res.data;
+    } )
+        .catch( () => toast.error("Error while changing status."));
 }
 
 export const getUserOrders = async (userId: string) => {

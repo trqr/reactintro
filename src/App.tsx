@@ -8,7 +8,12 @@ function App() {
 
   return (
       <>
-          <ToastContainer/>
+          <ToastContainer
+              position="bottom-left"
+              draggable={true}
+              theme="colored"
+              closeOnClick={false}
+          />
           <RouterProvider router={router}/>
       </>
   )

@@ -6,4 +6,5 @@ export interface Product {
     color: string;
     imagesUrl: {id : number, imgUrl: string}[];
     stock?: number;
+    status?: string;
 }

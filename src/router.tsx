@@ -5,7 +5,7 @@ import FavoritesPage from "./pages/FavoritesPage.tsx";
 import CheckoutPage from "./pages/CheckoutPage.tsx";
 import UserOrdersPage from "./pages/UserOrdersPage.tsx";
 import {getAllOrders, getUserOrders} from "./services/OrderService.tsx";
-import {getProductById, getProducts} from "./services/ProductService.tsx";
+import {getProductById, getProducts, getVisibleProducts} from "./services/ProductService.tsx";
 import AdministrationPage from "./pages/AdministrationPage.tsx";
 import ProtectedRoute from "./components/common/ProtectedRoute.tsx";
 import {getPromo} from "./services/PromoService.ts";
@@ -16,7 +16,7 @@ export const router = createBrowserRouter([
     {
         path: "/",
         element: <Home/>,
-        loader: () => getProducts()
+        loader: () => getVisibleProducts()
     },
     {
         path: "/products/:id",
@@ -62,10 +62,12 @@ export const router = createBrowserRouter([
     {
         path: "/service",
         element: <Home/>,
+        loader: () => getVisibleProducts()
     },
     {
         path: "/contact",
         element: <Home/>,
+        loader: () => getVisibleProducts()
     },
     {
         path: "/favorites",

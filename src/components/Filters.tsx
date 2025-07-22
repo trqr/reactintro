@@ -46,7 +46,9 @@ const Filters = ({handleSearch, handleSelectBrand, handleSelectColor, search, br
                     <MenuItem value={"New Balance"}>New Balance</MenuItem>
                     <MenuItem value={"Vans"}>Vans</MenuItem>
                     <MenuItem value={"Reebok"}>Reebok</MenuItem>
-          </Select>
+                    <MenuItem value={"Camper"}>Camper</MenuItem>
+
+                </Select>
             </FormControl>
             <FormControl className="select-color">
                 <InputLabel id="select-color-label">Color</InputLabel>

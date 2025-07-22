@@ -3,7 +3,7 @@ import {useState} from "react";
 import {DataGrid, type GridColDef} from "@mui/x-data-grid";
 import {Box, Button, MenuItem, Paper, TextField, Typography} from "@mui/material";
 import Select from "@mui/material/Select";
-import {changeProductsStock} from "../../services/ProductService.tsx";
+import {changeProductsStatus, changeProductsStock} from "../../services/ProductService.tsx";
 
 
 
@@ -43,11 +43,17 @@ const ProductsManagement = () => {
             width: 150,
         },
         {
+            field: 'status',
+            headerName: 'Status',
+            type: "string",
+            width: 100,
+        },
+        {
             field: 'stock',
             headerName: 'Stock',
             type: "number",
-            width: 160,
-        },
+            width: 60,
+        }
     ];
 
     const paginationModel = {page: 0, pageSize: 10};
@@ -56,12 +62,14 @@ const ProductsManagement = () => {
         await changeProductsStock(selectedRows, stockInputValue);
         setSelectedRows([]);
         setStockInputValue(0);
-        revalidate();
+        await revalidate();
     }
 
     const handleStatusChange = async () => {
+        await changeProductsStatus(selectedRows, selectedStatus)
         setSelectedRows([]);
         setSelectedStatus("");
+        await revalidate();
     };
 
     const handleDelete = async () => {

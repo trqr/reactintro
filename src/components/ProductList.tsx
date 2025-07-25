@@ -2,12 +2,12 @@ import ProductCard from "./ProductCard/ProductCard.tsx";
 import type {Product} from "../models/product.tsx";
 import '../styles/ProductList.css';
 import * as React from "react";
-import {useState, useEffect} from "react";
+import {useState, useEffect, useTransition} from "react";
 import Filters from "./Filters.tsx";
 import type { SelectChangeEvent } from "@mui/material/Select";
 import SortProducts from "./common/SortProducts.tsx";
 import {fetchFilteredProducts} from "../utils/productUtils.tsx";
-import {CircularProgress} from "@mui/material";
+import {CircularProgress, Container} from "@mui/material";
 import {useLoaderData} from "react-router-dom";
 
 const ProductList = () => {
@@ -22,6 +22,7 @@ const ProductList = () => {
     const [stockedResults, setStockedResults] = useState<Product[]>(products);
     const [sorting, setSorting] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
+    const [isPending, startTransition] = useTransition()
     const filters = {
         brand: selectedBrand,
         color: selectedColor,
@@ -36,19 +37,20 @@ const ProductList = () => {
     }
 
     useEffect(() => {
-        setLoading(true)
-        if (selectedColor !== "" || selectedBrand !== "") {
-        fetchFilteredProducts(filters, setMappedProducts)
-            .then(data => {
+        startTransition( async () => {
+            if (selectedColor !== "" || selectedBrand !== "") {
+                const data = await fetchFilteredProducts(filters, setMappedProducts)
+            startTransition( () => {
                 setMappedProducts(data);
                 setStockedResults([...data]);
                 console.log(data);
-            });
-        }
-        setMinPrice(findMinPrice() - 1);
-        setMaxPrice(findMaxPrice() + 1);
-        setPriceRange([findMinPrice() - 1, findMaxPrice() + 1])
-        setLoading(false);
+                setMinPrice(findMinPrice() - 1);
+                setMaxPrice(findMaxPrice() + 1);
+                setPriceRange([findMinPrice() - 1, findMaxPrice() + 1])
+            })
+            }
+        })
+
     }, [selectedBrand, selectedColor]);
 
     function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
@@ -85,6 +87,7 @@ const ProductList = () => {
 
     return (
         <>
+            <Container maxWidth={"xl"}>
             <div className={"main-container"}>
                 <div className={"filters-and-sorting"}>
                     <Filters
@@ -102,13 +105,16 @@ const ProductList = () => {
                     ></Filters>
                     <SortProducts handleSortingChange={handleSorting} sort={sorting}/>
                 </div>
-                {loading && <CircularProgress className={"loading"}/>}
-                <div className={"cards-container"} style={{display:"grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "30px"}}>
-                    {mappedProducts.map(((product, index) =>
-                    <ProductCard key={index} product={product}></ProductCard>) )
-                    }
-                </div>
+
+                    {isPending && <CircularProgress className={"loading"}/>}
+                    <div className={"cards-container"} style={{display:"grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "10px"}}>
+                        {mappedProducts.map(((product, index) =>
+                        <ProductCard key={index} product={product}></ProductCard>) )
+                        }
+                    </div>
+
             </div>
+        </Container>
         </>
     )
 }

@@ -2,9 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     .select-brand, .select-color {
         display: flex;
-        width: 150px;
+        width: 200px;
         margin: 0 10px;
     }
     #search-input {

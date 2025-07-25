@@ -74,10 +74,10 @@ const Filters = ({handleSearch, handleSelectBrand, handleSelectColor, search, br
                 priceRange={priceRange}
                 handlePriceFilter={handlePriceFilter}
             />
-            <IconButton>
+            <IconButton sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                 <Close
                 id="clear-filters-btn"
-                fontSize={"large"}
+                fontSize={"small"}
                 onClick={ClearFilters}
                 ></Close>
             </IconButton>

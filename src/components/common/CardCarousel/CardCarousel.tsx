@@ -5,9 +5,10 @@ import "keen-slider/keen-slider.min.css"
 
 type CardCarouselProps = {
     images: string[];
+    handleClick: () => void;
 }
 
-export default function CardCarousel({images}: CardCarouselProps) {
+export default function CardCarousel({images, handleClick}: CardCarouselProps) {
     const [currentSlide, setCurrentSlide] = React.useState(0)
     const [loaded, setLoaded] = useState(false)
     const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -23,9 +24,10 @@ export default function CardCarousel({images}: CardCarouselProps) {
         },
     })
 
+
     return (
         <>
-            <div className="navigation-wrapper card-carousel">
+            <div className="navigation-wrapper card-carousel" onClick={() => handleClick()}>
                 <div ref={sliderRef} className="keen-slider">
                     {images.map((image, index) => (
                         <div key={index} className="keen-slider__slide number-slide${index}"><img src={image}/></div>))}
@@ -65,17 +67,21 @@ function Arrow(props: {
     return (
         <svg
             onClick={props.onClick}
-            className={`arrow ${
-                props.left ? "arrow--left" : "arrow--right"
-            } ${disabled}`}
+            className={`arrow ${props.left ? "arrow--left" : "arrow--right"} ${disabled}`}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
         >
-            {props.left && (
-                <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/>
-            )}
-            {!props.left && (
-                <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/>
+            {props.left ? (
+                <polyline points="15 18 9 12 15 6"/>
+            ) : (
+                <polyline points="9 18 15 12 9 6"/>
             )}
         </svg>
     )

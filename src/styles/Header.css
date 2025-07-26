@@ -29,9 +29,9 @@
     transition: all ease 0.3s;
     position: absolute;
     cursor: pointer;
-    top: 8px;
+    top: 25px;
     right: 8px;
-    z-index: 5;
+    z-index: 2000;
 }
 
 .cart-menu {

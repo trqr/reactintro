@@ -4,10 +4,6 @@
     border-radius: 5px;
     .card-img-container {
         transition: all 0.8s ease-in-out;
-
-        &:hover {
-            transform: scale(1.02);
-        }
     }
     img {
         width: 100%;
@@ -20,7 +16,7 @@
 .product-card-text {
     display: flex;
     justify-content: space-between;
-    margin: 10px 15px;
+    margin: 5px 15px;
 }
 
 .product-card-buttons {

@@ -64,15 +64,19 @@ export default function ProductDetailsCarousel({images}: ProductDetailsCarouselP
 
     return (
         <>
-            <div ref={sliderRef} className="keen-slider">
+            <div ref={sliderRef} className="keen-slider product-carousel">
                 {images.map((image, i) => (
-                    <div key={i} className={`keen-slider__slide number-slide${i}`}><img src={image}/></div>
+                    <div key={i} className="keen-slider__slide">
+                        <img src={image}/>
+                    </div>
                 ))}
             </div>
 
-            <div ref={thumbnailRef} className="keen-slider thumbnail">
+            <div ref={thumbnailRef} className="keen-slider thumbnail-carousel">
                 {images.map((image, i) => (
-                    <div key={i} className={`keen-slider__slide number-slide${i}`}><img src={image}/></div>
+                    <div key={i} className="keen-slider__slide">
+                        <img src={image}/>
+                    </div>
                 ))}
             </div>
         </>

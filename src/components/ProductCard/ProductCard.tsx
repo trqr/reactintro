@@ -53,7 +53,6 @@ const ProductCard = ({product} : ProductCardProps) => {
         <div className={"card"}>
             <div className={"card-img-container"}
                  style={{position: "relative", cursor: "pointer"}}
-                 onClick={() => navigate(`/products/${product.id.toString()}`)}
                  onMouseOver={() => setHovered(true)}
                  onMouseOut={() => setHovered(false)}>
                 {hovered && (
@@ -72,7 +71,7 @@ const ProductCard = ({product} : ProductCardProps) => {
                         onClick={() => removeFromFav(product, user)}
                     ></Favorite>
                 )}
-                <CardCarousel images={product.imagesUrl.map(images => images.imgUrl)}></CardCarousel>
+                <CardCarousel handleClick={() => navigate(`/products/${product.id.toString()}`)} images={product.imagesUrl.map(images => images.imgUrl)}></CardCarousel>
             </div>
             <div className={"product-card-text"}>
                 <CardTitle title={product.name}></CardTitle>

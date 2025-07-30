@@ -3,7 +3,7 @@ import {useState} from "react";
 import {DataGrid, type GridColDef} from "@mui/x-data-grid";
 import {Box, Button, MenuItem, Paper, TextField, Typography} from "@mui/material";
 import Select from "@mui/material/Select";
-import {changeProductsStatus, changeProductsStock} from "../../services/ProductService.tsx";
+import {changeProductsStatus, changeProductsStock} from "../../api/ProductService.tsx";
 
 
 

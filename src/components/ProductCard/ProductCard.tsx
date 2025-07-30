@@ -58,7 +58,7 @@ const ProductCard = ({product} : ProductCardProps) => {
                 {hovered && (
                     <FavoriteBorder
                         className={"card-fav-icon"}
-                        fontSize={"medium"}
+                        fontSize={"small"}
                         color={"disabled"}
                         onClick={() => handleAddToFav()}
                     ></FavoriteBorder>
@@ -66,7 +66,7 @@ const ProductCard = ({product} : ProductCardProps) => {
                 {isFavorite(product) && (
                     <Favorite
                         className={"card-fav-icon"}
-                        fontSize={"medium"}
+                        fontSize={"small"}
                         color={"secondary"}
                         onClick={() => removeFromFav(product, user)}
                     ></Favorite>

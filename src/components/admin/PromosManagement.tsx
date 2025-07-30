@@ -2,7 +2,7 @@ import {useLoaderData, useRevalidator} from "react-router-dom";
 import {Box, Button, Paper, TextField, Typography} from "@mui/material";
 import {DataGrid, type GridColDef} from "@mui/x-data-grid";
 import {useState} from "react";
-import {addPromo, deletePromo} from "../../services/PromoService.ts";
+import {addPromo, deletePromo} from "../../api/PromoService.ts";
 import type {CodePromo} from "../../models/codePromo.ts";
 
 const PromosManagement = () => {

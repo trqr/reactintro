@@ -6,6 +6,7 @@ import {
     KeenSliderInstance,
 } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
+import {Box} from "@mui/material";
 
 function ThumbnailPlugin(
     mainRef: MutableRefObject<KeenSliderInstance | null>
@@ -63,7 +64,7 @@ export default function ProductDetailsCarousel({images}: ProductDetailsCarouselP
     )
 
     return (
-        <>
+        <Box>
             <div ref={sliderRef} className="keen-slider product-carousel">
                 {images.map((image, i) => (
                     <div key={i} className="keen-slider__slide">
@@ -79,6 +80,6 @@ export default function ProductDetailsCarousel({images}: ProductDetailsCarouselP
                     </div>
                 ))}
             </div>
-        </>
+        </Box>
     )
 }

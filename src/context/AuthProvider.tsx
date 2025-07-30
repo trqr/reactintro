@@ -1,6 +1,6 @@
 import {createContext, useEffect, useState} from "react";
 import type {User} from "../models/user.tsx";
-import api from "../services/api.tsx";
+import api from "../api/api.tsx";
 
 type AuthContextType = {
     user: User | null;

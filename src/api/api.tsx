@@ -10,4 +10,7 @@ api.interceptors.request.use((config) => {
     return config;
 });
 
+//api.interceptors.response ...     if (code error/status)   throw toast... (message du back à afficher)
+//custom decorator
+
 export default api;

@@ -4,11 +4,11 @@ import ProductPage from "./pages/ProductPage.tsx";
 import FavoritesPage from "./pages/FavoritesPage.tsx";
 import CheckoutPage from "./pages/CheckoutPage.tsx";
 import UserOrdersPage from "./pages/UserOrdersPage.tsx";
-import {getAllOrders, getUserOrders} from "./services/OrderService.tsx";
-import {getProductById, getProducts, getVisibleProducts} from "./services/ProductService.tsx";
+import {getAllOrders, getUserOrders} from "./api/OrderService.tsx";
+import {getProductById, getProducts, getVisibleProducts} from "./api/ProductService.tsx";
 import AdministrationPage from "./pages/AdministrationPage.tsx";
 import ProtectedRoute from "./components/common/ProtectedRoute.tsx";
-import {getPromo} from "./services/PromoService.ts";
+import {getPromo} from "./api/PromoService.ts";
 
 
 export const router = createBrowserRouter([

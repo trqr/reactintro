@@ -1,6 +1,6 @@
 import type {Product} from "../models/product.tsx";
 import React, {createContext, useState} from "react";
-import api from "../services/api.tsx";
+import api from "../api/api.tsx";
 import type {User} from "../models/user.tsx";
 import MySnackBar from "../components/common/mySnackBar.tsx";
 

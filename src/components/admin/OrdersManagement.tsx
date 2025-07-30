@@ -3,7 +3,7 @@ import {useRevalidator} from "react-router-dom";
 import {useState} from "react";
 import {DataGrid, type GridColDef} from "@mui/x-data-grid";
 import dayjs from "dayjs";
-import {changeOrderStatus, deleteOrders} from "../../services/OrderService.tsx";
+import {changeOrderStatus, deleteOrders} from "../../api/OrderService.tsx";
 import {Box, Button, MenuItem, Paper, Typography} from "@mui/material";
 import Select from "@mui/material/Select";
 

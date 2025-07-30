@@ -33,7 +33,7 @@ const ProductDetails = ({product}: ProductDetailsProps) => {
                     ? (<Favorite color={"secondary"} fontSize={"large"} cursor={"pointer"} onClick={() => removeFromFav(product, user)} />)
                     : (<FavoriteBorder color={"disabled"} fontSize={"large"} cursor={"pointer"} onClick={() => isAuthenticated ? addToFav(product, user) : setOpen(true)} />)}
                 </h1>
-                        <ProductDetailsCarousel images={product.imagesUrl.map(image => image.imgUrl)}></ProductDetailsCarousel>
+                    <ProductDetailsCarousel images={product.imagesUrl.map(image => image.imgUrl)}></ProductDetailsCarousel>
                     <Box>
                         <div className={"product-text-container"}>
                             <span>Brand: {product.brand}</span>
@@ -44,7 +44,7 @@ const ProductDetails = ({product}: ProductDetailsProps) => {
                             {product.stock !== 0
                                 ?
                                 <>
-                                    <PrimaryButton text={"Add to cart"} handleClick={() => handleClick()}/>
+                                    <PrimaryButton text={"Add to cart"} handleClick={() => addToCart(product)} />
                                     {product.stock! < 4 && (
                                         <Typography sx={{position: "absolute", top: "-50px", left: "5px"}} variant={"caption"}
                                                     color={"error"}>Only {product.stock} in stock.</Typography>)}

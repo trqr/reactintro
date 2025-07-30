@@ -2,7 +2,7 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField} f
 import '../styles/RegisterDialog.css';
 import React from "react";
 import type {User} from "../models/user.tsx";
-import {registerUser} from "../services/UserService.tsx";
+import {registerUser} from "../api/UserService.tsx";
 
 type RegisterDialogProps = {
     isOpen: boolean;

@@ -1,4 +1,4 @@
-import api from "./api.tsx";
+import api from "./api.ts";
 import type {CodePromo} from "../models/codePromo.ts";
 
 export const getPromo = async () => {

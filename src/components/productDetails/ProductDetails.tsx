@@ -1,4 +1,4 @@
-import type {Product} from "../../models/product.tsx";
+import type {Product} from "../../models/product.ts";
 import PrimaryButton from "../common/PrimaryButton.tsx";
 import SecondaryButton from "../common/SecondaryButton.tsx";
 import {useCart} from "../../context/useCart.tsx";

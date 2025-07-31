@@ -1,5 +1,5 @@
-import api from "./api.tsx";
-import type {Order} from "../models/order.tsx";
+import api from "./api.ts";
+import type {Order} from "../models/order.ts";
 import {toast} from "react-toastify";
 
 export const registerOrder = (order: Order) => {
@@ -9,20 +9,28 @@ export const registerOrder = (order: Order) => {
             const data = res.data;
 
             if (data.success) {
-                toast.success(`Commande validée : ${data.message}`);
+                toast.success(`Order validated : ${data.message}`);
             } else {
-                toast.error(`Échec de la commande : ${data.message}`);
+                toast.error(`Order failed : ${data.message}`);
             }
 
             return data;
         })
         .catch( () => {
-            toast.error("Erreur lors de l'envoi de la commande.");
+            toast.error("Error while creating order.");
         });
 };
 
 export const deleteOrders = (ordersId: number[]) => {
-    return api.post(`/order/delete`, ordersId).then(res => res.data);
+    return api.post(`/order/delete`, ordersId)
+        .then(res => {
+            toast.success(`Orders has been deleted.`);
+            return res.data;
+        })
+        .catch( error => {
+            toast.error(`Error while trying to delete order(s) : ${error}`);
+            return error;
+        })
 }
 
 export const changeOrderStatus = async (ids: number[], status: string) => {

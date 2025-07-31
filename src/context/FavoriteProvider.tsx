@@ -1,7 +1,7 @@
-import type {Product} from "../models/product.tsx";
+import type {Product} from "../models/product.ts";
 import React, {createContext, useState} from "react";
-import api from "../api/api.tsx";
-import type {User} from "../models/user.tsx";
+import api from "../api/api.ts";
+import type {User} from "../models/user.ts";
 import MySnackBar from "../components/common/mySnackBar.tsx";
 
 type FavoriteProviderType = {

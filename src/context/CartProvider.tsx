@@ -1,5 +1,5 @@
 import {createContext, useState} from "react";
-import type {Product} from "../models/product.tsx";
+import type {Product} from "../models/product.ts";
 import * as React from "react";
 import MySnackBar from "../components/common/mySnackBar.tsx";
 

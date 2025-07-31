@@ -1,4 +1,4 @@
-import type {Product} from "../models/product.tsx";
+import type {Product} from "../models/product.ts";
 import {Button} from "@mui/material";
 import {useCart} from "../context/useCart.tsx";
 import {useFav} from "../context/useFav.tsx";

@@ -1,7 +1,7 @@
 import FavoriteCard from "../components/FavoriteCard.tsx";
 import Header from "../components/header/Header.tsx";
 import {useFav} from "../context/useFav.tsx";
-import type {Product} from "../models/product.tsx";
+import type {Product} from "../models/product.ts";
 import "../styles/FavoritesPage.css"
 
 const FavoritesPage = () => {

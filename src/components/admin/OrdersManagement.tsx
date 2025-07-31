@@ -1,11 +1,12 @@
-import type {Order} from "../../models/order.tsx";
+import type {Order} from "../../models/order.ts";
 import {useRevalidator} from "react-router-dom";
 import {useState} from "react";
 import {DataGrid, type GridColDef} from "@mui/x-data-grid";
 import dayjs from "dayjs";
-import {changeOrderStatus, deleteOrders} from "../../api/OrderService.tsx";
+import {changeOrderStatus, deleteOrders} from "../../api/OrderService.ts";
 import {Box, Button, MenuItem, Paper, Typography} from "@mui/material";
 import Select from "@mui/material/Select";
+import ConfirmationDialog from "../common/ConfirmationDialog.tsx";
 
 
 type OrdersManagementProps = {
@@ -16,7 +17,7 @@ const OrdersManagement = ({orders} : OrdersManagementProps) => {
     const {revalidate} = useRevalidator();
     const [selectedRows, setSelectedRows] = useState<number[]>([])
     const [selectedStatus, setSelectedStatus] = useState<string>("");
-
+    const [openConfirmationDialog, setOpenConfirmationDialog] = useState<boolean>(false);
 
     const handleSelectionChange = (newSelection: any) => {
         const ids: never[] = Array.from(newSelection.ids)
@@ -132,6 +133,12 @@ const OrdersManagement = ({orders} : OrdersManagementProps) => {
                     </Box>
                 </Paper>
             )}
+            <ConfirmationDialog
+                isOpen={openConfirmationDialog}
+                handleClose={() => setOpenConfirmationDialog(false)}
+                handleConfirmationClick={handleDelete}
+                dialogText={"Are you sure you want to delete this order(s)?"}
+            ></ConfirmationDialog>
         </>
     )
 }

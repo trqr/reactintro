@@ -3,7 +3,7 @@ import CardPrice from "./CardPrice.tsx";
 import '../../styles/ProductCard.css'
 import PrimaryButton from "../common/PrimaryButton.tsx";
 import {Box, Button, Stack, Typography} from "@mui/material";
-import type {Product} from "../../models/product.tsx";
+import type {Product} from "../../models/product.ts";
 import { useState} from "react";
 import {useCart} from "../../context/useCart.tsx";
 import {useNavigate} from "react-router-dom";

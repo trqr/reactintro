@@ -1,7 +1,7 @@
 import {useCart} from "../context/useCart.tsx";
 import type {cartItem} from "../context/CartProvider.tsx";
 import {Alert, Box, Button, FormControl, ListItem, ListItemAvatar, ListItemText, TextField} from "@mui/material";
-import api from "../api/api.tsx";
+import api from "../api/api.ts";
 import {useEffect, useState} from "react";
 import {useAuth} from "../context/useAuth.tsx";
 import {useOrder} from "../context/useOrder.tsx";

@@ -1,7 +1,7 @@
 import React, {createContext, useState} from "react";
-import type {Order} from "../models/order.tsx";
+import type {Order} from "../models/order.ts";
 import {useAuth} from "./useAuth.tsx";
-import {getUserOrders} from "../api/OrderService.tsx";
+import {getUserOrders} from "../api/OrderService.ts";
 
 type OrderContextProps = {
     order: Order;

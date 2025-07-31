@@ -1,6 +1,6 @@
 import {Alert, Box, Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, Typography} from "@mui/material";
 import {useOrder} from "../context/useOrder.tsx";
-import {registerOrder} from "../api/OrderService.tsx";
+import {registerOrder} from "../api/OrderService.ts";
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 import {useCart} from "../context/useCart.tsx";

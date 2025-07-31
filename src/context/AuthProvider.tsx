@@ -1,6 +1,8 @@
 import {createContext, useEffect, useState} from "react";
-import type {User} from "../models/user.tsx";
-import api from "../api/api.tsx";
+import type {User} from "../models/user.ts";
+import api from "../api/api.ts";
+import {toast} from "react-toastify";
+import {logIn} from "../api/AuthService.ts";
 
 type AuthContextType = {
     user: User | null;
@@ -16,11 +18,10 @@ export const AuthProvider = ({ children }: {children: React.ReactNode}) => {
     const isAuthenticated = !!user;
 
     const login = async (userData : {email: string, password: string}) => {
-        const response = await api.post(`/auth/login`, userData);
+        const response = await logIn(userData);
         const user: User = response.data.user;
-        const token: string = response.data.token;
 
-        localStorage.setItem("token", token);
+        localStorage.setItem("token", response.data.token);
         setUser(user);
         return user;
     }
@@ -28,6 +29,7 @@ export const AuthProvider = ({ children }: {children: React.ReactNode}) => {
     const logout = () => {
         localStorage.removeItem("token");
         setUser(null);
+        toast.info("Logged out!");
     }
 
     const fetchCurrentUser = async () => {

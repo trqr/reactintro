@@ -4,11 +4,13 @@ import {DataGrid, type GridColDef} from "@mui/x-data-grid";
 import {useState} from "react";
 import {addPromo, deletePromo} from "../../api/PromoService.ts";
 import type {CodePromo} from "../../models/codePromo.ts";
+import ConfirmationDialog from "../common/ConfirmationDialog.tsx";
 
 const PromosManagement = () => {
     const promos = useLoaderData();
     const {revalidate} = useRevalidator();
     const [selectedRows, setSelectedRows] = useState<number[]>([])
+    const [openConfirmationDialog, setOpenConfirmationDialog] = useState<boolean>(false);
     const [promocode, setPromocode] = useState<CodePromo>({
         id: 0,
         code: "",
@@ -46,6 +48,7 @@ const PromosManagement = () => {
     }
 
     const handleDelete = async () => {
+        setOpenConfirmationDialog(false);
         await deletePromo(selectedRows);
         setSelectedRows([]);
         await revalidate();
@@ -71,7 +74,7 @@ const PromosManagement = () => {
                         <Button
                             variant="outlined"
                             color="error"
-                            onClick={handleDelete}
+                            onClick={() => setOpenConfirmationDialog(true)}
                         >
                             DELETE SELECTED PRODUCTS
                         </Button>
@@ -108,7 +111,12 @@ const PromosManagement = () => {
                 </TextField>
                 <Button variant={"contained"} onClick={handleButtonAddPromo}>Add</Button>
             </Box>
-
+            <ConfirmationDialog
+                isOpen={openConfirmationDialog}
+                handleClose={() => setOpenConfirmationDialog(false)}
+                dialogText={"Are you sure you want to delete this promo(s)?"}
+                handleConfirmationClick={handleDelete}
+            ></ConfirmationDialog>
         </>
     )
 }

@@ -3,7 +3,8 @@ import {useState} from "react";
 import {DataGrid, type GridColDef} from "@mui/x-data-grid";
 import {Box, Button, MenuItem, Paper, TextField, Typography} from "@mui/material";
 import Select from "@mui/material/Select";
-import {changeProductsStatus, changeProductsStock} from "../../api/ProductService.tsx";
+import {changeProductsStatus, changeProductsStock} from "../../api/ProductService.ts";
+import ConfirmationDialog from "../common/ConfirmationDialog.tsx";
 
 
 
@@ -13,6 +14,7 @@ const ProductsManagement = () => {
     const [selectedRows, setSelectedRows] = useState<number[]>([])
     const [selectedStatus, setSelectedStatus] = useState<string>("");
     const [stockInputValue, setStockInputValue] = useState<number>(0);
+    const [openConfirmationDialog, setOpenConfirmationDialog] = useState<boolean>(false);
 
     const handleSelectionChange = (newSelection: any) => {
         const ids: never[] = Array.from(newSelection.ids)
@@ -74,6 +76,7 @@ const ProductsManagement = () => {
 
     const handleDelete = async () => {
         setSelectedRows([]);
+        setOpenConfirmationDialog(false);
     };
     return (
         <>
@@ -133,13 +136,19 @@ const ProductsManagement = () => {
                         <Button
                             variant="outlined"
                             color="error"
-                            onClick={handleDelete}
+                            onClick={() => setOpenConfirmationDialog(true)}
                         >
                             DELETE SELECTED PRODUCTS
                         </Button>
                     </Box>
                 </Paper>
             )}
+            <ConfirmationDialog
+            isOpen={openConfirmationDialog}
+            handleClose={() => setOpenConfirmationDialog(false)}
+            handleConfirmationClick={handleDelete}
+            dialogText={"Are you sure you want to delete this product(s)?"}
+            ></ConfirmationDialog>
         </>
     )
 }

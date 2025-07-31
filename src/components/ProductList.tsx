@@ -1,5 +1,5 @@
 import ProductCard from "./ProductCard/ProductCard.tsx";
-import type {Product} from "../models/product.tsx";
+import type {Product} from "../models/product.ts";
 import '../styles/ProductList.css';
 import * as React from "react";
 import {useState, useEffect, useTransition} from "react";

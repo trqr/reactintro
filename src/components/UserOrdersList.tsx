@@ -1,5 +1,5 @@
 import {Box, Divider, Typography} from "@mui/material";
-import type {Order} from "../models/order.tsx";
+import type {Order} from "../models/order.ts";
 import dayjs from "dayjs";
 import {useNavigate} from "react-router-dom";
 

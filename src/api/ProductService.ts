@@ -1,5 +1,5 @@
-import api from "./api.tsx";
-import type {Product} from "../models/product.tsx";
+import api from "./api.ts";
+import type {Product} from "../models/product.ts";
 import {toast} from "react-toastify";
 
 export const getProducts = async () => {
@@ -24,7 +24,7 @@ export const changeProductsStock = async (ids: number[], stock: number) => {
         ids: ids,
         addingStockValue: stock
     }).then(res => {
-        toast.success(`Stock changed !`);
+        toast.success(`Stock changed.`);
         return res.data
     }).catch( () => toast.error("Error while changing stock."));
 }

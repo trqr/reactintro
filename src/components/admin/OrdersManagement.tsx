@@ -75,6 +75,7 @@ const OrdersManagement = ({orders} : OrdersManagementProps) => {
     };
 
     const handleDelete = async () => {
+        setOpenConfirmationDialog(false);
         await deleteOrders(selectedRows);
         setSelectedRows([]);
         await revalidate();
@@ -126,7 +127,7 @@ const OrdersManagement = ({orders} : OrdersManagementProps) => {
                         <Button
                             variant="outlined"
                             color="error"
-                            onClick={handleDelete}
+                            onClick={() => setOpenConfirmationDialog(true)}
                         >
                             DELETE SELECTED ORDERS
                         </Button>

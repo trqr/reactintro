@@ -5,6 +5,7 @@ import api from "../api/api.ts";
 import {useEffect, useState} from "react";
 import {useAuth} from "../context/useAuth.tsx";
 import {useOrder} from "../context/useOrder.tsx";
+import {checkPromo} from "../api/PromoService.ts";
 
 type CheckoutCartProps = {
     deliveryValue: string;
@@ -33,8 +34,6 @@ const CheckoutCart = ({deliveryValue}: CheckoutCartProps) => {
             totalPrice: (getCartTotal() + (+deliveryValue) - (promoValue * getCartTotal() / 100)),
             cart: cart
         });
-        setTimeout(() => console.log(order), 300)
-
     }, [deliveryValue, promoCode, promoValue]);
 
 
@@ -44,15 +43,13 @@ const CheckoutCart = ({deliveryValue}: CheckoutCartProps) => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const response = await api.post('/codepromo', {
-            code: promoCode,
-        });
-        if (response.data.success) {
-            setSuccessMessage(response.data.message);
+        const response = await checkPromo(promoCode);
+        if (response.success) {
+            setSuccessMessage(response.message);
             setErrorMessage('');
-            setPromoValue(response.data.value);
+            setPromoValue(response.value);
         } else {
-            setErrorMessage(response.data.message);
+            setErrorMessage(response.message);
             setSuccessMessage('');
             setPromoValue(0);
         }

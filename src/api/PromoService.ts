@@ -12,3 +12,13 @@ export const addPromo = async (codepromo: CodePromo) => {
 export const deletePromo = async (promoIds: number[]) => {
     return api.post(`/codepromo/delete`, promoIds).then((res) => res.data);
 }
+
+export const checkPromo = async (promoCode: string) => {
+    return await api.post("codepromo", {code: promoCode})
+        .then((res) => {
+            return res.data;
+        })
+        .catch((err) => {
+            return err.response.data;
+        })
+}

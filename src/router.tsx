@@ -9,6 +9,7 @@ import {getProductById, getProducts, getVisibleProducts} from "./api/ProductServ
 import AdministrationPage from "./pages/AdministrationPage.tsx";
 import ProtectedRoute from "./components/common/ProtectedRoute.tsx";
 import {getPromo} from "./api/PromoService.ts";
+import PaymentTest from "./components/PaymentTest.tsx";
 
 
 export const router = createBrowserRouter([
@@ -73,10 +74,13 @@ export const router = createBrowserRouter([
         path: "/favorites",
         element: <FavoritesPage/>,
     },
-
     {
-        path: "checkout",
+        path: "/checkout",
         element: <CheckoutPage/>
+    },
+    {
+        path: "/payment",
+        element: <PaymentTest/>
     }
 ]);
 
